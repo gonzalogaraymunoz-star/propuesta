@@ -16,9 +16,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(36,16,47,.88);backdrop-f
 .calc{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.panel{border:1px solid var(--line);border-radius:28px;background:rgba(255,255,255,.05);padding:24px;box-shadow:var(--shadow)}.field{display:grid;gap:8px;margin-bottom:18px}.field label{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#c9b7ce;font-weight:850}.field select,.field input{width:100%;border:1px solid var(--line);background:#2a1535;color:white;border-radius:14px;padding:13px 14px;outline:none}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.toggle{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border:1px solid var(--line);border-radius:15px;padding:14px;background:rgba(255,255,255,.035);margin-bottom:12px}.toggle b{display:block;font-size:14px;margin-bottom:4px}.toggle small{display:block;color:#bba9c0;line-height:1.4}.toggle input{width:20px;height:20px;margin-top:2px;flex:0 0 auto}
 .result{background:linear-gradient(145deg,rgba(244,220,78,.12),rgba(240,40,113,.08));position:sticky;top:100px}.breakdown{display:grid;gap:9px;margin-top:16px}.line{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0}.line span{color:#cdbdd1}.line strong{text-align:right}.grand{margin-top:18px;padding-top:18px;border-top:1px solid rgba(244,220,78,.38)}.grand small{display:block;text-transform:uppercase;letter-spacing:.14em;color:var(--yellow);font-size:11px;font-weight:850}.grand strong{display:block;font-size:clamp(38px,5vw,62px);letter-spacing:-.055em;margin-top:5px}.hint{margin-top:12px;color:#aa98b0;font-size:12px;line-height:1.45}.hidden{display:none!important}
 .terms{margin-top:28px;border:1px solid rgba(244,220,78,.25);border-radius:24px;padding:22px;background:linear-gradient(145deg,rgba(244,220,78,.07),rgba(240,40,113,.05))}.terms h3{font-size:24px;letter-spacing:-.03em;margin:8px 0 16px}.terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.term{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.035)}.term b{display:block;color:var(--yellow);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}.term p{margin:0;color:#d9c9dc;font-size:14px;line-height:1.5}.wa{display:inline-flex;margin-top:24px;text-decoration:none;background:var(--yellow);color:#28142f;font-weight:950;border-radius:14px;padding:14px 18px;border:0;cursor:pointer;font:inherit}
-.lead-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,4,14,.84);backdrop-filter:blur(16px)}
-.lead-modal.open{display:flex}.lead-sheet{width:min(620px,100%);max-height:92vh;overflow:auto;border:1px solid var(--line);border-radius:28px;background:linear-gradient(155deg,#3e1c4c,#25112f);box-shadow:0 40px 120px rgba(0,0,0,.58);padding:26px;position:relative}
-.lead-close{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.07);color:white;font-size:20px;cursor:pointer}
+.lead-modal{position:relative;display:block;width:min(1180px,calc(100% - 32px));margin:0 auto 34px;padding:0}
+.lead-sheet{width:100%;border:1px solid var(--line);border-radius:28px;background:linear-gradient(155deg,rgba(62,28,76,.94),rgba(37,17,47,.96));box-shadow:var(--shadow);padding:26px;position:relative}
+.lead-close{display:none}
 .lead-sheet h3{font-size:clamp(32px,6vw,48px);line-height:.95;letter-spacing:-.05em;margin:8px 52px 10px 0}.lead-sheet>p{color:#d9c9dc;line-height:1.5;margin:0 0 20px}
 .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lead-field{display:grid;gap:7px;margin-bottom:12px}.lead-field.full{grid-column:1/-1}.lead-field label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#c9b7ce;font-weight:850}
 .lead-field input,.lead-field select,.lead-field textarea{width:100%;border:1px solid var(--line);background:#2a1535;color:white;border-radius:13px;padding:12px 13px;outline:none;font:inherit}.lead-field textarea{min-height:84px;resize:vertical}
@@ -44,6 +44,37 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
   <article class="principle"><b>Fecha especial</b><strong>Concierto × 2</strong><p>El valor artístico del concierto se duplica.</p></article>
 </div>
 </div></section>
+
+<div class="lead-modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+  <div class="lead-sheet">
+    <button class="lead-close" id="leadClose" type="button" aria-label="Cerrar">×</button>
+    <div class="eyebrow">KIZU PRO · Conciertos</div>
+    <h3 id="leadTitle">Ingresa los datos de tu evento.</h3>
+    <p>Déjanos los datos básicos para preparar la cotización y continuar la conversación por WhatsApp.</p>
+    <form id="leadForm">
+      <div class="lead-grid">
+        <div class="lead-field"><label for="leadName">Nombre *</label><input id="leadName" name="full_name" autocomplete="name" required /></div>
+        <div class="lead-field"><label for="leadPhone">WhatsApp *</label><input id="leadPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9..." required /></div>
+        <div class="lead-field"><label for="leadCompany">Empresa / hotel</label><input id="leadCompany" name="company" autocomplete="organization" /></div>
+        <div class="lead-field"><label for="leadDate">Fecha tentativa *</label><input id="leadDate" name="event_date" type="date" required /></div>
+        <div class="lead-field"><label for="leadTime">Horario</label><input id="leadTime" name="event_time" type="time" /></div>
+        <div class="lead-field"><label for="leadVenue">Lugar / ciudad *</label><input id="leadVenue" name="venue" required /></div>
+        <div class="lead-field"><label for="leadDuration">Duración del show</label><input id="leadDuration" name="duration" placeholder="Ej. 60 min" /></div>
+        <div class="lead-field"><label for="leadType">¿Qué buscas? *</label>
+          <select id="leadType" name="need_type" required>
+            <option value="">Selecciona</option><option value="solista">Solista</option><option value="banda">Banda / ensamble</option><option value="dj">DJ</option><option value="evento_especial">Evento especial</option><option value="aun_no_se">Aún no lo sé</option>
+          </select>
+        </div>
+        <div class="lead-field full"><label for="leadArtist">Artista de interés</label><input id="leadArtist" name="artist" placeholder="Opcional" /></div>
+        <div class="lead-field full"><label for="leadComments">Comentarios o necesidades técnicas</label><textarea id="leadComments" name="comments"></textarea></div>
+        <div class="lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+      </div>
+      <button class="lead-submit" id="leadSubmit" type="submit">Enviar y continuar a WhatsApp →</button>
+      <div class="lead-status" id="leadStatus" aria-live="polite"></div>
+      <div class="lead-privacy">Usamos estos datos únicamente para responder y gestionar tu solicitud de concierto.</div>
+    </form>
+  </div>
+</div>
 
 <section class="section"><div class="wrap">
 <div class="eyebrow">Calculadora</div>
@@ -123,35 +154,6 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 </div></section>
 </main>
 
-<div class="lead-modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
-  <div class="lead-sheet">
-    <button class="lead-close" id="leadClose" type="button" aria-label="Cerrar">×</button>
-    <div class="eyebrow">KIZU PRO · Conciertos</div>
-    <h3 id="leadTitle">Cuéntanos qué necesitas.</h3>
-    <p>Este formulario es para personas que están evaluando contratar un concierto. Al enviarlo registramos tu solicitud y continuamos por WhatsApp.</p>
-    <form id="leadForm">
-      <div class="lead-grid">
-        <div class="lead-field"><label for="leadName">Nombre *</label><input id="leadName" name="full_name" autocomplete="name" required /></div>
-        <div class="lead-field"><label for="leadPhone">WhatsApp *</label><input id="leadPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9..." required /></div>
-        <div class="lead-field"><label for="leadCompany">Empresa / hotel</label><input id="leadCompany" name="company" autocomplete="organization" /></div>
-        <div class="lead-field"><label for="leadDate">Fecha tentativa *</label><input id="leadDate" name="event_date" type="date" required /></div>
-        <div class="lead-field"><label for="leadVenue">Lugar / ciudad *</label><input id="leadVenue" name="venue" required /></div>
-        <div class="lead-field"><label for="leadType">¿Qué buscas? *</label>
-          <select id="leadType" name="need_type" required>
-            <option value="">Selecciona</option><option value="solista">Solista</option><option value="banda">Banda / ensamble</option><option value="dj">DJ</option><option value="evento_especial">Evento especial</option><option value="aun_no_se">Aún no lo sé</option>
-          </select>
-        </div>
-        <div class="lead-field full"><label for="leadArtist">Artista de interés</label><input id="leadArtist" name="artist" placeholder="Opcional" /></div>
-        <div class="lead-field full"><label for="leadComments">Comentarios o necesidades técnicas</label><textarea id="leadComments" name="comments"></textarea></div>
-        <div class="lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
-      </div>
-      <button class="lead-submit" id="leadSubmit" type="submit">Enviar y continuar a WhatsApp →</button>
-      <div class="lead-status" id="leadStatus" aria-live="polite"></div>
-      <div class="lead-privacy">Usamos estos datos únicamente para responder y gestionar tu solicitud de concierto.</div>
-    </form>
-  </div>
-</div>
-
 <footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural</div></footer>
 
 <script>
@@ -211,10 +213,9 @@ document.querySelectorAll("input,select").forEach(function(node){
 var leadModal=el("leadModal"), leadForm=el("leadForm"), leadStatus=el("leadStatus"), leadSubmit=el("leadSubmit");
 var leadSession=sessionStorage.getItem("kizu_session")||crypto.randomUUID();sessionStorage.setItem("kizu_session",leadSession);
 function mappedNeed(){var t=el("type").value;return t==="solo"?"solista":t==="band"?"banda":t==="dj"?"dj":"evento_especial"}
-function openLead(){el("leadType").value=mappedNeed();leadStatus.textContent="";leadModal.classList.add("open");document.body.style.overflow="hidden";setTimeout(function(){el("leadName").focus()},80)}
-function closeLead(){leadModal.classList.remove("open");document.body.style.overflow=""}
-el("quoteTalk").addEventListener("click",openLead);el("leadClose").addEventListener("click",closeLead);leadModal.addEventListener("click",function(e){if(e.target===leadModal)closeLead()});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")closeLead()});
+function openLead(){el("leadType").value=mappedNeed();leadStatus.textContent="";leadModal.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){el("leadName").focus()},450)}
+function closeLead(){}
+el("quoteTalk").addEventListener("click",openLead);
 leadForm.addEventListener("submit",async function(e){
   e.preventDefault();leadSubmit.disabled=true;leadStatus.textContent="Registrando tu solicitud…";
   var payload=Object.fromEntries(new FormData(leadForm).entries());
