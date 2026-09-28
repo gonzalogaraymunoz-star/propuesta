@@ -79,7 +79,6 @@
       transition:transform .2s ease,background .2s ease;
     }
     .reserve-btn:hover{transform:translateY(-1px);background:white}
-    .price-tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:900;color:#2c1537;background:var(--yellow);border-radius:999px;padding:7px 10px}
     .hero{padding:78px 0 44px;position:relative}
     .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
     .eyebrow:before{content:"";width:38px;height:4px;border-radius:4px;background:var(--yellow)}
@@ -178,7 +177,7 @@
     .modal-kicker{font-size:12px;text-transform:uppercase;color:var(--yellow);font-weight:800;letter-spacing:.14em}
     .sheet h3{font-size:clamp(36px,6vw,62px);line-height:.9;letter-spacing:-.055em;margin:12px 55px 9px 0}
     .sheet .style{font-size:18px;color:#f8da55;font-weight:800}
-    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+    .meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
     .meta{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:18px;padding:16px}
     .meta span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#baa9c1;margin-bottom:6px}
     .refs{display:grid;gap:10px;margin-top:18px}
@@ -233,7 +232,7 @@
           <div class="eyebrow">Catálogo</div>
           <h2>Elige tu artista</h2>
         </div>
-        <p>Conoce cada propuesta, revisa referencias y reserva el formato que mejor funcione para tu evento.</p>
+        <p>Conoce cada propuesta, revisa referencias y reserva el formato que mejor funcione para tu evento. Los valores se calculan únicamente en la página de cotización.</p>
       </div>
 
       <div class="grid" id="grid"></div>
@@ -245,7 +244,7 @@
           <h1>Música hecha desde el desierto.</h1>
           <p>KIZU PRO impulsa proyectos musicales realizados en San Pedro de Atacama, desde la composición y producción hasta la difusión, booking y presentación en vivo.</p>
           <div class="hero-note">
-            <span class="pill">16 proyectos activos</span>
+            <span class="pill">13 proyectos activos</span>
             <span class="pill">Bandas + solistas</span>
             <span class="pill">Referencias verificables</span>
           </div>
@@ -262,20 +261,20 @@
           <p>Formatos especiales para celebraciones, hoteles, marcas y eventos privados.</p>
         </div>
         <div class="specials-grid">
-          <article class="special-card"><div class="special-kicker">DJ · recurrente</div><h3>Humo DJ Set</h3><p>Formato DJ incorporado a la programación 2026.</p><div class="special-price">$120.000 · 4 horas · sin incluir IVA</div><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">DJ · sunset</div><h3>Sunset / Baja el Sol</h3><p>Formato de sunset con DJ para cierre de tarde y experiencia de bar.</p><div class="special-price">$120.000 · 4 horas · sin incluir IVA</div><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Año Nuevo</h3><p>Producción especial que puede combinar DJ, músicos y requerimientos adicionales.</p><div class="special-price">DJ $120.000 + músicos × $50.000 + producción</div><div class="special-history">Fecha especial</div></article>
-          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Festival / jornada musical</h3><p>Formato multiartista / jornada especial. Se calcula por dotación y producción.</p><div class="special-price">Músicos × $50.000 + producción</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Fiesta / celebración</h3><p>Activación especial de mayor escala con programación a definir.</p><div class="special-price">Componentes + producción adicional</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Carnavales Hotel</h3><p>Evento temático; el valor depende de músicos, DJ y soporte requerido.</p><div class="special-price">Configurable en calculadora</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de los Muertos</h3><p>Sunset temático con programación artística y ambientación especial.</p><div class="special-price">DJ $120.000 + artistas + producción</div><div class="special-history">Evento temático</div></article>
-          <article class="special-card"><div class="special-kicker">Sunset</div><h3>Beneficio Sunset</h3><p>Activación tipo sunset con finalidad o producción particular.</p><div class="special-price">Configurable según componentes</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Contenido</div><h3>Live Session</h3><p>Presentación con lógica de sesión en vivo, solista, dúo, trío o banda.</p><div class="special-price">Nº músicos × $50.000 · sin incluir IVA</div><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">Bienestar</div><h3>Wellness Day</h3><p>Música en una jornada de bienestar; precio según artista y formato.</p><div class="special-price">Nº músicos × $50.000 · sin incluir IVA</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de la Tierra</h3><p>Activación temática integrada a la programación cultural del hotel.</p><div class="special-price">Nº músicos × $50.000 · sin incluir IVA</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Navidad</h3><p>Programación especial de Navidad, combinable con solista o instrumental.</p><div class="special-price">Nº músicos × $50.000 · sin incluir IVA</div><div class="special-history">Fecha especial</div></article>
-          <article class="special-card"><div class="special-kicker">Hotel</div><h3>Aniversario / celebración</h3><p>Programación conmemorativa; se cotiza por dotación y producción.</p><div class="special-price">Músicos × $50.000 + producción</div><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Programación</div><h3>Música en vivo</h3><p>Bloque abierto cuando el artista todavía no está asignado.</p><div class="special-price">Desde $50.000 por músico · sin incluir IVA</div><div class="special-history">Formato disponible</div></article>
+          <article class="special-card"><div class="special-kicker">DJ · recurrente</div><h3>Humo DJ Set</h3><p>Formato DJ incorporado a la programación 2026.</p><div class="special-history">Formato disponible</div></article>
+          <article class="special-card"><div class="special-kicker">DJ · sunset</div><h3>Sunset / Baja el Sol</h3><p>Formato de sunset con DJ para cierre de tarde y experiencia de bar.</p><div class="special-history">Formato disponible</div></article>
+          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Año Nuevo</h3><p>Producción especial que puede combinar DJ, músicos y requerimientos adicionales.</p><div class="special-history">Fecha especial</div></article>
+          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Festival / jornada musical</h3><p>Formato multiartista / jornada especial. Se calcula por dotación y producción.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Fiesta / celebración</h3><p>Activación especial de mayor escala con programación a definir.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Temático</div><h3>Carnavales Hotel</h3><p>Evento temático; el valor depende de músicos, DJ y soporte requerido.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de los Muertos</h3><p>Sunset temático con programación artística y ambientación especial.</p><div class="special-history">Evento temático</div></article>
+          <article class="special-card"><div class="special-kicker">Sunset</div><h3>Beneficio Sunset</h3><p>Activación tipo sunset con finalidad o producción particular.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Contenido</div><h3>Live Session</h3><p>Presentación con lógica de sesión en vivo, solista, dúo, trío o banda.</p><div class="special-history">Formato disponible</div></article>
+          <article class="special-card"><div class="special-kicker">Bienestar</div><h3>Wellness Day</h3><p>Música en una jornada de bienestar; precio según artista y formato.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de la Tierra</h3><p>Activación temática integrada a la programación cultural del hotel.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Navidad</h3><p>Programación especial de Navidad, combinable con solista o instrumental.</p><div class="special-history">Fecha especial</div></article>
+          <article class="special-card"><div class="special-kicker">Hotel</div><h3>Aniversario / celebración</h3><p>Programación conmemorativa; se cotiza por dotación y producción.</p><div class="special-history">Evento especial</div></article>
+          <article class="special-card"><div class="special-kicker">Programación</div><h3>Música en vivo</h3><p>Bloque abierto cuando el artista todavía no está asignado.</p><div class="special-history">Formato disponible</div></article>
         </div>
       </section>
 
@@ -365,16 +364,7 @@
           ["Instagram","https://www.instagram.com/ckachickausama/"]
         ]
       },
-      {
-        name:"Las Pinganillas", type:"Banda", genre:"Folclor latinoamericano", thumb:null,
-        note:"Proyecto de folclor latinoamericano con registros propios enlazados desde el catálogo.",
-        highlights:["Instagram · registro propio"],
-        links:[
-          ["Instagram","https://www.instagram.com/las_pinganillas/"],
-          ["Registro audiovisual","https://www.instagram.com/reel/Cr4F1S5Ncqk/"]
-        ]
-      },
-      {
+            {
         name:"Pech Blenda", type:"Banda", genre:"Rock progresivo", thumb:"https://img.youtube.com/vi/5-6FSwm96lY/hqdefault.jpg",
         note:"Banda de rock progresivo con material en vivo y videoclip propio.",
         highlights:["Conciertos en La Yareta · KIZU PRO / Atacama Images","Videoclip «Trastorno» · registro propio"],
@@ -394,26 +384,7 @@
           ["Instagram","https://www.instagram.com/danimoyano.musica/"]
         ]
       },
-      {
-        name:"Andrea Charanga", type:"Solista", genre:"Folclor andino", soloGroup:"Raíz & folclor", thumb:null,
-        note:"Solista de folclor andino con registros propios enlazados desde el catálogo.",
-        highlights:["Facebook · registro propio"],
-        links:[
-          ["Registro Facebook 1","https://mobile.facebook.com/story.php?story_fbid=373595421380581&id=100008675228773"],
-          ["Registro Facebook 2","https://m.facebook.com/story.php?story_fbid=pfbid0iR9tfXQYpfhH5FuBCNacVkZZUwyQfvdbDXmJDR4zAYAhxkmsBG1PvFw1tuSQ3ttPl&id=100002547986189"]
-        ]
-      },
-      {
-        name:"Catalina Bolton", type:"Solista", genre:"Pianista y acordeonista", soloGroup:"Instrumental", thumb:"https://img.youtube.com/vi/HMN8gSPeyaM/hqdefault.jpg",
-        note:"Intérprete de piano y acordeón con referencias de OPMA, Escena Viva y Radio USACH.",
-        highlights:["Carnaval en China · OPMA","Escena Viva · Radio USACH"],
-        links:[
-          ["Carnaval en China · OPMA","https://www.youtube.com/watch?v=HMN8gSPeyaM&ab_channel=OrquestaPlurinacionaldeMujeresAcordeonistas"],
-          ["Escena Viva · Radio USACH","https://www.youtube.com/watch?v=_5sGoMqS38s&ab_channel=RadioUsach"],
-          ["Instagram","https://www.instagram.com/influir.atemporal/"]
-        ]
-      },
-      {
+                  {
         name:"Mara Golondrina", type:"Solista", genre:"Folclor andino", soloGroup:"Raíz & folclor", thumb:"https://img.youtube.com/vi/aX9btqqxQnM/hqdefault.jpg", recent:true, lastHabitas:"ago 2026",
         note:"Solista de folclor andino con referencias de Festival de la Voz y producción audiovisual.",
         highlights:["Festival de la Voz","Atrapama"],
@@ -503,7 +474,6 @@
           <p class="brief">${esc(a.note)}</p>
           <div class="facts">
             <span class="fact">${a.links.length} referencias</span>
-            <span class="price-tag">${a.type === "Banda" ? "Nº músicos × $50.000 · sin incluir IVA" : "$50.000 por músico · sin incluir IVA"}</span>
           </div>
           <button type="button" data-open="${esc(a.name)}">Ver ficha completa</button>
         </article>
@@ -525,7 +495,6 @@
         <div class="style">${esc(a.genre)}</div>
         <div class="meta-grid">
           <div class="meta"><span>Formato</span><strong>${esc(a.format||a.type)}</strong></div>
-          <div class="meta"><span>Valor referencial</span><strong>${a.type === "Banda" ? "Nº músicos × $50.000 · sin incluir IVA" : "$50.000 por músico · sin incluir IVA"}</strong></div>
           <div class="meta"><span>Referencias</span><strong>${a.links.length ? a.links.length+" enlaces disponibles" : "Pendientes de incorporar"}</strong></div>
           <div class="meta"><span>Ficha técnica</span><strong>Confirmar según fecha y versión del show</strong></div>
         </div>
