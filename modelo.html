@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="theme-color" content="#24102f" />
-<title>KIZU PRO — Modelo de contratación</title>
+<title>KIZU PRO — Cotiza tu concierto</title>
 <meta name="description" content="Modelo simple de contratación KIZU PRO con calculadora para solistas, bandas, DJ y eventos especiales." />
 <style>
 :root{--bg:#24102f;--ink:#fff7fb;--muted:#d9c9dc;--pink:#f02871;--yellow:#f4dc4e;--line:rgba(255,255,255,.14);--card:rgba(255,255,255,.055);--shadow:0 24px 80px rgba(0,0,0,.3)}
@@ -31,20 +31,20 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <header><div class="wrap"><nav><a class="brand" href="index.html">KIZU <small>pro</small></a><a class="back" href="index.html">← Volver al catálogo</a></nav></div></header>
 <main>
 <section class="hero"><div class="wrap">
-<div class="eyebrow">Modelo de contratación</div>
-<h1>Simple: personas, formato y producción.</h1>
-<p>El precio parte de una unidad por músico. Las bandas escalan por cantidad de integrantes, el DJ tiene una tarifa estándar de 4 horas y los eventos especiales combinan esos componentes.</p>
+<div class="eyebrow">Cotiza tu concierto</div>
+<h1>Arma tu concierto en pocos pasos.</h1>
+<p>Elige el formato que necesitas y obtén una estimación rápida para tu evento.</p>
 <div class="principles">
-  <article class="principle"><b>Músico</b><strong>$50.000</strong><p>Unidad estándar por músico y por fecha.</p></article>
-  <article class="principle"><b>Banda</b><strong>Nº músicos × $50.000</strong><p>El valor crece según la dotación real del formato contratado.</p></article>
-  <article class="principle"><b>DJ</b><strong>$120.000</strong><p>Tarifa estándar actual para un bloque de hasta 4 horas.</p></article>
+  <article class="principle"><b>Músico</b><strong>$50.000</strong><p>Valor referencial por músico y presentación.</p></article>
+  <article class="principle"><b>Banda</b><strong>Nº músicos × $50.000</strong><p>El valor depende de la cantidad de integrantes del formato.</p></article>
+  <article class="principle"><b>DJ</b><strong>$120.000</strong><p>Valor referencial para un bloque de hasta 4 horas.</p></article>
 </div>
 </div></section>
 
 <section class="section"><div class="wrap">
 <div class="eyebrow">Calculadora</div>
 <h2>Arma una cotización estimada.</h2>
-<p class="section-lead">La calculadora entrega una base clara. Transporte, rider especial, arriendo de equipos o producción extraordinaria se agregan sólo cuando corresponden.</p>
+<p class="section-lead">Usa esta calculadora como referencia. Si tu evento necesita producción, amplificación, iluminación o una configuración especial, te enviamos una propuesta personalizada.</p>
 
 <div class="calc">
   <div class="panel">
@@ -60,17 +60,17 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
     <div id="musicFields">
       <div class="row">
         <div class="field"><label for="musicians">Cantidad de músicos</label><input id="musicians" type="number" min="1" step="1" value="1" /></div>
-        <div class="field"><label for="techs">Técnicos / apoyo</label><input id="techs" type="number" min="0" step="1" value="0" /></div>
+        <div class="field"><label for="extras">Músicos adicionales</label><input id="extras" type="number" min="0" step="1" value="0" /></div>
       </div>
     </div>
     <div id="djFields" class="hidden"><div class="field"><label for="djBlocks">Bloques DJ de 4 horas</label><input id="djBlocks" type="number" min="1" step="1" value="1" /></div></div>
     <div id="specialFields" class="hidden">
       <div class="row">
         <div class="field"><label for="specialMusicians">Músicos</label><input id="specialMusicians" type="number" min="0" step="1" value="0" /></div>
-        <div class="field"><label for="specialTechs">Técnicos / apoyo</label><input id="specialTechs" type="number" min="0" step="1" value="0" /></div>
+        <div class="field"><label for="specialExtra">Músicos adicionales</label><input id="specialExtra" type="number" min="0" step="1" value="0" /></div>
       </div>
       <div class="toggle"><span>Agregar DJ · 4 horas</span><input id="includeDj" type="checkbox" /></div>
-      <div class="field"><label for="production">Producción adicional</label><input id="production" type="number" min="0" step="1000" value="0" /></div>
+      <div class="field"><label for="production">Producción adicional (opcional)</label><input id="production" type="number" min="0" step="1000" value="0" /></div>
     </div>
   </div>
   <aside class="panel result">
@@ -84,34 +84,33 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 </div></section>
 
 <section class="section"><div class="wrap">
-<div class="eyebrow">Lógica</div>
-<h2>Cómo se construye el precio.</h2>
+<div class="eyebrow">Cómo funciona</div>
+<h2>Elige el formato que mejor se adapta a tu evento.</h2>
 <div class="logic">
-  <article class="logic-card"><b>01</b><h3>Solista</h3><p>1 músico = 1 unidad de $50.000. Si el formato suma otros músicos, se agregan unidades.</p></article>
-  <article class="logic-card"><b>02</b><h3>Banda</h3><p>El precio no es fijo por nombre: se calcula por la cantidad real de músicos del formato contratado.</p></article>
-  <article class="logic-card"><b>03</b><h3>DJ</h3><p>La tarifa estándar actual del catálogo es $120.000 por un bloque de hasta 4 horas.</p></article>
-  <article class="logic-card"><b>04</b><h3>Evento especial</h3><p>Se suman músicos, técnicos/apoyo, DJ si corresponde y cualquier producción adicional explícita.</p></article>
+  <article class="logic-card"><b>01</b><h3>Solista</h3><p>Ideal para cenas, recepciones, sunset y espacios íntimos.</p></article>
+  <article class="logic-card"><b>02</b><h3>Banda</h3><p>Elige la cantidad de músicos según la energía y tamaño de tu evento.</p></article>
+  <article class="logic-card"><b>03</b><h3>DJ</h3><p>Formato de hasta 4 horas para sunset, fiesta, bar o celebración.</p></article>
+  <article class="logic-card"><b>04</b><h3>Evento especial</h3><p>Combina músicos, DJ y producción según el concepto de tu evento.</p></article>
 </div>
-<div class="history"><strong>Nota histórica.</strong> Las facturas anteriores muestran distintas tarifas de DJ según período y formato. Esta página usa la estandarización actual del catálogo: músico a $50.000 y DJ a $120.000 por 4 horas.</div>
-
 <div class="details-box">
   <div class="eyebrow">Algunos detalles</div>
-  <h3>Hay casos que requieren una cotización especial.</h3>
+  <h3>Algunos eventos requieren una propuesta personalizada.</h3>
   <div class="details-list">
     <div class="detail-item">
       <b>Fechas especiales</b>
-      <p>Año Nuevo, Navidad, aniversarios, festivales y otras fechas de alta demanda pueden tener un valor distinto al precio base.</p>
+      <p>Fechas como Año Nuevo, Navidad, aniversarios, festivales y otras jornadas de alta demanda pueden tener tarifas especiales.</p>
     </div>
     <div class="detail-item">
       <b>Amplificación y luces</b>
-      <p>Amplificación, iluminación, arriendo de equipos, montaje e implementaciones técnicas se cotizan por separado según lo que necesite el evento.</p>
+      <p>Amplificación, iluminación, montaje y equipamiento técnico se cotizan aparte según las necesidades del lugar y del formato.</p>
     </div>
     <div class="detail-item">
       <b>Eventos especiales</b>
-      <p>Eventos con mayor producción, varios artistas, DJ, ambientación o requerimientos adicionales se calculan como una propuesta personalizada.</p>
+      <p>Eventos con varios artistas, DJ, ambientación o producción adicional se trabajan con una propuesta personalizada.</p>
     </div>
   </div>
 </div>
+<div style="margin-top:28px"><a href="https://wa.me/qr/ZYDZ5QZBDG4AJ1" target="_blank" rel="noopener" style="display:inline-flex;text-decoration:none;background:#f4dc4e;color:#28142f;font-weight:950;border-radius:14px;padding:14px 18px">Reservar por WhatsApp →</a></div>
 </div></section>
 </main>
 <footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural</div></footer>
@@ -128,22 +127,22 @@ function update(){
   var net=0, formula="";
   if(type==="solo"){
     el("musicians").min=1;if(val("musicians")<1)el("musicians").value=1;
-    var m=val("musicians"), t=val("techs");net=(m+t)*MUSICIAN;
-    formula=m+" músico(s) × "+money(MUSICIAN)+(t?" + "+t+" técnico(s) × "+money(MUSICIAN):"");
+    var m=val("musicians"), t=val("extras");net=(m+t)*MUSICIAN;
+    formula=m+" músico(s) × "+money(MUSICIAN)+(t?" + "+t+" músico(s) adicional(es) × "+money(MUSICIAN):"");
   }
   if(type==="band"){
     el("musicians").min=2;if(val("musicians")<2)el("musicians").value=2;
-    var bm=val("musicians"), bt=val("techs");net=(bm+bt)*MUSICIAN;
-    formula=bm+" músicos × "+money(MUSICIAN)+(bt?" + "+bt+" técnico(s) × "+money(MUSICIAN):"");
+    var bm=val("musicians"), bt=val("extras");net=(bm+bt)*MUSICIAN;
+    formula=bm+" músicos × "+money(MUSICIAN)+(bt?" + "+bt+" músico(s) adicional(es) × "+money(MUSICIAN):"");
   }
   if(type==="dj"){
     var b=Math.max(1,val("djBlocks"));net=b*DJ;formula=b+" bloque(s) DJ de 4 h × "+money(DJ);
   }
   if(type==="special"){
-    var sm=val("specialMusicians"), st=val("specialTechs"), d=el("includeDj").checked?DJ:0, p=val("production");
+    var sm=val("specialMusicians"), st=val("specialExtra"), d=el("includeDj").checked?DJ:0, p=val("production");
     net=(sm+st)*MUSICIAN+d+p;var parts=[];
     if(sm)parts.push(sm+" músico(s) × "+money(MUSICIAN));
-    if(st)parts.push(st+" técnico(s) × "+money(MUSICIAN));
+    if(st)parts.push(st+" músico(s) adicional(es) × "+money(MUSICIAN));
     if(d)parts.push("DJ 4 h × "+money(DJ));
     if(p)parts.push("producción "+money(p));
     formula=parts.length?parts.join(" + "):"Selecciona los componentes del evento";
