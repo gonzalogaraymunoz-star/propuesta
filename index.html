@@ -94,6 +94,11 @@
     .card:hover{transform:translateY(-5px);border-color:rgba(244,220,78,.38);box-shadow:0 26px 80px rgba(0,0,0,.36)}
     .thumb{position:relative;height:150px;margin:-24px -24px 18px;overflow:hidden;background:linear-gradient(135deg,#5d286e,#2a1236)}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.04)}
+    .thumb.portrait{background:
+      radial-gradient(circle at 67% 28%,rgba(235,218,186,.18),transparent 27%),
+      linear-gradient(135deg,#161319 0%,#2d252d 56%,#514638 100%)}
+    .thumb.portrait img{object-fit:contain;object-position:66% bottom;padding:4px 18px 0;filter:drop-shadow(0 12px 18px rgba(0,0,0,.34))}
+    .thumb.portrait:after{background:linear-gradient(to top,rgba(20,16,22,.52),transparent 52%)}
     .thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(33,13,43,.78),transparent 62%);pointer-events:none}
     .thumb-fallback{height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
     .thumb-fallback:before{content:"";position:absolute;width:220px;height:150px;background:radial-gradient(circle at 30% 55%,#f02c72 0 22%,transparent 23%),radial-gradient(circle at 60% 36%,#ff3d8b 0 26%,transparent 27%),radial-gradient(circle at 79% 64%,#e61f65 0 20%,transparent 21%);transform:rotate(-12deg);opacity:.95}
@@ -107,6 +112,11 @@
     .solo-tag{display:inline-flex;margin-top:8px;color:#ccb9d1;font-size:11px;text-transform:uppercase;letter-spacing:.11em}
     .modal-hero{height:220px;margin:-30px -30px 24px;overflow:hidden;background:linear-gradient(135deg,#5d286e,#2a1236);position:relative}
     .modal-hero img{width:100%;height:100%;object-fit:cover;display:block}
+    .modal-hero.portrait{height:300px;background:
+      radial-gradient(circle at 65% 25%,rgba(235,218,186,.20),transparent 28%),
+      linear-gradient(135deg,#17141a 0%,#302830 55%,#584b3c 100%)}
+    .modal-hero.portrait img{object-fit:contain;object-position:64% bottom;padding:8px 32px 0;filter:drop-shadow(0 18px 26px rgba(0,0,0,.34))}
+    .modal-hero.portrait:after{background:linear-gradient(to top,#3e1c4c 0,rgba(62,28,76,.14) 28%,transparent 60%)}
     .modal-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#3e1c4c 0,rgba(62,28,76,.15) 58%,transparent 100%)}
     .num{font-size:12px;color:#e9dce9;opacity:.72;letter-spacing:.16em}
     .category{display:inline-flex;align-self:flex-start;margin-top:42px;background:rgba(20,6,31,.34);border:1px solid rgba(255,255,255,.11);padding:7px 10px;border-radius:999px;text-transform:uppercase;font-size:11px;letter-spacing:.12em}
@@ -391,7 +401,7 @@
       },
       {
         name:"Misrai Saxo", type:"Solista", genre:"Saxo · instrumental", soloGroup:"Instrumental",
-        thumb:null, recent:true, lastHabitas:"ago 2026", format:"Saxofón solista",
+        thumb:"assets/misrai-saxo.webp", portrait:true, recent:true, lastHabitas:"ago 2026", format:"Saxofón solista",
         note:"Saxofonista incorporado a la programación reciente de Habitas. Ficha artística en construcción a la espera de antecedentes, repertorio y material audiovisual.",
         highlights:["Programación Habitas 2025–2026","Presencia recurrente durante 2026","Antecedentes artísticos por completar"],
         links:[]
@@ -416,7 +426,7 @@
       }).sort((a,b)=>Number(Boolean(b.recent))-Number(Boolean(a.recent)));
       grid.innerHTML = filtered.map((a,i)=>`
         <article class="card">
-          <div class="thumb">
+          <div class="thumb ${a.portrait ? "portrait" : ""}">
             ${a.thumb ? `<img src="${a.thumb}" alt="Miniatura de ${esc(a.name)}" loading="lazy" />` : `<div class="thumb-fallback"><strong>${esc(a.name.split(" ").map(x=>x[0]).join("").slice(0,3))}</strong></div>`}
             ${a.recent ? `<span class="recent-badge">Programación reciente · ${esc(a.lastHabitas||"2026")}</span>` : ""}
           </div>
@@ -441,7 +451,7 @@
       const a = artists.find(x=>x.name===name);
       if(!a) return;
       modalBody.innerHTML = `
-        <div class="modal-hero">
+        <div class="modal-hero ${a.portrait ? "portrait" : ""}">
           ${a.thumb ? `<img src="${a.thumb}" alt="Miniatura de ${esc(a.name)}" />` : `<div class="thumb-fallback"><strong>${esc(a.name.split(" ").map(x=>x[0]).join("").slice(0,3))}</strong></div>`}
           ${a.recent ? `<span class="recent-badge">Programación reciente Habitas · ${esc(a.lastHabitas||"2026")}</span>` : ""}
         </div>
