@@ -79,6 +79,26 @@
       transition:transform .2s ease,background .2s ease;
     }
     .reserve-btn:hover{transform:translateY(-1px);background:white}
+    .lead-modal{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,4,14,.82);backdrop-filter:blur(16px)}
+    .lead-modal.open{display:flex}
+    .lead-sheet{width:min(620px,100%);max-height:92vh;overflow:auto;border:1px solid rgba(255,255,255,.14);border-radius:28px;background:linear-gradient(155deg,#3e1c4c,#25112f);box-shadow:0 40px 120px rgba(0,0,0,.58);padding:26px;position:relative}
+    .lead-close{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.07);color:white;font-size:20px;cursor:pointer}
+    .lead-sheet h3{font-size:clamp(32px,6vw,48px);line-height:.95;letter-spacing:-.05em;margin:8px 52px 10px 0}
+    .lead-sheet>p{color:#d9c9dc;line-height:1.5;margin:0 0 20px}
+    .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .lead-field{display:grid;gap:7px;margin-bottom:12px}
+    .lead-field.full{grid-column:1/-1}
+    .lead-field label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#c9b7ce;font-weight:850}
+    .lead-field input,.lead-field select,.lead-field textarea{width:100%;border:1px solid var(--line);background:#2a1535;color:white;border-radius:13px;padding:12px 13px;outline:none;font:inherit}
+    .lead-field textarea{min-height:84px;resize:vertical}
+    .lead-submit{width:100%;border:0;border-radius:14px;padding:14px 16px;background:var(--yellow);color:#28142f;font-weight:950;cursor:pointer;margin-top:4px}
+    .lead-submit:disabled{opacity:.55;cursor:wait}
+    .lead-status{min-height:18px;margin-top:10px;font-size:12px;color:#d9c9dc}
+    .lead-privacy{font-size:11px;color:#9f8fa5;line-height:1.45;margin-top:12px}
+    .lead-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    .booking-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:26px}
+    .talk-cta{display:inline-flex;align-items:center;justify-content:center;border:0;background:var(--yellow);color:#28142f;font-weight:950;border-radius:14px;padding:13px 17px;cursor:pointer}
+    .talk-cta:hover{background:white}
     .hero{padding:78px 0 44px;position:relative}
     .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
     .eyebrow:before{content:"";width:38px;height:4px;border-radius:4px;background:var(--yellow)}
@@ -187,7 +207,7 @@
     .source-note{margin-top:22px;font-size:12px;color:#ab9aae;line-height:1.5}
     @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.specials-grid{grid-template-columns:repeat(2,1fr)}.booking-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){
-      header{padding-bottom:16px}.navtag{display:none}.nav-actions{gap:8px}.model-link{padding:9px 11px;font-size:11px}.hero{padding-top:45px}.hero-bottom{padding-top:34px}.whatsapp-float{width:46px;height:46px;right:12px;bottom:12px}.controls{grid-template-columns:1fr}.search{width:100%}.grid{grid-template-columns:1fr}.specials-grid{grid-template-columns:1fr}.card{min-height:315px}.section-head{display:block}.section-head p{text-align:left;margin-top:8px}.booking-grid{grid-template-columns:1fr}.meta-grid{grid-template-columns:1fr}.sheet{padding:22px}footer .wrap{display:block}
+      header{padding-bottom:16px}.navtag{display:none}.nav-actions{gap:8px}.model-link{padding:9px 11px;font-size:11px}.hero{padding-top:45px}.hero-bottom{padding-top:34px}.whatsapp-float{width:46px;height:46px;right:12px;bottom:12px}.lead-grid{grid-template-columns:1fr}.lead-field.full{grid-column:auto}.lead-sheet{padding:22px}.controls{grid-template-columns:1fr}.search{width:100%}.grid{grid-template-columns:1fr}.specials-grid{grid-template-columns:1fr}.card{min-height:315px}.section-head{display:block}.section-head p{text-align:left;margin-top:8px}.booking-grid{grid-template-columns:1fr}.meta-grid{grid-template-columns:1fr}.sheet{padding:22px}footer .wrap{display:block}
     }
   </style>
 </head>
@@ -289,7 +309,10 @@
           <div><b>04</b>Formato requerido</div>
           <div><b>05</b>Soporte técnico</div>
         </div>
-        <a class="hero-cta booking-cta" href="modelo.html">Calcular mi concierto →</a>
+        <div class="booking-actions">
+          <a class="hero-cta booking-cta" href="modelo.html">Calcular mi concierto →</a>
+          <button class="talk-cta" type="button" data-lead-open data-source="booking_section">Quiero cotizar / conversar →</button>
+        </div>
       </section>
     </section>
   </main>
@@ -302,9 +325,68 @@
   </footer>
 
 
-  <a class="whatsapp-float" href="https://wa.me/qr/ZYDZ5QZBDG4AJ1" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp" title="WhatsApp">
+  <button class="whatsapp-float" type="button" data-lead-open data-source="floating_whatsapp" aria-label="Cotizar o conversar" title="Cotizar o conversar">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.72-.85-1.98-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.45-1.72-1.62-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.2 3.03c.15.19 2.07 3.16 5.02 4.43.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.12.57-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34M16.05 27.4h-.01a11.18 11.18 0 0 1-5.7-1.56l-.41-.24-4.24 1.11 1.13-4.13-.27-.42a11.2 11.2 0 1 1 9.5 5.24m9.53-20.7A13.4 13.4 0 0 0 16.04 2C8.63 2 2.6 8.03 2.6 15.44c0 2.37.62 4.68 1.8 6.72L2.5 29.1l7.1-1.86a13.42 13.42 0 0 0 6.44 1.64h.01c7.41 0 13.44-6.03 13.44-13.44 0-3.59-1.4-6.96-3.91-9.5"/></svg>
-  </a>
+  </button>
+
+
+  <div class="lead-modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <div class="lead-sheet">
+      <button class="lead-close" id="leadClose" type="button" aria-label="Cerrar">×</button>
+      <div class="modal-kicker">KIZU PRO · Conciertos</div>
+      <h3 id="leadTitle">Cuéntanos qué necesitas.</h3>
+      <p>Este formulario es para personas que están evaluando contratar un concierto. Al enviarlo registramos tu solicitud y continuamos por WhatsApp.</p>
+      <form id="leadForm">
+        <div class="lead-grid">
+          <div class="lead-field">
+            <label for="leadName">Nombre *</label>
+            <input id="leadName" name="full_name" autocomplete="name" required />
+          </div>
+          <div class="lead-field">
+            <label for="leadPhone">WhatsApp *</label>
+            <input id="leadPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9..." required />
+          </div>
+          <div class="lead-field">
+            <label for="leadCompany">Empresa / hotel</label>
+            <input id="leadCompany" name="company" autocomplete="organization" />
+          </div>
+          <div class="lead-field">
+            <label for="leadDate">Fecha tentativa *</label>
+            <input id="leadDate" name="event_date" type="date" required />
+          </div>
+          <div class="lead-field">
+            <label for="leadVenue">Lugar / ciudad *</label>
+            <input id="leadVenue" name="venue" placeholder="Ej. San Pedro de Atacama" required />
+          </div>
+          <div class="lead-field">
+            <label for="leadType">¿Qué buscas? *</label>
+            <select id="leadType" name="need_type" required>
+              <option value="">Selecciona</option>
+              <option value="solista">Solista</option>
+              <option value="banda">Banda / ensamble</option>
+              <option value="dj">DJ</option>
+              <option value="evento_especial">Evento especial</option>
+              <option value="aun_no_se">Aún no lo sé</option>
+            </select>
+          </div>
+          <div class="lead-field full">
+            <label for="leadArtist">Artista de interés</label>
+            <input id="leadArtist" name="artist" placeholder="Opcional" />
+          </div>
+          <div class="lead-field full">
+            <label for="leadComments">Comentarios o necesidades técnicas</label>
+            <textarea id="leadComments" name="comments" placeholder="Cuéntanos lo necesario para entender tu evento."></textarea>
+          </div>
+          <div class="lead-honeypot" aria-hidden="true">
+            <label>Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+        </div>
+        <button class="lead-submit" id="leadSubmit" type="submit">Enviar y continuar a WhatsApp →</button>
+        <div class="lead-status" id="leadStatus" aria-live="polite"></div>
+        <div class="lead-privacy">Usamos estos datos únicamente para responder y gestionar tu solicitud de concierto.</div>
+      </form>
+    </div>
+  </div>
 
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="sheet">
@@ -508,8 +590,13 @@
           ${a.links.length ? a.links.map(([label,url])=>`<a class="ref" href="${url}" target="_blank" rel="noopener"><span>${esc(label)}</span><small>Abrir ↗</small></a>`).join("") : `<div class="meta">Material audiovisual y redes pendientes de incorporar.</div>`}
         </div>
         <div class="source-note">Disponibilidad, formato y requerimientos técnicos se confirman al momento de reservar.</div>
-        <a class="reserve-btn" href="https://wa.me/qr/ZYDZ5QZBDG4AJ1" target="_blank" rel="noopener">Reservar por WhatsApp →</a>
+        <button class="reserve-btn" type="button" data-reserve-artist="${esc(a.name)}" data-artist-type="${esc(a.type)}">Reservar / conversar →</button>
       `;
+      const reserveButton=modalBody.querySelector("[data-reserve-artist]");
+      if(reserveButton) reserveButton.addEventListener("click",()=>{
+        closeModal();
+        openLeadForm({source:"artist_modal",artist:reserveButton.dataset.reserveArtist||"",type:reserveButton.dataset.artistType||""});
+      });
       modal.classList.add("open");
       document.body.style.overflow="hidden";
     }
@@ -517,12 +604,65 @@
     function closeModal(){modal.classList.remove("open");document.body.style.overflow="";}
     document.getElementById("close").addEventListener("click",closeModal);
     modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
-    document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeLeadForm();}});
     search.addEventListener("input",render);
     document.querySelectorAll("[data-filter]").forEach(btn=>btn.addEventListener("click",()=>{
       document.querySelectorAll("[data-filter]").forEach(x=>x.classList.remove("active"));
       btn.classList.add("active"); currentFilter=btn.dataset.filter; render();
     }));
+
+    const leadModal = document.getElementById("leadModal");
+    const leadForm = document.getElementById("leadForm");
+    const leadStatus = document.getElementById("leadStatus");
+    const leadSubmit = document.getElementById("leadSubmit");
+    const leadArtist = document.getElementById("leadArtist");
+    const leadType = document.getElementById("leadType");
+    let leadSource = "general";
+    const leadSession = sessionStorage.getItem("kizu_session") || crypto.randomUUID();
+    sessionStorage.setItem("kizu_session", leadSession);
+
+    function openLeadForm({source="general",artist="",type=""}={}){
+      leadSource = source;
+      leadArtist.value = artist || "";
+      if(type){
+        const mapped = type.toLowerCase().includes("banda") ? "banda" : type.toLowerCase().includes("solista") ? "solista" : "";
+        if(mapped) leadType.value = mapped;
+      }
+      leadStatus.textContent = "";
+      leadModal.classList.add("open");
+      document.body.style.overflow="hidden";
+      setTimeout(()=>document.getElementById("leadName")?.focus(),80);
+    }
+    function closeLeadForm(){leadModal.classList.remove("open");document.body.style.overflow="";}
+    document.getElementById("leadClose").addEventListener("click",closeLeadForm);
+    leadModal.addEventListener("click",e=>{if(e.target===leadModal)closeLeadForm()});
+    document.querySelectorAll("[data-lead-open]").forEach(btn=>btn.addEventListener("click",()=>openLeadForm({source:btn.dataset.source||"general"})));
+
+    leadForm.addEventListener("submit",async(e)=>{
+      e.preventDefault();
+      leadSubmit.disabled=true;
+      leadStatus.textContent="Registrando tu solicitud…";
+      const fd=new FormData(leadForm);
+      const payload=Object.fromEntries(fd.entries());
+      payload.source_cta=leadSource;
+      payload.source_page=location.pathname;
+      payload.session_id=leadSession;
+      try{
+        const r=await fetch("https://zgbnjlrxzvzpigmwidsp.supabase.co/functions/v1/kizu-concert-lead-intake",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify(payload)
+        });
+        const data=await r.json();
+        if(!r.ok) throw new Error(data.error||"No pudimos registrar la solicitud.");
+        leadStatus.textContent="Solicitud registrada. Abriendo WhatsApp…";
+        setTimeout(()=>{ window.location.href=data.whatsapp_url; },450);
+      }catch(err){
+        leadStatus.textContent=err.message||"No pudimos registrar la solicitud.";
+        leadSubmit.disabled=false;
+      }
+    });
+
     render();
   </script>
 </body>
