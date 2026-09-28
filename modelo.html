@@ -35,8 +35,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <section class="hero"><div class="wrap">
 <div class="eyebrow">Cotiza tu concierto</div>
 <h1>Arma tu presentación en pocos pasos.</h1>
-<p>Los valores de artistas, DJ y equipos se calculan aquí. Cada servicio se cobra por separado.</p>
-<div class="principles">
+<p>Cuéntanos primero los datos básicos de tu evento. Después podrás ver la calculadora y sus valores.</p>
+<div class="principles hidden" id="pricePrinciples">
   <article class="principle"><b>Concierto</b><strong>$50.000</strong><p>Por músico y presentación. Sin incluir IVA.</p></article>
   <article class="principle"><b>Sonidista</b><strong>$50.000</strong><p>Técnico de sonido por presentación. Se cobra por separado.</p></article>
   <article class="principle"><b>DJ</b><strong>$120.000</strong><p>Bloque de hasta 4 horas. Sin incluir IVA.</p></article>
@@ -50,7 +50,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
     <button class="lead-close" id="leadClose" type="button" aria-label="Cerrar">×</button>
     <div class="eyebrow">KIZU PRO · Conciertos</div>
     <h3 id="leadTitle">Ingresa los datos de tu evento.</h3>
-    <p>Déjanos los datos básicos para preparar la cotización y continuar la conversación por WhatsApp.</p>
+    <p>Déjanos los datos básicos de tu evento. Al enviarlos podrás ver los valores y usar la calculadora.</p>
     <form id="leadForm">
       <div class="lead-grid">
         <div class="lead-field"><label for="leadName">Nombre *</label><input id="leadName" name="full_name" autocomplete="name" required /></div>
@@ -69,14 +69,14 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
         <div class="lead-field full"><label for="leadComments">Comentarios o necesidades técnicas</label><textarea id="leadComments" name="comments"></textarea></div>
         <div class="lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
       </div>
-      <button class="lead-submit" id="leadSubmit" type="submit">Enviar y continuar a WhatsApp →</button>
+      <button class="lead-submit" id="leadSubmit" type="submit">Continuar y ver precios →</button>
       <div class="lead-status" id="leadStatus" aria-live="polite"></div>
       <div class="lead-privacy">Usamos estos datos únicamente para responder y gestionar tu solicitud de concierto.</div>
     </form>
   </div>
 </div>
 
-<section class="section"><div class="wrap">
+<section class="section hidden" id="calculatorSection"><div class="wrap">
 <div class="eyebrow">Calculadora</div>
 <h2>Obtén una estimación.</h2>
 <p class="section-lead">Selecciona el formato y los adicionales que necesites. El resultado muestra cada concepto por separado.</p>
@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 </div></section>
 </main>
 
-<footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural</div></footer>
+<footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural · <a href="mailto:kizupro@kizuprod.com">kizupro@kizuprod.com</a></div></footer>
 
 <script>
 var MUSICIAN=50000, DJ=120000, EQUIPMENT=120000;
@@ -213,9 +213,16 @@ document.querySelectorAll("input,select").forEach(function(node){
 var leadModal=el("leadModal"), leadForm=el("leadForm"), leadStatus=el("leadStatus"), leadSubmit=el("leadSubmit");
 var leadSession=sessionStorage.getItem("kizu_session")||crypto.randomUUID();sessionStorage.setItem("kizu_session",leadSession);
 function mappedNeed(){var t=el("type").value;return t==="solo"?"solista":t==="band"?"banda":t==="dj"?"dj":"evento_especial"}
-function openLead(){el("leadType").value=mappedNeed();leadStatus.textContent="";leadModal.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){el("leadName").focus()},450)}
+function unlockPrices(scroll){
+  sessionStorage.setItem("kizu_calc_unlocked","1");
+  el("pricePrinciples").classList.remove("hidden");
+  el("calculatorSection").classList.remove("hidden");
+  if(scroll) setTimeout(function(){el("pricePrinciples").scrollIntoView({behavior:"smooth",block:"start"})},120);
+}
+function openLead(){leadStatus.textContent="";leadModal.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(function(){el("leadName").focus()},450)}
 function closeLead(){}
-el("quoteTalk").addEventListener("click",openLead);
+if(sessionStorage.getItem("kizu_calc_unlocked")==="1") unlockPrices(false);
+el("quoteTalk").addEventListener("click",function(){window.location.href="https://wa.me/qr/ZYDZ5QZBDG4AJ1"});
 leadForm.addEventListener("submit",async function(e){
   e.preventDefault();leadSubmit.disabled=true;leadStatus.textContent="Registrando tu solicitud…";
   var payload=Object.fromEntries(new FormData(leadForm).entries());
@@ -223,8 +230,10 @@ leadForm.addEventListener("submit",async function(e){
   try{
     var r=await fetch("https://zgbnjlrxzvzpigmwidsp.supabase.co/functions/v1/kizu-concert-lead-intake",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
     var data=await r.json();if(!r.ok)throw new Error(data.error||"No pudimos registrar la solicitud.");
-    leadStatus.textContent="Solicitud registrada. Abriendo WhatsApp…";
-    setTimeout(function(){window.location.href=data.whatsapp_url},450);
+    leadStatus.textContent="Listo. Ya puedes ver los valores y armar tu concierto.";
+    leadSubmit.disabled=false;
+    leadSubmit.textContent="Datos registrados ✓";
+    unlockPrices(true);
   }catch(err){leadStatus.textContent=err.message||"No pudimos registrar la solicitud.";leadSubmit.disabled=false}
 });
 
