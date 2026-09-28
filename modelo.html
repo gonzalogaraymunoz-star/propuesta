@@ -28,9 +28,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <h1>Simple: personas, formato y producción.</h1>
 <p>El precio parte de una unidad por músico. Las bandas escalan por cantidad de integrantes, el DJ tiene una tarifa estándar de 4 horas y los eventos especiales combinan esos componentes.</p>
 <div class="principles">
-  <article class="principle"><b>Músico</b><strong>$57.941 neto</strong><p>Unidad estándar por músico y por fecha.</p></article>
+  <article class="principle"><b>Músico</b><strong>$57.941</strong><p>Unidad estándar por músico y por fecha.</p></article>
   <article class="principle"><b>Banda</b><strong>Nº músicos × $57.941</strong><p>El valor crece según la dotación real del formato contratado.</p></article>
-  <article class="principle"><b>DJ</b><strong>$120.000 neto</strong><p>Tarifa estándar actual para un bloque de hasta 4 horas.</p></article>
+  <article class="principle"><b>DJ</b><strong>$120.000</strong><p>Tarifa estándar actual para un bloque de hasta 4 horas.</p></article>
 </div>
 </div></section>
 
@@ -63,15 +63,14 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
         <div class="field"><label for="specialTechs">Técnicos / apoyo</label><input id="specialTechs" type="number" min="0" step="1" value="0" /></div>
       </div>
       <div class="toggle"><span>Agregar DJ · 4 horas</span><input id="includeDj" type="checkbox" /></div>
-      <div class="field"><label for="production">Producción adicional neta</label><input id="production" type="number" min="0" step="1000" value="0" /></div>
+      <div class="field"><label for="production">Producción adicional</label><input id="production" type="number" min="0" step="1000" value="0" /></div>
     </div>
   </div>
   <aside class="panel result">
     <div class="eyebrow">Estimación</div>
     <div class="formula" id="formula"></div>
-    <div class="total-line"><span>Neto</span><strong id="net">$0</strong></div>
-    <div class="total-line"><span>IVA 19%</span><strong id="vat">$0</strong></div>
-    <div class="grand"><small>Total con IVA</small><strong id="gross">$0</strong></div>
+    <div class="grand"><small>Total estimado</small><strong id="total">$0</strong></div>
+    <div class="hint" style="margin-top:8px;color:#f4dc4e;font-weight:800">Sin incluir IVA.</div>
     <div class="hint">Base comercial. Disponibilidad y requerimientos técnicos se confirman antes de cerrar.</div>
   </aside>
 </div>
@@ -81,17 +80,17 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <div class="eyebrow">Lógica</div>
 <h2>Cómo se construye el precio.</h2>
 <div class="logic">
-  <article class="logic-card"><b>01</b><h3>Solista</h3><p>1 músico = 1 unidad de $57.941 netos. Si el formato suma otros músicos, se agregan unidades.</p></article>
+  <article class="logic-card"><b>01</b><h3>Solista</h3><p>1 músico = 1 unidad de $57.941s. Si el formato suma otros músicos, se agregan unidades.</p></article>
   <article class="logic-card"><b>02</b><h3>Banda</h3><p>El precio no es fijo por nombre: se calcula por la cantidad real de músicos del formato contratado.</p></article>
-  <article class="logic-card"><b>03</b><h3>DJ</h3><p>La tarifa estándar actual del catálogo es $120.000 netos por un bloque de hasta 4 horas.</p></article>
+  <article class="logic-card"><b>03</b><h3>DJ</h3><p>La tarifa estándar actual del catálogo es $120.000s por un bloque de hasta 4 horas.</p></article>
   <article class="logic-card"><b>04</b><h3>Evento especial</h3><p>Se suman músicos, técnicos/apoyo, DJ si corresponde y cualquier producción adicional explícita.</p></article>
 </div>
-<div class="history"><strong>Nota histórica.</strong> Las facturas anteriores muestran distintas tarifas de DJ según período y formato. Esta página usa la estandarización actual del catálogo: músico a $57.941 netos y DJ a $120.000 netos por 4 horas.</div>
+<div class="history"><strong>Nota histórica.</strong> Las facturas anteriores muestran distintas tarifas de DJ según período y formato. Esta página usa la estandarización actual del catálogo: músico a $57.941s y DJ a $120.000s por 4 horas.</div>
 </div></section>
 </main>
 <footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural</div></footer>
 <script>
-var MUSICIAN=57941, DJ=120000, VAT=.19;
+var MUSICIAN=57941, DJ=120000;
 function el(id){return document.getElementById(id)}
 function money(n){return new Intl.NumberFormat("es-CL",{style:"currency",currency:"CLP",maximumFractionDigits:0}).format(Math.round(n))}
 function val(id){return Math.max(0,Number(el(id).value)||0)}
@@ -123,8 +122,7 @@ function update(){
     if(p)parts.push("producción "+money(p));
     formula=parts.length?parts.join(" + "):"Selecciona los componentes del evento";
   }
-  var vat=net*VAT,gross=net+vat;
-  el("formula").textContent=formula;el("net").textContent=money(net);el("vat").textContent=money(vat);el("gross").textContent=money(gross);
+  el("formula").textContent=formula;el("total").textContent=money(net);
 }
 document.querySelectorAll("input,select").forEach(function(node){node.addEventListener("input",update);node.addEventListener("change",update)});
 update();
