@@ -28,8 +28,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <h1>Simple: personas, formato y producción.</h1>
 <p>El precio parte de una unidad por músico. Las bandas escalan por cantidad de integrantes, el DJ tiene una tarifa estándar de 4 horas y los eventos especiales combinan esos componentes.</p>
 <div class="principles">
-  <article class="principle"><b>Músico</b><strong>$57.941</strong><p>Unidad estándar por músico y por fecha.</p></article>
-  <article class="principle"><b>Banda</b><strong>Nº músicos × $57.941</strong><p>El valor crece según la dotación real del formato contratado.</p></article>
+  <article class="principle"><b>Músico</b><strong>$50.000</strong><p>Unidad estándar por músico y por fecha.</p></article>
+  <article class="principle"><b>Banda</b><strong>Nº músicos × $50.000</strong><p>El valor crece según la dotación real del formato contratado.</p></article>
   <article class="principle"><b>DJ</b><strong>$120.000</strong><p>Tarifa estándar actual para un bloque de hasta 4 horas.</p></article>
 </div>
 </div></section>
@@ -80,17 +80,17 @@ footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#bba9c0;font-s
 <div class="eyebrow">Lógica</div>
 <h2>Cómo se construye el precio.</h2>
 <div class="logic">
-  <article class="logic-card"><b>01</b><h3>Solista</h3><p>1 músico = 1 unidad de $57.941s. Si el formato suma otros músicos, se agregan unidades.</p></article>
+  <article class="logic-card"><b>01</b><h3>Solista</h3><p>1 músico = 1 unidad de $50.000. Si el formato suma otros músicos, se agregan unidades.</p></article>
   <article class="logic-card"><b>02</b><h3>Banda</h3><p>El precio no es fijo por nombre: se calcula por la cantidad real de músicos del formato contratado.</p></article>
-  <article class="logic-card"><b>03</b><h3>DJ</h3><p>La tarifa estándar actual del catálogo es $120.000s por un bloque de hasta 4 horas.</p></article>
+  <article class="logic-card"><b>03</b><h3>DJ</h3><p>La tarifa estándar actual del catálogo es $120.000 por un bloque de hasta 4 horas.</p></article>
   <article class="logic-card"><b>04</b><h3>Evento especial</h3><p>Se suman músicos, técnicos/apoyo, DJ si corresponde y cualquier producción adicional explícita.</p></article>
 </div>
-<div class="history"><strong>Nota histórica.</strong> Las facturas anteriores muestran distintas tarifas de DJ según período y formato. Esta página usa la estandarización actual del catálogo: músico a $57.941s y DJ a $120.000s por 4 horas.</div>
+<div class="history"><strong>Nota histórica.</strong> Las facturas anteriores muestran distintas tarifas de DJ según período y formato. Esta página usa la estandarización actual del catálogo: músico a $50.000 y DJ a $120.000 por 4 horas.</div>
 </div></section>
 </main>
 <footer><div class="wrap">KIZU PRO · Producción musical, booking y programación cultural</div></footer>
 <script>
-var MUSICIAN=57941, DJ=120000;
+var MUSICIAN=50000, DJ=120000;
 function el(id){return document.getElementById(id)}
 function money(n){return new Intl.NumberFormat("es-CL",{style:"currency",currency:"CLP",maximumFractionDigits:0}).format(Math.round(n))}
 function val(id){return Math.max(0,Number(el(id).value)||0)}
