@@ -1,666 +1,535 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#2b103b" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>KIZU PRO — Catálogo de artistas</title>
-  <meta name="description" content="Catálogo de artistas KIZU PRO · San Pedro de Atacama. Bandas y solistas con referencias y ficha de contratación." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111411" />
+  <title>CARACOL · Septiembre / Octubre 2026</title>
+  <meta name="description" content="Informe mensual de marketing de Caracol y propuesta de colaboración pre-lanzamiento LINK." />
   <style>
     :root{
-      --bg:#24102f;
-      --bg2:#321342;
-      --ink:#fff7fb;
-      --muted:#d9c9dc;
-      --pink:#f02871;
-      --pink2:#ff3d8b;
-      --yellow:#f4dc4e;
-      --card:rgba(80,32,91,.58);
-      --line:rgba(255,255,255,.14);
-      --shadow:0 22px 70px rgba(0,0,0,.28);
+      --caracol:#42d692;
+      --ink:#111411;
+      --ink-2:#1a1f1b;
+      --paper:#f4f1e9;
+      --paper-2:#ebe6da;
+      --muted:#6e716d;
+      --white:#fff;
+      --line:rgba(17,20,17,.13);
+      --warm:#e7b06d;
       --radius:28px;
+      --shadow:0 18px 50px rgba(17,20,17,.10);
+      --max:1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;color:var(--ink);background:
-      radial-gradient(circle at 20% -5%,rgba(240,40,113,.20),transparent 27rem),
-      radial-gradient(circle at 85% 12%,rgba(255,61,139,.13),transparent 24rem),
-      linear-gradient(150deg,var(--bg),#311340 52%,#20102b);
+      margin:0;
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      min-height:100vh;overflow-x:hidden;
+      background:var(--paper);
+      color:var(--ink);
+      line-height:1.45;
+      letter-spacing:-.01em;
     }
-    body:before,body:after{
-      content:"";position:fixed;z-index:-1;pointer-events:none;filter:blur(1px);opacity:.96;
-      background:
-        radial-gradient(circle at 15% 55%,#ef2a70 0 11%,transparent 11.5%),
-        radial-gradient(circle at 32% 34%,#f02c72 0 14%,transparent 14.5%),
-        radial-gradient(circle at 51% 47%,#eb2468 0 17%,transparent 17.5%),
-        radial-gradient(circle at 70% 34%,#ff377f 0 13%,transparent 13.5%),
-        radial-gradient(circle at 84% 58%,#ef286d 0 15%,transparent 15.5%);
-      width:620px;height:320px;
-    }
-    body:before{right:-190px;top:-100px;transform:rotate(-11deg)}
-    body:after{left:-240px;bottom:-140px;transform:rotate(14deg) scale(.9)}
     a{color:inherit}
-    button,input{font:inherit}
-    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
-    header{
+    img{display:block;max-width:100%}
+    button{font:inherit}
+    .progress{position:fixed;top:0;left:0;width:0;height:3px;background:var(--caracol);z-index:50}
+    .wrap{width:min(calc(100% - 32px),var(--max));margin:auto}
+    .nav{
       position:sticky;top:0;z-index:40;
-      background:linear-gradient(to bottom,rgba(36,16,47,.93),rgba(36,16,47,.62),transparent);
-      backdrop-filter:blur(16px);padding:14px 0 24px;
+      background:rgba(244,241,233,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
     }
-    nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .logo{font-weight:950;font-size:30px;letter-spacing:-1.8px;line-height:.82}
-    .logo small{font-size:13px;font-weight:700;letter-spacing:-.3px}
-    .bars{width:48px;margin-top:5px;display:grid;gap:3px}
-    .bars i{display:block;height:3px;background:var(--yellow);border-radius:6px}
-    .bars i:nth-child(2){width:80%}
-    .navtag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.16em}
-    .nav-actions{display:flex;align-items:center;gap:12px}
-    .model-link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--yellow);color:#27142f;font-weight:900;padding:10px 14px;border-radius:999px;font-size:12px;white-space:nowrap;box-shadow:0 10px 28px rgba(0,0,0,.18)}
-    .model-link:hover{transform:translateY(-1px)}
-    .hero-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;background:white;color:#2c1537;text-decoration:none;font-weight:900;padding:13px 17px;border-radius:14px;border:0;cursor:pointer;font:inherit}
-    .hero-cta:hover{background:var(--yellow)}
-    .hero-bottom{padding:38px 0 54px;margin-top:6px;border-top:1px solid rgba(255,255,255,.08)}
-    .booking-cta{margin-top:26px}
-    .whatsapp-float{
-      position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));
-      z-index:70;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;
-      background:#25D366;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.55);
-      box-shadow:0 12px 34px rgba(0,0,0,.32);transition:transform .2s ease,box-shadow .2s ease;
+    .nav-in{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.04em}
+    .dot{width:13px;height:13px;border-radius:50%;background:var(--caracol);box-shadow:0 0 0 6px rgba(66,214,146,.13)}
+    .nav-links{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+    .nav-links a{
+      text-decoration:none;font-size:13px;font-weight:750;
+      padding:9px 12px;border-radius:999px;color:#414641
     }
-    .whatsapp-float:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 40px rgba(0,0,0,.38)}
-    .whatsapp-float svg{width:25px;height:25px;fill:currentColor}
-    .reserve-btn{
-      display:flex;align-items:center;justify-content:center;gap:9px;margin-top:22px;width:100%;
-      text-decoration:none;background:var(--yellow);color:#28142f;font-weight:950;border-radius:14px;padding:14px 16px;
-      transition:transform .2s ease,background .2s ease;
+    .nav-links a:hover,.nav-links a.active{background:var(--ink);color:white}
+    .hero{padding:74px 0 44px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;
+      color:#2e4d3d
     }
-    .reserve-btn:hover{transform:translateY(-1px);background:white}
-    .lead-modal{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,4,14,.82);backdrop-filter:blur(16px)}
-    .lead-modal.open{display:flex}
-    .lead-sheet{width:min(620px,100%);max-height:92vh;overflow:auto;border:1px solid rgba(255,255,255,.14);border-radius:28px;background:linear-gradient(155deg,#3e1c4c,#25112f);box-shadow:0 40px 120px rgba(0,0,0,.58);padding:26px;position:relative}
-    .lead-close{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.07);color:white;font-size:20px;cursor:pointer}
-    .lead-sheet h3{font-size:clamp(32px,6vw,48px);line-height:.95;letter-spacing:-.05em;margin:8px 52px 10px 0}
-    .lead-sheet>p{color:#d9c9dc;line-height:1.5;margin:0 0 20px}
-    .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .lead-field{display:grid;gap:7px;margin-bottom:12px}
-    .lead-field.full{grid-column:1/-1}
-    .lead-field label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#c9b7ce;font-weight:850}
-    .lead-field input,.lead-field select,.lead-field textarea{width:100%;border:1px solid var(--line);background:#2a1535;color:white;border-radius:13px;padding:12px 13px;outline:none;font:inherit}
-    .lead-field textarea{min-height:84px;resize:vertical}
-    .lead-submit{width:100%;border:0;border-radius:14px;padding:14px 16px;background:var(--yellow);color:#28142f;font-weight:950;cursor:pointer;margin-top:4px}
-    .lead-submit:disabled{opacity:.55;cursor:wait}
-    .lead-status{min-height:18px;margin-top:10px;font-size:12px;color:#d9c9dc}
-    .lead-privacy{font-size:11px;color:#9f8fa5;line-height:1.45;margin-top:12px}
-    .lead-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
-    .booking-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;margin-top:26px}
-    .booking-actions .hero-cta,.booking-actions .talk-cta{margin-top:0;min-height:48px;padding:13px 17px;line-height:1;box-sizing:border-box}
-    .talk-cta{display:inline-flex;align-items:center;justify-content:center;border:0;background:var(--yellow);color:#28142f;font-weight:950;border-radius:14px;padding:13px 17px;cursor:pointer}
-    .talk-cta:hover{background:white}
-    .intro-hero{padding:54px 0 30px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .intro-hero h1{font-size:clamp(52px,8vw,96px);letter-spacing:-.065em;line-height:.9;margin:14px 0 12px;max-width:900px}
-    .intro-hero p{margin:0;color:#eaddea;font-size:clamp(16px,1.8vw,22px);line-height:1.45;max-width:720px}
-    .hero{padding:78px 0 44px;position:relative}
-    .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
-    .eyebrow:before{content:"";width:38px;height:4px;border-radius:4px;background:var(--yellow)}
-    h1{font-size:clamp(48px,8vw,104px);letter-spacing:-.065em;line-height:.86;margin:18px 0 24px;max-width:920px}
-    .hero p{font-size:clamp(18px,2.1vw,26px);line-height:1.45;max-width:790px;color:#f3e7f4;margin:0}
-    .hero-note{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
-    .pill{border:1px solid var(--line);background:rgba(255,255,255,.055);padding:9px 13px;border-radius:999px;font-size:13px;color:var(--muted)}
-    .controls{padding:18px 0 30px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-    .filters{display:flex;gap:8px;flex-wrap:wrap}
-    .filter{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);padding:11px 16px;border-radius:999px;cursor:pointer;transition:.2s}
-    .filter:hover,.filter.active{background:var(--yellow);border-color:var(--yellow);color:#26152c}
-    .search{width:min(340px,100%);position:relative}
-    .search input{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:white;border-radius:999px;padding:12px 16px;outline:none}
-    .search input::placeholder{color:#baa9c1}
-    .search input:focus{border-color:rgba(244,220,78,.7);box-shadow:0 0 0 4px rgba(244,220,78,.08)}
-    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:30px 0 18px}
-    .section-head h2{font-size:clamp(28px,4vw,48px);margin:0;letter-spacing:-.035em}
-    .section-head p{margin:0;color:var(--muted);max-width:500px;text-align:right}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:42px}
-    .card{
-      position:relative;min-height:340px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
-      background:linear-gradient(155deg,rgba(101,43,113,.86),rgba(63,27,80,.88));
-      box-shadow:var(--shadow);isolation:isolate;display:flex;flex-direction:column;padding:24px;
-      transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    .eyebrow:before{content:"";width:26px;height:2px;background:var(--caracol)}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(48px,9vw,116px);line-height:.88;letter-spacing:-.075em;margin:18px 0 28px;max-width:970px}
+    h1 .green{color:#28b774}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:end}
+    .lead{font-size:clamp(20px,2.7vw,31px);line-height:1.18;max-width:760px;color:#303630;margin-bottom:0}
+    .hero-note{
+      background:var(--ink);color:white;border-radius:var(--radius);
+      padding:26px;box-shadow:var(--shadow)
     }
-    .card:before{
-      content:"";position:absolute;width:270px;height:170px;right:-85px;top:-60px;z-index:-1;opacity:.72;
-      background:
-        radial-gradient(circle at 25% 55%,var(--pink) 0 19%,transparent 20%),
-        radial-gradient(circle at 47% 37%,var(--pink2) 0 24%,transparent 25%),
-        radial-gradient(circle at 71% 52%,#e61f65 0 22%,transparent 23%);
-      filter:saturate(1.08);
+    .hero-note strong{display:block;font-size:40px;line-height:1;margin-bottom:9px}
+    .hero-note small{color:#bdc4bd;font-size:14px}
+    .hero-note .greenline{height:3px;background:var(--caracol);margin:20px 0}
+    .section{padding:74px 0;border-top:1px solid var(--line)}
+    .section.dark{background:var(--ink);color:white;border:0}
+    .section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:28px;align-items:start;margin-bottom:40px}
+    .kicker{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#66806f}
+    .dark .kicker{color:#80c6a0}
+    h2{font-size:clamp(34px,5.5vw,72px);line-height:.95;letter-spacing:-.055em;margin-bottom:12px}
+    .section-intro{font-size:20px;line-height:1.35;color:#4d524e;max-width:780px}
+    .dark .section-intro{color:#c7ccc7}
+    .contract{
+      display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:28px
     }
-    .card:hover{transform:translateY(-5px);border-color:rgba(244,220,78,.38);box-shadow:0 26px 80px rgba(0,0,0,.36)}
-    .thumb{position:relative;height:150px;margin:-24px -24px 18px;overflow:hidden;background:linear-gradient(135deg,#5d286e,#2a1236)}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.04)}
-    .thumb.portrait{background:
-      radial-gradient(circle at 67% 28%,rgba(235,218,186,.18),transparent 27%),
-      linear-gradient(135deg,#161319 0%,#2d252d 56%,#514638 100%)}
-    .thumb.portrait img{object-fit:contain;object-position:66% bottom;padding:4px 18px 0;filter:drop-shadow(0 12px 18px rgba(0,0,0,.34))}
-    .thumb.portrait:after{background:linear-gradient(to top,rgba(20,16,22,.52),transparent 52%)}
-    .thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(33,13,43,.78),transparent 62%);pointer-events:none}
-    .thumb-fallback{height:100%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .thumb-fallback:before{content:"";position:absolute;width:220px;height:150px;background:radial-gradient(circle at 30% 55%,#f02c72 0 22%,transparent 23%),radial-gradient(circle at 60% 36%,#ff3d8b 0 26%,transparent 27%),radial-gradient(circle at 79% 64%,#e61f65 0 20%,transparent 21%);transform:rotate(-12deg);opacity:.95}
-    .thumb-fallback strong{position:relative;z-index:1;font-size:42px;letter-spacing:-.06em}
-    .recent-badge{position:absolute;left:14px;bottom:12px;z-index:2;display:inline-flex;gap:7px;align-items:center;background:var(--yellow);color:#28142f;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:900;box-shadow:0 8px 25px rgba(0,0,0,.22)}
-    .recent-badge:before{content:"";width:7px;height:7px;border-radius:50%;background:#2f8f63}
-    .subfilters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:-8px 0 24px}
-    .subfilters-label{font-size:12px;color:#baa9c1;text-transform:uppercase;letter-spacing:.13em;margin-right:3px}
-    .subfilter{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);color:#d9c9dc;padding:9px 13px;border-radius:999px;cursor:pointer;font-size:12px;transition:.2s}
-    .subfilter:hover,.subfilter.active{background:rgba(244,220,78,.15);border-color:rgba(244,220,78,.65);color:var(--yellow)}
-    .solo-tag{display:inline-flex;margin-top:8px;color:#ccb9d1;font-size:11px;text-transform:uppercase;letter-spacing:.11em}
-    .modal-hero{height:220px;margin:-30px -30px 24px;overflow:hidden;background:linear-gradient(135deg,#5d286e,#2a1236);position:relative}
-    .modal-hero img{width:100%;height:100%;object-fit:cover;display:block}
-    .modal-hero.portrait{height:300px;background:
-      radial-gradient(circle at 65% 25%,rgba(235,218,186,.20),transparent 28%),
-      linear-gradient(135deg,#17141a 0%,#302830 55%,#584b3c 100%)}
-    .modal-hero.portrait img{object-fit:contain;object-position:64% bottom;padding:8px 32px 0;filter:drop-shadow(0 18px 26px rgba(0,0,0,.34))}
-    .modal-hero.portrait:after{background:linear-gradient(to top,#3e1c4c 0,rgba(62,28,76,.14) 28%,transparent 60%)}
-    .modal-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#3e1c4c 0,rgba(62,28,76,.15) 58%,transparent 100%)}
-    .num{font-size:12px;color:#e9dce9;opacity:.72;letter-spacing:.16em}
-    .category{display:inline-flex;align-self:flex-start;margin-top:42px;background:rgba(20,6,31,.34);border:1px solid rgba(255,255,255,.11);padding:7px 10px;border-radius:999px;text-transform:uppercase;font-size:11px;letter-spacing:.12em}
-    .card h3{font-size:30px;line-height:.95;letter-spacing:-.04em;margin:15px 0 8px}
-    .genre{color:var(--yellow);font-weight:850;font-size:15px}
-    .card .brief{color:#eaddea;line-height:1.48;font-size:14px;margin:16px 0 22px}
-    .facts{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
-    .fact{font-size:11px;color:#d8c7dc;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 9px}
-    .card button{margin-top:18px;border:0;background:white;color:#2d1439;font-weight:850;border-radius:14px;padding:13px 15px;cursor:pointer;transition:.2s}
-    .card button:hover{background:var(--yellow)}
-    .empty{display:none;text-align:center;padding:60px 0;color:var(--muted)}
-    .specials{padding:22px 0 18px}
-    .specials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .special-card{border:1px solid var(--line);border-radius:22px;padding:20px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(240,40,113,.055));min-height:190px;display:flex;flex-direction:column}
-    .special-card .special-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#cdbdd1}
-    .special-card h3{font-size:24px;letter-spacing:-.035em;margin:9px 0 7px}
-    .special-card p{color:#d9c9dc;font-size:13px;line-height:1.45;margin:0 0 18px}
-    .special-card .special-price{margin-top:auto;color:var(--yellow);font-weight:900;font-size:13px}
-    .special-card .special-history{font-size:11px;color:#9f8fa5;margin-top:6px}
-    .booking{
-      margin:34px 0 88px;border:1px solid var(--line);border-radius:36px;padding:clamp(26px,5vw,54px);
-      background:linear-gradient(135deg,rgba(244,220,78,.13),rgba(240,40,113,.09),rgba(255,255,255,.03));
-      box-shadow:var(--shadow);
+    .contract-card{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:150px}
+    .contract-card b{display:block;font-size:13px;margin-bottom:8px}
+    .contract-card span{font-size:12px;color:var(--muted)}
+    .contract-card .status{margin-top:17px;color:#247a52;font-weight:800}
+    .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:26px 0}
+    .metric{
+      background:white;border:1px solid var(--line);border-radius:22px;padding:20px;min-height:132px
     }
-    .booking h2{font-size:clamp(34px,5vw,64px);line-height:.95;margin:0 0 18px;letter-spacing:-.05em}
-    .booking p{max-width:820px;color:#eaddea;font-size:17px;line-height:1.55}
-    .booking-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:24px}
-    .booking-grid div{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.04)}
-    .booking-grid b{display:block;font-size:12px;color:var(--yellow);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
-    footer{padding:28px 0 48px;border-top:1px solid var(--line);color:#cdbdd1}
-    footer .wrap{display:flex;justify-content:space-between;gap:18px;align-items:center}
-    footer a{text-decoration:none;color:var(--yellow)}
-    .modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(10,4,14,.78);backdrop-filter:blur(15px)}
-    .modal.open{display:flex}
-    .sheet{width:min(820px,100%);max-height:min(88vh,900px);overflow:auto;border:1px solid rgba(255,255,255,.14);border-radius:30px;background:linear-gradient(155deg,#3e1c4c,#26122f);box-shadow:0 40px 120px rgba(0,0,0,.55);padding:30px;position:relative}
-    .close{position:sticky;float:right;top:0;border:1px solid var(--line);background:rgba(255,255,255,.08);color:white;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:20px}
-    .modal-kicker{font-size:12px;text-transform:uppercase;color:var(--yellow);font-weight:800;letter-spacing:.14em}
-    .sheet h3{font-size:clamp(36px,6vw,62px);line-height:.9;letter-spacing:-.055em;margin:12px 55px 9px 0}
-    .sheet .style{font-size:18px;color:#f8da55;font-weight:800}
-    .meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
-    .meta{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:18px;padding:16px}
-    .meta span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#baa9c1;margin-bottom:6px}
-    .refs{display:grid;gap:10px;margin-top:18px}
-    .ref{display:flex;justify-content:space-between;align-items:center;gap:16px;text-decoration:none;border:1px solid var(--line);border-radius:16px;padding:14px 15px;background:rgba(255,255,255,.045)}
-    .ref:hover{border-color:rgba(244,220,78,.55);background:rgba(244,220,78,.08)}
-    .ref small{color:#baa9c1}
-    .source-note{margin-top:22px;font-size:12px;color:#ab9aae;line-height:1.5}
-    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.specials-grid{grid-template-columns:repeat(2,1fr)}.booking-grid{grid-template-columns:repeat(2,1fr)}}
+    .metric .n{font-size:38px;font-weight:900;letter-spacing:-.05em;line-height:1}
+    .metric .l{font-size:12px;font-weight:750;color:var(--muted);margin-top:8px}
+    .metric.accent{background:var(--caracol);border-color:transparent}
+    .metric.accent .l{color:#163425}
+    .small-note{font-size:12px;color:#737773}
+    .timeline{
+      display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:start;
+      margin-top:32px;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff
+    }
+    .timeline-big{font-size:60px;font-weight:950;letter-spacing:-.07em;line-height:.9;color:#1da969}
+    .timeline p{margin-bottom:0}
+    .case{display:grid;grid-template-columns:360px 1fr;gap:30px;margin:28px 0 54px;align-items:start}
+    .post{
+      position:sticky;top:94px;background:#0e100e;border-radius:28px;overflow:hidden;
+      box-shadow:var(--shadow);color:white
+    }
+    .post img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#222}
+    .post-body{padding:18px}
+    .post-title{font-size:17px;font-weight:850;line-height:1.15;margin-bottom:12px}
+    .post-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .post-stat{background:#1d211e;padding:10px;border-radius:13px}
+    .post-stat strong{display:block;font-size:18px}
+    .post-stat span{font-size:10px;color:#acb4ad}
+    .post-link{display:inline-block;margin-top:13px;font-size:12px;color:#a7efc9}
+    .case-copy h3{font-size:clamp(30px,4vw,50px);letter-spacing:-.045em;line-height:1;margin-bottom:14px}
+    .case-copy>p{font-size:18px;color:#4b504c}
+    .reflections{display:grid;gap:10px;margin-top:24px}
+    .reflection{
+      border:1px solid var(--line);border-radius:20px;background:white;overflow:hidden
+    }
+    .reflection button{
+      appearance:none;border:0;background:transparent;width:100%;display:grid;
+      grid-template-columns:42px 1fr auto;gap:12px;align-items:center;text-align:left;
+      padding:16px 18px;cursor:pointer;color:var(--ink)
+    }
+    .reflection .num{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);font-size:12px;font-weight:900}
+    .reflection .problem{font-weight:850}
+    .reflection .chev{font-size:18px}
+    .reflection .answer{display:none;padding:0 18px 18px 72px;color:#505650;font-size:14px}
+    .reflection.open .answer{display:block}
+    .reflection.open .num{background:var(--caracol)}
+    .experiment{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+    .exp{
+      display:grid;grid-template-columns:104px 1fr;gap:14px;background:white;border:1px solid var(--line);
+      border-radius:22px;padding:12px
+    }
+    .exp img{width:104px;height:128px;object-fit:cover;border-radius:14px;background:#ddd}
+    .exp strong{font-size:24px;display:block}
+    .bar{height:8px;background:#e1ddd3;border-radius:99px;overflow:hidden;margin:7px 0 14px}
+    .bar i{display:block;height:100%;background:var(--caracol);border-radius:99px}
+    .strategy{
+      display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px
+    }
+    .strategy article{
+      min-height:240px;border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:20px;
+      display:flex;flex-direction:column;justify-content:space-between;background:#171b18
+    }
+    .strategy b{font-size:18px}
+    .strategy p{font-size:13px;color:#b7bdb7;margin:12px 0 0}
+    .strategy .s-num{font-size:12px;color:#6fe3a9;font-weight:900}
+    .month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+    .week{background:white;border:1px solid var(--line);border-radius:22px;padding:20px}
+    .week strong{display:block;margin-bottom:12px}
+    .week ul{margin:0;padding-left:18px;color:#4f554f;font-size:14px}
+    .divider{height:1px;background:rgba(255,255,255,.15);margin:36px 0}
+    .upgrade{
+      background:linear-gradient(135deg,#15221b,#0d110f 68%);color:white;
+      border-radius:34px;padding:34px;position:relative;overflow:hidden
+    }
+    .upgrade:after{
+      content:"LINK";position:absolute;right:-20px;bottom:-55px;font-size:170px;font-weight:950;
+      letter-spacing:-.1em;color:rgba(66,214,146,.08);pointer-events:none
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.18);
+      padding:8px 12px;border-radius:999px;font-size:12px;font-weight:850;color:#b8ebcf
+    }
+    .upgrade h2{max-width:800px;margin-top:22px}
+    .upgrade .big-copy{font-size:21px;max-width:820px;color:#d4dad5}
+    .not-included{
+      margin:26px 0;background:rgba(66,214,146,.11);border:1px solid rgba(66,214,146,.36);
+      border-radius:20px;padding:18px;font-weight:800;color:#d8f7e6
+    }
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+    .product{background:#f4f1e9;color:#111411;border-radius:24px;padding:22px;min-height:260px;position:relative}
+    .product .tag{font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:#37634b}
+    .product h3{font-size:27px;letter-spacing:-.04em;margin:14px 0 8px}
+    .product p{font-size:14px;color:#545a55}
+    .flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .flow span{font-size:11px;font-weight:800;padding:8px 10px;border-radius:999px;background:#e5dfd2}
+    .model{
+      margin-top:22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px
+    }
+    .model article{border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:16px}
+    .model b{display:block;color:#7be7ae;margin-bottom:5px}
+    .model p{font-size:13px;color:#bbc2bc;margin:0}
+    .footer{padding:44px 0 70px;color:#565b56;font-size:13px}
+    .footer-line{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:20px;flex-wrap:wrap}
+    .source{font-size:11px;color:#7a7d7a;margin-top:12px}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+    .cta{
+      border:0;border-radius:999px;padding:13px 17px;font-weight:850;cursor:pointer;
+      background:var(--caracol);color:#102217;text-decoration:none;display:inline-flex;align-items:center
+    }
+    .cta.secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,.25)}
+    @media(max-width:980px){
+      .hero-grid,.section-head,.case{grid-template-columns:1fr}
+      .post{position:relative;top:auto;max-width:520px}
+      .contract,.metrics{grid-template-columns:repeat(3,1fr)}
+      .strategy{grid-template-columns:repeat(2,1fr)}
+      .month-grid,.products{grid-template-columns:repeat(2,1fr)}
+    }
     @media(max-width:640px){
-      header{padding-bottom:16px}.navtag{display:none}.nav-actions{gap:8px}.model-link{padding:9px 11px;font-size:11px}.hero{padding-top:45px}.hero-bottom{padding-top:34px}.whatsapp-float{width:46px;height:46px;right:12px;bottom:12px}.lead-grid{grid-template-columns:1fr}.lead-field.full{grid-column:auto}.lead-sheet{padding:22px}.controls{grid-template-columns:1fr}.search{width:100%}.grid{grid-template-columns:1fr}.specials-grid{grid-template-columns:1fr}.card{min-height:315px}.section-head{display:block}.section-head p{text-align:left;margin-top:8px}.booking-grid{grid-template-columns:1fr}.meta-grid{grid-template-columns:1fr}.sheet{padding:22px}footer .wrap{display:block}
+      .wrap{width:min(calc(100% - 22px),var(--max))}
+      .nav-in{align-items:flex-start;padding:13px 0}
+      .nav-links{display:none}
+      .hero{padding-top:48px}
+      .contract,.metrics,.strategy,.month-grid,.products,.model,.experiment{grid-template-columns:1fr}
+      .metric{min-height:auto}
+      .timeline{grid-template-columns:1fr}
+      .case{gap:18px}
+      .post{border-radius:22px}
+      .exp{grid-template-columns:88px 1fr}
+      .exp img{width:88px;height:110px}
+      .upgrade{padding:24px}
+      h1{font-size:54px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <a class="brand" href="#inicio" aria-label="KIZU PRO">
-          <div>
-            <div class="logo">KIZU <small>pro</small></div>
-            <div class="bars"><i></i><i></i></div>
-          </div>
-        </a>
-        <div class="nav-actions">
-          <div class="navtag">Catálogo de artistas · San Pedro de Atacama</div>
-        </div>
-      </nav>
+  <div class="progress" id="progress"></div>
+  <nav class="nav">
+    <div class="wrap nav-in">
+      <div class="brand"><span class="dot"></span> CARACOL · SEPTIEMBRE 2026</div>
+      <div class="nav-links">
+        <a href="#trabajo">Trabajo</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#aprendizajes">Aprendizajes</a>
+        <a href="#octubre">Octubre</a>
+        <a href="#link">LINK</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <div class="eyebrow">Informe de marketing · corte 29 septiembre</div>
+    <h1>De publicar<br>a <span class="green">aprender.</span></h1>
+    <div class="hero-grid">
+      <p class="lead">Este mes usamos contenido real de Caracol para aumentar frecuencia, probar formatos y entender qué hace que una publicación deje de ser un aviso y empiece a convertirse en una razón para ir.</p>
+      <aside class="hero-note">
+        <strong>21 días</strong>
+        <small>desde la primera publicación registrada por nuestro trabajo (8 sep) hasta hoy (29 sep).</small>
+        <div class="greenline"></div>
+        <small>En ese período construimos una base observable de contenido, métricas, formatos, eventos y comportamiento.</small>
+      </aside>
     </div>
   </header>
 
-  <main id="inicio">
-    <section class="intro-hero">
-      <div class="wrap">
-        <div class="eyebrow">KIZU PRO · San Pedro de Atacama</div>
-        <h1>Música del Desierto</h1>
-        <p>Artistas y formatos en vivo para hoteles, celebraciones y eventos.</p>
-      </div>
-    </section>
-    <section class="wrap">
-      <div class="controls">
-        <div class="filters" aria-label="Filtros">
-          <button class="filter active" data-filter="all">Todos</button>
-          <button class="filter" data-filter="Banda">Bandas</button>
-          <button class="filter" data-filter="Solista">Solistas</button>
-        </div>
-        <label class="search"><input id="search" type="search" placeholder="Buscar artista o estilo…" aria-label="Buscar artista" /></label>
-      </div>
-
-      <div class="subfilters" aria-label="Subdivisión de solistas">
-        <span class="subfilters-label">Solistas</span>
-        <button class="subfilter" data-filter="Voz & canción">Voz & canción</button>
-        <button class="subfilter" data-filter="Raíz & folclor">Raíz & folclor</button>
-        <button class="subfilter" data-filter="Instrumental">Instrumentales</button>
-        <button class="subfilter" data-filter="Urbano">Urbano / beat</button>
-      </div>
-
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Catálogo</div>
-          <h2>Elige tu artista</h2>
-        </div>
-        <p>Conoce cada propuesta, revisa referencias y reserva el formato que mejor funcione para tu evento. Los valores se calculan únicamente en la página de cotización.</p>
-      </div>
-
-      <div class="grid" id="grid"></div>
-      <div class="empty" id="empty">No encontramos artistas con ese filtro.</div>
-
-      <section class="specials" id="eventos-especiales">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Experiencias</div>
-            <h2>Eventos y formatos especiales</h2>
-          </div>
-          <p>Formatos especiales para celebraciones, hoteles, marcas y eventos privados.</p>
-        </div>
-        <div class="specials-grid">
-          <article class="special-card"><div class="special-kicker">DJ · recurrente</div><h3>Humo DJ Set</h3><p>Formato DJ incorporado a la programación 2026.</p><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">DJ · sunset</div><h3>Sunset / Baja el Sol</h3><p>Formato de sunset con DJ para cierre de tarde y experiencia de bar.</p><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Año Nuevo</h3><p>Producción especial que puede combinar DJ, músicos y requerimientos adicionales.</p><div class="special-history">Fecha especial</div></article>
-          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Festival / jornada musical</h3><p>Formato multiartista / jornada especial. Se calcula por dotación y producción.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Evento hotel</div><h3>Fiesta / celebración</h3><p>Activación especial de mayor escala con programación a definir.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Carnavales Hotel</h3><p>Evento temático; el valor depende de músicos, DJ y soporte requerido.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de los Muertos</h3><p>Sunset temático con programación artística y ambientación especial.</p><div class="special-history">Evento temático</div></article>
-          <article class="special-card"><div class="special-kicker">Sunset</div><h3>Beneficio Sunset</h3><p>Activación tipo sunset con finalidad o producción particular.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Contenido</div><h3>Live Session</h3><p>Presentación con lógica de sesión en vivo, solista, dúo, trío o banda.</p><div class="special-history">Formato disponible</div></article>
-          <article class="special-card"><div class="special-kicker">Bienestar</div><h3>Wellness Day</h3><p>Música en una jornada de bienestar; precio según artista y formato.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Temático</div><h3>Día de la Tierra</h3><p>Activación temática integrada a la programación cultural del hotel.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Fecha especial</div><h3>Navidad</h3><p>Programación especial de Navidad, combinable con solista o instrumental.</p><div class="special-history">Fecha especial</div></article>
-          <article class="special-card"><div class="special-kicker">Hotel</div><h3>Aniversario / celebración</h3><p>Programación conmemorativa; se cotiza por dotación y producción.</p><div class="special-history">Evento especial</div></article>
-          <article class="special-card"><div class="special-kicker">Programación</div><h3>Música en vivo</h3><p>Bloque abierto cuando el artista todavía no está asignado.</p><div class="special-history">Formato disponible</div></article>
-        </div>
-      </section>
-
-      <section class="booking">
-        <div class="eyebrow">Reserva tu concierto</div>
-        <h2>Cuéntanos qué necesitas.</h2>
-        <p>Con estos datos podemos confirmar disponibilidad y recomendarte el formato adecuado.</p>
-        <div class="booking-grid">
-          <div><b>01</b>Fecha y horario</div>
-          <div><b>02</b>Lugar / recinto</div>
-          <div><b>03</b>Duración del show</div>
-          <div><b>04</b>Formato requerido</div>
-          <div><b>05</b>Soporte técnico</div>
-        </div>
-        <div class="booking-actions">
-          <button class="hero-cta booking-cta" type="button" data-lead-open data-source="public_calculator_cta">Cotizar mi concierto →</button>
-          <button class="talk-cta" type="button" data-lead-open data-source="booking_section">Quiero cotizar / conversar →</button>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <footer>
+  <section class="section" id="trabajo">
     <div class="wrap">
-      <div><b>KIZU PRO</b> · Producción musical y booking</div>
-      <div><a href="mailto:kizupro@kizuprod.com">kizupro@kizuprod.com</a></div>
+      <div class="section-head">
+        <div><div class="kicker">01 · Trabajo mensual</div></div>
+        <div>
+          <h2>Primero: lo que Caracol contrató.</h2>
+          <p class="section-intro">El servicio mensual sigue siendo marketing y contenido. La meta no es llenar redes por llenar: es sostener una presencia real, reconocible y útil para el negocio.</p>
+        </div>
+      </div>
+      <div class="contract">
+        <article class="contract-card"><b>Dirección editorial + calendario</b><span>Ordenar temas, momentos y foco del mes.</span><div class="status">En curso</div></article>
+        <article class="contract-card"><b>Captura de material real</b><span>Caracol, personas, cocina, productos y ambiente.</span><div class="status">En curso</div></article>
+        <article class="contract-card"><b>8 Reels mensuales</b><span>Producción base acordada.</span><div class="status">Superado en volumen</div></article>
+        <article class="contract-card"><b>4 piezas complementarias</b><span>Programación, información y apoyo de campaña.</span><div class="status">En curso</div></article>
+        <article class="contract-card"><b>Stories + comunidad</b><span>Presencia diaria y conversación.</span><div class="status">En curso</div></article>
+        <article class="contract-card"><b>Revisión mensual</b><span>Qué repetir, qué ajustar y qué probar.</span><div class="status">Este informe</div></article>
+      </div>
+      <div class="timeline">
+        <div class="timeline-big">24</div>
+        <div>
+          <h3>publicaciones registradas en septiembre</h3>
+          <p><strong>21 son Reels.</strong> El volumen de Reels supera el mínimo mensual contratado. Esto no significa que cada componente contractual sea equivalente: Stories, captura, calendario y revisión se evalúan con evidencia distinta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="resultados">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">02 · Resultados</div></div>
+        <div>
+          <h2>Una base de datos para dejar de adivinar.</h2>
+          <p class="section-intro">Instagram ya está conectado a LINKRRSS/Zernio. Eso nos permite mirar publicación por publicación y aprender de comportamiento real.</p>
+        </div>
+      </div>
+      <div class="metrics">
+        <article class="metric accent"><div class="n">4.543</div><div class="l">seguidores actuales</div></article>
+        <article class="metric"><div class="n">751,7</div><div class="l">alcance promedio</div></article>
+        <article class="metric"><div class="n">1.209,9</div><div class="l">vistas promedio</div></article>
+        <article class="metric"><div class="n">1,81%</div><div class="l">engagement promedio</div></article>
+        <article class="metric"><div class="n">42</div><div class="l">compartidos</div></article>
+        <article class="metric"><div class="n">504</div><div class="l">likes registrados</div></article>
+      </div>
+      <p class="small-note">Corte: septiembre 2026. Fuente: Instagram vía LINKRRSS/Zernio. Las métricas cambian con el tiempo y algunas dimensiones de atribución todavía no están disponibles.</p>
+    </div>
+  </section>
+
+  <section class="section" id="aprendizajes">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">03 · Casos y aprendizajes</div></div>
+        <div>
+          <h2>No todo el contenido cumple la misma función.</h2>
+          <p class="section-intro">Tomamos cuatro muestras reales para explicar qué problema de comunicación abordó cada pieza y qué aprendimos.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <article class="post">
+          <img src="https://media.zernio.com/media/external-posts/1790701100865_ckqpx67q_6ab97593c27fc766d07e70b0-0.jpg" alt="Miniatura del Reel Llueve en San Pedro" />
+          <div class="post-body">
+            <div class="post-title">“Llueve en San Pedro… pero la noche sigue en Caracol.”</div>
+            <div class="post-stats">
+              <div class="post-stat"><strong>2.997</strong><span>alcance</span></div>
+              <div class="post-stat"><strong>4.490</strong><span>vistas</span></div>
+              <div class="post-stat"><strong>3,32%</strong><span>engagement</span></div>
+            </div>
+            <a class="post-link" href="https://www.instagram.com/reel/DdZ9XjYsbds/" target="_blank" rel="noopener">Ver publicación ↗</a>
+          </div>
+        </article>
+        <div class="case-copy">
+          <div class="kicker">Caso 01 · Contexto</div>
+          <h3>Cuando el contenido responde al momento.</h3>
+          <p>Una situación real —la lluvia— se convirtió en una razón inmediata para entrar a Caracol. Además consiguió 13 compartidos y un skip rate de 38,5%, muy por debajo del promedio del mes.</p>
+          <div class="reflections">
+            <article class="reflection open"><button type="button"><span class="num">1</span><span class="problem">Problema: comunicación demasiado genérica</span><span class="chev">−</span></button><div class="answer"><strong>Qué resolvimos:</strong> dejamos de hablar de “un bar con música” y hablamos de lo que estaba ocurriendo en San Pedro ese mismo día.</div></article>
+            <article class="reflection"><button type="button"><span class="num">2</span><span class="problem">Problema: poca urgencia para visitar</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> la pieza entregó un motivo temporal: “está lloviendo ahora; aquí tienes dónde refugiarte y seguir la noche”.</div></article>
+            <article class="reflection"><button type="button"><span class="num">3</span><span class="problem">Problema: contenido poco compartible</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> un mensaje útil para alguien que está en destino es más fácil de enviar a otra persona. Los 13 compartidos son una señal concreta.</div></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <article class="post">
+          <img src="https://media.zernio.com/media/external-posts/1790701100360_rm50qinu_6ab97593c27fc766d07e70a7-0.jpg" alt="Miniatura del Reel Todo está pasando este 18" />
+          <div class="post-body">
+            <div class="post-title">“Todo está pasando este 18 en Caracol.”</div>
+            <div class="post-stats">
+              <div class="post-stat"><strong>3.471</strong><span>alcance</span></div>
+              <div class="post-stat"><strong>4.413</strong><span>vistas</span></div>
+              <div class="post-stat"><strong>40,6%</strong><span>skip rate</span></div>
+            </div>
+            <a class="post-link" href="https://www.instagram.com/reel/DdcnDxZMINZ/" target="_blank" rel="noopener">Ver publicación ↗</a>
+          </div>
+        </article>
+        <div class="case-copy">
+          <div class="kicker">Caso 02 · Evento</div>
+          <h3>De agenda fragmentada a una idea clara.</h3>
+          <p>Fue la pieza de mayor alcance del período. En vez de presentar actividades separadas, construyó una idea simple: <strong>Caracol es donde está pasando el 18.</strong></p>
+          <div class="reflections">
+            <article class="reflection open"><button type="button"><span class="num">1</span><span class="problem">Problema: demasiada información suelta</span><span class="chev">−</span></button><div class="answer"><strong>Qué resolvimos:</strong> música, karaoke, comida y tragos se agruparon bajo una sola promesa fácil de recordar.</div></article>
+            <article class="reflection"><button type="button"><span class="num">2</span><span class="problem">Problema: Caracol visto solo como local</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> la comunicación presentó a Caracol como punto de encuentro y escenario de un momento cultural.</div></article>
+            <article class="reflection"><button type="button"><span class="num">3</span><span class="problem">Problema: alcance limitado de piezas aisladas</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> la campaña acumuló contexto previo y luego concentró la atención en una pieza de alta oportunidad.</div></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <article class="post">
+          <img src="https://scontent-lhr6-2.cdninstagram.com/v/t51.82787-15/792029631_17908081245514688_5328122740364369060_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=9qk3oYvKqtgQ7kNvwFt0dVy&_nc_oc=AdrCAnktyPh1pBy51VaMq4IeN6mvdHQh7q-A2NCoWg2naTFlbnUvZaT3ItQbv114bnc&_nc_zt=23&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=LBYY5VyYY19McJIPI61yoA&_nc_tpa=Q5bMBQKrKcMaUG8KE4KtYQiam88ThpwKZqb-qreO36SsBvznK_cxSJexLIH6Az1_QUt7aqrA7QsFCJ2b5A&oh=00_AQOoxXtBXkJzzbWo24MVjxsOmoOxVm-7HQzgGV8loHoqRg&oe=6AC16B61" alt="Miniatura del Reel En Caracol trabajamos con artistas" />
+          <div class="post-body">
+            <div class="post-title">“En Caracol trabajamos con ARTISTAS.”</div>
+            <div class="post-stats">
+              <div class="post-stat"><strong>415</strong><span>alcance</span></div>
+              <div class="post-stat"><strong>596</strong><span>vistas</span></div>
+              <div class="post-stat"><strong>3,69%</strong><span>engagement</span></div>
+            </div>
+            <a class="post-link" href="https://www.instagram.com/reel/DdlpA9XRbtD/" target="_blank" rel="noopener">Ver publicación ↗</a>
+          </div>
+        </article>
+        <div class="case-copy">
+          <div class="kicker">Caso 03 · Identidad</div>
+          <h3>La marca empieza a tener personas.</h3>
+          <p>No fue la pieza de mayor alcance, pero registró una de las tasas de interacción más altas del mes. La idea fue ampliar “artista” desde el escenario hacia la cocina y el equipo.</p>
+          <div class="reflections">
+            <article class="reflection open"><button type="button"><span class="num">1</span><span class="problem">Problema: una marca basada solo en productos</span><span class="chev">−</span></button><div class="answer"><strong>Qué resolvimos:</strong> dimos protagonismo a las personas que construyen la experiencia.</div></article>
+            <article class="reflection"><button type="button"><span class="num">2</span><span class="problem">Problema: gastronomía poco integrada al relato</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> la cocina dejó de ser un elemento aparte y entró dentro de la identidad cultural de Caracol.</div></article>
+            <article class="reflection"><button type="button"><span class="num">3</span><span class="problem">Problema: poca diferenciación</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> “trabajamos con artistas” es una idea propia que se puede seguir desarrollando más allá de un evento puntual.</div></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="case">
+        <article class="post">
+          <img src="https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/825320748_17909126949514688_8055150477851448769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=7ITRJeY406EQ7kNvwEJvyar&_nc_oc=AdrdSbVAA_oxpEnGjWQdVMu3EJpz9ENZKCDmY_OT0a-WZrgRinHb7OV7bXt2XjTd5hU&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQIUT-ukqg8PGXk6kL8tPYsqoPuBpnQl_GywCF6Iccq-hjsxlR4untIgI_rQvTM9VDbzc8hH7ufNxA&oh=00_AQMWyqR0Ze2WH6QLKUpCBsy91xyoLUyDZDHcZeGEEB2voA&oe=6AC1ED72" alt="Miniatura del Reel Lunes de Gin" />
+          <div class="post-body">
+            <div class="post-title">Lunes de Gin · dos versiones, dos respuestas.</div>
+            <div class="post-stats">
+              <div class="post-stat"><strong>686</strong><span>alcance A</span></div>
+              <div class="post-stat"><strong>52</strong><span>alcance B</span></div>
+              <div class="post-stat"><strong>42%</strong><span>skip A</span></div>
+            </div>
+            <a class="post-link" href="https://www.instagram.com/reel/Dd2Qm0iMXdy/" target="_blank" rel="noopener">Ver publicación ↗</a>
+          </div>
+        </article>
+        <div class="case-copy">
+          <div class="kicker">Caso 04 · Experimento</div>
+          <h3>Dos piezas casi iguales no producen el mismo resultado.</h3>
+          <p>Esta comparación es importante porque nos obliga a mirar más allá de “publicar”. Hook, distribución, momento y formato cambian el resultado.</p>
+          <div class="experiment">
+            <article class="exp">
+              <img src="https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/825320748_17909126949514688_8055150477851448769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=7ITRJeY406EQ7kNvwEJvyar&_nc_oc=AdrdSbVAA_oxpEnGjWQdVMu3EJpz9ENZKCDmY_OT0a-WZrgRinHb7OV7bXt2XjTd5hU&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQIUT-ukqg8PGXk6kL8tPYsqoPuBpnQl_GywCF6Iccq-hjsxlR4untIgI_rQvTM9VDbzc8hH7ufNxA&oh=00_AQMWyqR0Ze2WH6QLKUpCBsy91xyoLUyDZDHcZeGEEB2voA&oe=6AC1ED72" alt="Versión A" />
+              <div><small>Versión A</small><strong>686</strong><span>alcance</span><div class="bar"><i style="width:100%"></i></div><small>Skip 42%</small></div>
+            </article>
+            <article class="exp">
+              <img src="https://scontent-lhr6-2.cdninstagram.com/v/t51.71878-15/825277173_1111069381601732_7625156022724240972_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=IcUoLzcY8yoQ7kNvwEZcOcr&_nc_oc=AdqazkwzufEh_w5xhW98OK8n65la3rR7ovQzMcHi7kXqRriS3sXhCidJBNDhINjUJJQ&_nc_zt=23&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQJb5CgiVQC-zWS0XJgn7F__OBhwfXf6LZDnuNjB43yQ0srYKG14rpfVjDu6gf4Dqhe1eZ-GNks2qw&oh=00_AQMER2j2V9ZSA6MbJMPJF79N1HRlSt_PrdOjjilIZpXM3A&oe=6AC1D004" alt="Versión B" />
+              <div><small>Versión B</small><strong>52</strong><span>alcance</span><div class="bar"><i style="width:8%"></i></div><small>Skip 28,6%</small></div>
+            </article>
+          </div>
+          <div class="reflections">
+            <article class="reflection open"><button type="button"><span class="num">1</span><span class="problem">Problema: evaluar piezas solo por intuición</span><span class="chev">−</span></button><div class="answer"><strong>Qué resolvimos:</strong> ya podemos comparar variantes con datos y no solo con percepción estética.</div></article>
+            <article class="reflection"><button type="button"><span class="num">2</span><span class="problem">Problema: confundir alcance con calidad</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> la versión de menor alcance retuvo mejor. Por eso alcance, retención e interacción deben leerse juntas.</div></article>
+            <article class="reflection"><button type="button"><span class="num">3</span><span class="problem">Problema: no aprender de una publicación</span><span class="chev">+</span></button><div class="answer"><strong>Qué resolvimos:</strong> el contenido puede convertirse en experimento. Octubre debe sistematizar esta lógica.</div></article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="octubre">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">04 · Octubre</div></div>
+        <div>
+          <h2>Menos “publicar por publicar”. Más intención.</h2>
+          <p class="section-intro">La producción base se mantiene. Lo que cambia es la función de cada pieza: queremos que cada publicación haga un trabajo concreto.</p>
+        </div>
+      </div>
+      <div class="strategy">
+        <article><span class="s-num">01</span><div><b>Está pasando ahora</b><p>Contexto real: clima, noche, local lleno, artista comenzando, producto recién servido.</p></div></article>
+        <article><span class="s-num">02</span><div><b>Personas de Caracol</b><p>Artistas, cocina, barra y personajes que vuelven reconocible la experiencia.</p></div></article>
+        <article><span class="s-num">03</span><div><b>Producto con motivo</b><p>No solo mostrar algo: dar una razón concreta para pedirlo hoy.</p></div></article>
+        <article><span class="s-num">04</span><div><b>Programación como experiencia</b><p>Menos cartel, más historia. Mostrar qué se siente estar ahí.</p></div></article>
+        <article><span class="s-num">05</span><div><b>Comunidad + conversación</b><p>Usar Stories y DMs para conocer quién está en San Pedro y qué busca.</p></div></article>
+      </div>
+      <div class="divider"></div>
+      <div class="month-grid">
+        <article class="week"><strong>Semana 1</strong><ul><li>Reel ambiente</li><li>Reel persona</li><li>Pieza programación</li><li>Stories</li></ul></article>
+        <article class="week"><strong>Semana 2</strong><ul><li>Reel producto</li><li>Reel “ahora”</li><li>Pieza informativa</li><li>Stories</li></ul></article>
+        <article class="week"><strong>Semana 3</strong><ul><li>Reel cocina/artista</li><li>Reel experiencia</li><li>Pieza programación</li><li>Stories</li></ul></article>
+        <article class="week"><strong>Semana 4</strong><ul><li>Reel producto</li><li>Reel comunidad</li><li>Pieza cierre/actividad</li><li>Stories</li></ul></article>
+      </div>
+      <div class="timeline" style="background:#171b18;border-color:rgba(255,255,255,.15);color:white">
+        <div class="timeline-big">8 + 4</div>
+        <div>
+          <h3>Producción base propuesta</h3>
+          <p style="color:#c7ccc7"><strong>8 Reels principales + 4 piezas complementarias + Stories/comunidad.</strong> Además, proponemos una activación de conversación por DM para identificar viajeros que estén actualmente en San Pedro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="link">
+    <div class="wrap">
+      <div class="upgrade">
+        <span class="badge">PRE-LANZAMIENTO · COLABORACIÓN CARACOL × LINK</span>
+        <h2>Una capa nueva: convertir audiencia en visitas medibles.</h2>
+        <p class="big-copy">LINK es un producto en pre-lanzamiento desarrollado por Gonzalo Garay. Queremos invitar a Caracol a probarlo como comercio colaborador: beneficios simples, cupones trazables y aprendizaje real sobre qué acciones llevan personas al local.</p>
+        <div class="not-included">Importante: LINK CUPONES <u>no está incluido</u> dentro del servicio mensual de marketing de $750.000. Es un upgrade comercial independiente que se remunera mediante ventas/cupones efectivamente redimidos, bajo una comisión acordada previamente.</div>
+
+        <div class="products">
+          <article class="product">
+            <div class="tag">Piloto 01</div>
+            <h3>Gin LINK</h3>
+            <p>Un producto que ya existe en la comunicación de Caracol. Se define un beneficio o precio especial para usuarios identificados por LINK.</p>
+            <div class="flow"><span>Contenido</span><span>DM / QR</span><span>Cupón</span><span>Gin</span></div>
+          </article>
+          <article class="product">
+            <div class="tag">Piloto 02</div>
+            <h3>Combo Viajero</h3>
+            <p>Una experiencia cerrada y fácil de elegir para personas que están pasando pocos días en San Pedro: comida + bebidas en una sola propuesta.</p>
+            <div class="flow"><span>Viajero</span><span>Beneficio</span><span>Visita</span><span>Ticket</span></div>
+          </article>
+          <article class="product">
+            <div class="tag">Piloto 03</div>
+            <h3>Segunda visita</h3>
+            <p>Después de una primera visita atribuida, el cliente recibe un beneficio válido por pocos días para volver durante su estadía.</p>
+            <div class="flow"><span>1ª visita</span><span>Cupón</span><span>Regreso</span><span>Recurrencia</span></div>
+          </article>
+        </div>
+
+        <div class="model">
+          <article><b>Caracol</b><p>Define qué producto puede ofrecer y protege su margen.</p></article>
+          <article><b>LINK</b><p>Distribuye el beneficio, identifica origen y registra el canje.</p></article>
+          <article><b>Modelo</b><p>Sin mezclarlo con el fee mensual: comisión asociada a venta/cupón redimido.</p></article>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta" href="#trabajo">Volver al inicio</a>
+          <a class="cta secondary" href="https://www.instagram.com/caracol_barrestaurant/" target="_blank" rel="noopener">Instagram Caracol ↗</a>
+        </div>
+      </div>
+      <p class="source">Objetivo del piloto LINK: construir el recorrido contenido → conversación → cupón → visita → venta → repetición. La comisión y el beneficio se definen junto a Caracol antes de activar cualquier cupón.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-line">
+      <span>CARACOL · Informe septiembre / propuesta octubre 2026</span>
+      <span>Preparado por LINK</span>
     </div>
   </footer>
 
-
-  <button class="whatsapp-float" type="button" data-lead-open data-source="floating_whatsapp" aria-label="Cotizar o conversar" title="Cotizar o conversar">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.2c-.29-.15-1.72-.85-1.98-.95-.27-.1-.46-.15-.66.15-.19.29-.75.95-.92 1.14-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.45-1.72-1.62-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.19.05-.36-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.49-.66-.5h-.56c-.19 0-.51.07-.78.36-.27.29-1.02 1-1.02 2.44s1.05 2.83 1.2 3.03c.15.19 2.07 3.16 5.02 4.43.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.12.57-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34M16.05 27.4h-.01a11.18 11.18 0 0 1-5.7-1.56l-.41-.24-4.24 1.11 1.13-4.13-.27-.42a11.2 11.2 0 1 1 9.5 5.24m9.53-20.7A13.4 13.4 0 0 0 16.04 2C8.63 2 2.6 8.03 2.6 15.44c0 2.37.62 4.68 1.8 6.72L2.5 29.1l7.1-1.86a13.42 13.42 0 0 0 6.44 1.64h.01c7.41 0 13.44-6.03 13.44-13.44 0-3.59-1.4-6.96-3.91-9.5"/></svg>
-  </button>
-
-
-  <div class="lead-modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
-    <div class="lead-sheet">
-      <button class="lead-close" id="leadClose" type="button" aria-label="Cerrar">×</button>
-      <div class="modal-kicker">KIZU PRO · Conciertos</div>
-      <h3 id="leadTitle">Cuéntanos qué necesitas.</h3>
-      <p>Este formulario es para personas que están evaluando contratar un concierto. Al enviarlo registramos tu solicitud y continuamos por WhatsApp.</p>
-      <form id="leadForm">
-        <div class="lead-grid">
-          <div class="lead-field">
-            <label for="leadName">Nombre *</label>
-            <input id="leadName" name="full_name" autocomplete="name" required />
-          </div>
-          <div class="lead-field">
-            <label for="leadPhone">WhatsApp *</label>
-            <input id="leadPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9..." required />
-          </div>
-          <div class="lead-field">
-            <label for="leadCompany">Empresa / hotel</label>
-            <input id="leadCompany" name="company" autocomplete="organization" />
-          </div>
-          <div class="lead-field">
-            <label for="leadDate">Fecha tentativa *</label>
-            <input id="leadDate" name="event_date" type="date" required />
-          </div>
-          <div class="lead-field">
-            <label for="leadVenue">Lugar / ciudad *</label>
-            <input id="leadVenue" name="venue" placeholder="Ej. San Pedro de Atacama" required />
-          </div>
-          <div class="lead-field">
-            <label for="leadType">¿Qué buscas? *</label>
-            <select id="leadType" name="need_type" required>
-              <option value="">Selecciona</option>
-              <option value="solista">Solista</option>
-              <option value="banda">Banda / ensamble</option>
-              <option value="dj">DJ</option>
-              <option value="evento_especial">Evento especial</option>
-              <option value="aun_no_se">Aún no lo sé</option>
-            </select>
-          </div>
-          <div class="lead-field full">
-            <label for="leadArtist">Artista de interés</label>
-            <input id="leadArtist" name="artist" placeholder="Opcional" />
-          </div>
-          <div class="lead-field full">
-            <label for="leadComments">Comentarios o necesidades técnicas</label>
-            <textarea id="leadComments" name="comments" placeholder="Cuéntanos lo necesario para entender tu evento."></textarea>
-          </div>
-          <div class="lead-honeypot" aria-hidden="true">
-            <label>Website<input name="website" tabindex="-1" autocomplete="off" /></label>
-          </div>
-        </div>
-        <button class="lead-submit" id="leadSubmit" type="submit">Enviar y continuar a WhatsApp →</button>
-        <div class="lead-status" id="leadStatus" aria-live="polite"></div>
-        <div class="lead-privacy">Usamos estos datos únicamente para responder y gestionar tu solicitud de concierto.</div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="sheet">
-      <button class="close" id="close" aria-label="Cerrar">×</button>
-      <div id="modalBody"></div>
-    </div>
-  </div>
-
   <script>
-    const artists = [
-      {
-        name:"Planta Sagrada", type:"Banda", genre:"Rock medicina", thumb:"https://img.youtube.com/vi/a3uUrq9wYMY/hqdefault.jpg",
-        note:"Proyecto incluido en la nómina de bandas de KIZU PRO.",
-        highlights:["Rockódromo 2021 · Teatro de Antofagasta","Atrapama · productora audiovisual"],
-        links:[
-          ["Rockódromo 2021","https://www.youtube.com/watch?v=a3uUrq9wYMY&ab_channel=escuelasderock"],
-          ["Atrapama","https://www.youtube.com/watch?v=e7LCYBs2BmE&ab_channel=Atrapama"],
-          ["Instagram","https://www.instagram.com/plant4.sagrad4/"]
-        ]
-      },
-      {
-        name:"Hijas de Kimal", type:"Banda", genre:"Comparsa femenina de lakitas", thumb:"https://img.youtube.com/vi/XBK1_WTd8nE/hqdefault.jpg",
-        note:"Propuesta de raíz andina con registro propio destacado en el catálogo.",
-        highlights:["Encuentro de Lakitas de Toconao · registro propio"],
-        links:[
-          ["Encuentro de Lakitas de Toconao","https://www.youtube.com/watch?v=XBK1_WTd8nE&ab_channel=LaPetroChilensis"],
-          ["Instagram","https://www.instagram.com/hijasdekimal/"]
-        ]
-      },
-      {
-        name:"Arrope Trio", type:"Banda", genre:"Jazz", thumb:"https://img.youtube.com/vi/JaOc9Yj4aYM/hqdefault.jpg",
-        note:"Trío de jazz con registros audiovisuales incluidos en el catálogo.",
-        highlights:["Conciertos en La Yareta · KIZU PRO / Atacama Images","Atrapama · productora audiovisual"],
-        links:[
-          ["Conciertos en La Yareta","https://www.youtube.com/watch?v=JaOc9Yj4aYM&ab_channel=AtacamaImages"],
-          ["Atrapama","https://www.youtube.com/watch?v=pybKSdlvVek&ab_channel=Atrapama"],
-          ["Instagram","https://www.instagram.com/arrope.trio/"]
-        ]
-      },
-      {
-        name:"Flores de Tambor", type:"Banda", genre:"Folclor afrocolombiano", thumb:"assets/flores-de-tambor.webp",
-        note:"Proyecto de folclor afrocolombiano con material en vivo y audiovisual.",
-        highlights:["Conciertos en La Yareta · KIZU PRO / Atacama Images","Videoclip · producción propia"],
-        links:[
-          ["Conciertos en La Yareta","https://www.youtube.com/watch?v=Jjae-PiNmDI&ab_channel=carlosnegrete"],
-          ["Videoclip","https://www.youtube.com/watch?v=jqoThA-Ifw4&feature=youtu.be"],
-          ["Instagram","https://www.instagram.com/floresdetambor/"]
-        ]
-      },
-      {
-        name:"Ckachi Ckausama", type:"Banda", genre:"Folclor andino", thumb:"https://img.youtube.com/vi/o-QqOGEuWO4/hqdefault.jpg",
-        note:"Proyecto de folclor andino con referencias audiovisuales de Atrapama y La Yareta.",
-        highlights:["Atrapama · productora audiovisual","Conciertos en La Yareta · KIZU PRO / Atacama Images"],
-        links:[
-          ["Atrapama","https://www.youtube.com/watch?v=o-QqOGEuWO4&ab_channel=Atrapama"],
-          ["Conciertos en La Yareta","https://www.youtube.com/watch?v=l4u3E1MFfVw&ab_channel=AtacamaImages"],
-          ["Instagram","https://www.instagram.com/ckachickausama/"]
-        ]
-      },
-            {
-        name:"Pech Blenda", type:"Banda", genre:"Rock progresivo", thumb:"https://img.youtube.com/vi/5-6FSwm96lY/hqdefault.jpg",
-        note:"Banda de rock progresivo con material en vivo y videoclip propio.",
-        highlights:["Conciertos en La Yareta · KIZU PRO / Atacama Images","Videoclip «Trastorno» · registro propio"],
-        links:[
-          ["Conciertos en La Yareta","https://www.youtube.com/watch?v=5-6FSwm96lY&ab_channel=KIZULARIKI"],
-          ["Videoclip · Trastorno","https://www.youtube.com/watch?v=bEzBAl3_Zgw&ab_channel=PECHBLENDA"],
-          ["Instagram","https://www.instagram.com/_pechblenda/"]
-        ]
-      },
-      {
-        name:"Daniel Moyano", type:"Solista", genre:"Cantautor", soloGroup:"Voz & canción", thumb:"https://img.youtube.com/vi/xwYS3T-krbI/hqdefault.jpg",
-        note:"Cantautor incluido en la nómina de solistas de KIZU PRO.",
-        highlights:["Conciertos en La Yareta · KIZU PRO / Atacama Images","Atrapama · productora audiovisual"],
-        links:[
-          ["Conciertos en La Yareta","https://www.youtube.com/watch?v=xwYS3T-krbI&ab_channel=AtacamaImages"],
-          ["Atrapama","https://www.youtube.com/watch?v=vs4hmtf1ikM&ab_channel=Atrapama"],
-          ["Instagram","https://www.instagram.com/danimoyano.musica/"]
-        ]
-      },
-                  {
-        name:"Mara Golondrina", type:"Solista", genre:"Folclor andino", soloGroup:"Raíz & folclor", thumb:"https://img.youtube.com/vi/aX9btqqxQnM/hqdefault.jpg", recent:true, lastHabitas:"ago 2026",
-        note:"Solista de folclor andino con referencias de Festival de la Voz y producción audiovisual.",
-        highlights:["Festival de la Voz","Atrapama"],
-        links:[
-          ["Festival de la Voz","https://www.youtube.com/watch?v=aX9btqqxQnM&ab_channel=maragolondrina"],
-          ["Instagram","https://www.instagram.com/mara.golondrina/"]
-        ]
-      },
-      {
-        name:"Gonza Viejoloco", alias:"Viejoloco", type:"Solista", genre:"Rapero y beatmaker", soloGroup:"Urbano", thumb:"data:image/webp;base64,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",
-        note:"Proyecto de rap y beatmaking con registro audiovisual y material propio.",
-        highlights:["Atrapama · productora audiovisual","Instagram · registro propio"],
-        links:[
-          ["Atrapama","https://www.youtube.com/watch?v=qqPldM6-e9o&ab_channel=Atrapama"],
-          ["Instagram","https://www.instagram.com/gonzaviejoloco/"],
-          ["Gonza Viejoloco · registro","https://www.youtube.com/watch?v=Oy3hMuE_aBA&list=RDOy3hMuE_aBA&start_radio=1"]
-        ]
-      },
-      {
-        name:"Gabriela Suspira", type:"Solista", genre:"Cantante jazz y popular", soloGroup:"Voz & canción", thumb:"https://img.youtube.com/vi/xSl6-w2Mngo/hqdefault.jpg",
-        note:"Cantante de repertorio jazz y popular con registros audiovisuales propios.",
-        highlights:["Registros audiovisuales"],
-        links:[
-          ["Gabriela Suspira · registro 1","https://www.youtube.com/watch?v=xSl6-w2Mngo&list=RDxSl6-w2Mngo&start_radio=1"],
-          ["Gabriela Suspira · registro 2","https://www.youtube.com/watch?v=fXlTYKgm_Yw&list=RDfXlTYKgm_Yw&start_radio=1"]
-        ]
-      },
-      {
-        name:"Chicojona", type:"Solista", genre:"Folclor andino", soloGroup:"Raíz & folclor", thumb:"https://img.youtube.com/vi/DvDcZzxHDuk/hqdefault.jpg",
-        note:"Proyecto solista de folclor andino con referencias audiovisuales de Atrapama.",
-        highlights:["Atrapama · productora audiovisual"],
-        links:[
-          ["Atrapama · registro 1","https://www.youtube.com/watch?v=DvDcZzxHDuk&ab_channel=Atrapama"],
-          ["Atrapama · registro 2","https://www.youtube.com/watch?v=WfEdLuD_WHA&ab_channel=Atrapama"],
-          ["Instagram","https://www.instagram.com/chicojona/"]
-        ]
-      },
-      {
-        name:"Jorge Río Bueno", type:"Solista", genre:"Bolero · vals · canción latinoamericana", soloGroup:"Voz & canción",
-        thumb:"https://img.youtube.com/vi/VLT6VOFLapg/hqdefault.jpg", recent:true, lastHabitas:"jul 2026",
-        format:"Solista / Full banda",
-        note:"Cantautor y productor vinculado a San Pedro de Atacama. Su proyecto cruza bolero, vals y canción latinoamericana, con posibilidad de formato solista o full banda.",
-        highlights:["Experiencia en hoteles y eventos","Festival de los Vientos 2026 · formato full banda","Singles «Cariñito» y «Agüitado»"],
-        links:[
-          ["Cariñito · videoclip","https://www.youtube.com/watch?v=VLT6VOFLapg"],
-          ["Instagram","https://www.instagram.com/jorge_riobueno/"],
-          ["Referencia editorial","https://radiohoy.cl/2023/03/21/aguitado-lo-nuevo-de-jorge-rio-bueno/"]
-        ]
-      },
-      {
-        name:"Misrai Saxo", type:"Solista", genre:"Saxo · instrumental", soloGroup:"Instrumental",
-        thumb:"assets/misrai-saxo.webp", portrait:true, recent:true, lastHabitas:"ago 2026", format:"Saxofón solista",
-        note:"Saxofonista para ambientaciones, recepciones, cenas, sunset y eventos especiales.",
-        highlights:["Experiencia en hoteles y eventos","Formato probado en eventos","Formato instrumental adaptable"],
-        links:[]
-
-      }
-    ];
-
-    const grid = document.getElementById("grid");
-    const empty = document.getElementById("empty");
-    const search = document.getElementById("search");
-    const modal = document.getElementById("modal");
-    const modalBody = document.getElementById("modalBody");
-    let currentFilter = "all";
-
-    function esc(s=""){ return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
-    function render(){
-      const q = search.value.trim().toLowerCase();
-      const filtered = artists.filter(a => {
-        const matchType = currentFilter === "all" || a.type === currentFilter || a.soloGroup === currentFilter;
-        const hay = [a.name,a.alias||"",a.genre,a.soloGroup||"",a.note,...a.highlights].join(" ").toLowerCase();
-        return matchType && hay.includes(q);
-      }).sort((a,b)=>Number(Boolean(b.recent))-Number(Boolean(a.recent)));
-      grid.innerHTML = filtered.map((a,i)=>`
-        <article class="card">
-          <div class="thumb ${a.portrait ? "portrait" : ""}">
-            ${a.thumb ? `<img src="${a.thumb}" alt="Miniatura de ${esc(a.name)}" loading="lazy" />` : `<div class="thumb-fallback"><strong>${esc(a.name.split(" ").map(x=>x[0]).join("").slice(0,3))}</strong></div>`}
-            ${a.recent ? `<span class="recent-badge">Disponible · ${esc(a.lastHabitas||"2026")}</span>` : ""}
-          </div>
-          <div class="num">${String(i+1).padStart(2,"0")} · KIZU PRO</div>
-          <div class="category">${esc(a.type)}</div>
-          ${a.soloGroup ? `<div class="solo-tag">${esc(a.soloGroup)}</div>` : ""}
-          <h3>${esc(a.name)}</h3>
-          <div class="genre">${esc(a.genre)}</div>
-          <p class="brief">${esc(a.note)}</p>
-          <div class="facts">
-            <span class="fact">${a.links.length} referencias</span>
-          </div>
-          <button type="button" data-open="${esc(a.name)}">Ver ficha completa</button>
-        </article>
-      `).join("");
-      empty.style.display = filtered.length ? "none" : "block";
-      grid.querySelectorAll("[data-open]").forEach(btn=>btn.addEventListener("click",()=>openArtist(btn.dataset.open)));
-    }
-
-    function openArtist(name){
-      const a = artists.find(x=>x.name===name);
-      if(!a) return;
-      modalBody.innerHTML = `
-        <div class="modal-hero ${a.portrait ? "portrait" : ""}">
-          ${a.thumb ? `<img src="${a.thumb}" alt="Miniatura de ${esc(a.name)}" />` : `<div class="thumb-fallback"><strong>${esc(a.name.split(" ").map(x=>x[0]).join("").slice(0,3))}</strong></div>`}
-          ${a.recent ? `<span class="recent-badge">Disponible para programación · ${esc(a.lastHabitas||"2026")}</span>` : ""}
-        </div>
-        <div class="modal-kicker">${esc(a.type)}${a.soloGroup ? " · "+esc(a.soloGroup) : ""} · KIZU PRO</div>
-        <h3 id="modalTitle">${esc(a.name)}</h3>
-        <div class="style">${esc(a.genre)}</div>
-        <div class="meta-grid">
-          <div class="meta"><span>Formato</span><strong>${esc(a.format||a.type)}</strong></div>
-          <div class="meta"><span>Referencias</span><strong>${a.links.length ? a.links.length+" enlaces disponibles" : "Pendientes de incorporar"}</strong></div>
-          <div class="meta"><span>Ficha técnica</span><strong>Confirmar según fecha y versión del show</strong></div>
-        </div>
-        <p>${esc(a.note)}</p>
-        <div class="modal-kicker" style="margin-top:24px">Referencias destacadas</div>
-        <div class="refs">
-          ${a.highlights.map(x=>`<div class="meta">${esc(x)}</div>`).join("")}
-        </div>
-        <div class="modal-kicker" style="margin-top:26px">Enlaces</div>
-        <div class="refs">
-          ${a.links.length ? a.links.map(([label,url])=>`<a class="ref" href="${url}" target="_blank" rel="noopener"><span>${esc(label)}</span><small>Abrir ↗</small></a>`).join("") : `<div class="meta">Material audiovisual y redes pendientes de incorporar.</div>`}
-        </div>
-        <div class="source-note">Disponibilidad, formato y requerimientos técnicos se confirman al momento de reservar.</div>
-        <button class="reserve-btn" type="button" data-reserve-artist="${esc(a.name)}" data-artist-type="${esc(a.type)}">Reservar / conversar →</button>
-      `;
-      const reserveButton=modalBody.querySelector("[data-reserve-artist]");
-      if(reserveButton) reserveButton.addEventListener("click",()=>{
-        closeModal();
-        openLeadForm({source:"artist_modal",artist:reserveButton.dataset.reserveArtist||"",type:reserveButton.dataset.artistType||""});
-      });
-      modal.classList.add("open");
-      document.body.style.overflow="hidden";
-    }
-
-    function closeModal(){modal.classList.remove("open");document.body.style.overflow="";}
-    document.getElementById("close").addEventListener("click",closeModal);
-    modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
-    document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeLeadForm();}});
-    search.addEventListener("input",render);
-    document.querySelectorAll("[data-filter]").forEach(btn=>btn.addEventListener("click",()=>{
-      document.querySelectorAll("[data-filter]").forEach(x=>x.classList.remove("active"));
-      btn.classList.add("active"); currentFilter=btn.dataset.filter; render();
-    }));
-
-    const leadModal = document.getElementById("leadModal");
-    const leadForm = document.getElementById("leadForm");
-    const leadStatus = document.getElementById("leadStatus");
-    const leadSubmit = document.getElementById("leadSubmit");
-    const leadArtist = document.getElementById("leadArtist");
-    const leadType = document.getElementById("leadType");
-    let leadSource = "general";
-    const leadSession = sessionStorage.getItem("kizu_session") || crypto.randomUUID();
-    sessionStorage.setItem("kizu_session", leadSession);
-
-    function openLeadForm({source="general",artist="",type=""}={}){
-      leadSource = source;
-      leadArtist.value = artist || "";
-      if(type){
-        const mapped = type.toLowerCase().includes("banda") ? "banda" : type.toLowerCase().includes("solista") ? "solista" : "";
-        if(mapped) leadType.value = mapped;
-      }
-      leadStatus.textContent = "";
-      leadModal.classList.add("open");
-      document.body.style.overflow="hidden";
-      setTimeout(()=>document.getElementById("leadName")?.focus(),80);
-    }
-    function closeLeadForm(){leadModal.classList.remove("open");document.body.style.overflow="";}
-    document.getElementById("leadClose").addEventListener("click",closeLeadForm);
-    leadModal.addEventListener("click",e=>{if(e.target===leadModal)closeLeadForm()});
-    document.querySelectorAll("[data-lead-open]").forEach(btn=>btn.addEventListener("click",()=>openLeadForm({source:btn.dataset.source||"general"})));
-
-    leadForm.addEventListener("submit",async(e)=>{
-      e.preventDefault();
-      leadSubmit.disabled=true;
-      leadStatus.textContent="Registrando tu solicitud…";
-      const fd=new FormData(leadForm);
-      const payload=Object.fromEntries(fd.entries());
-      payload.source_cta=leadSource;
-      payload.source_page=location.pathname;
-      payload.session_id=leadSession;
-      try{
-        const r=await fetch("https://zgbnjlrxzvzpigmwidsp.supabase.co/functions/v1/kizu-concert-lead-intake",{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body:JSON.stringify(payload)
+    (() => {
+      const progress = document.getElementById('progress');
+      const reflections = document.querySelectorAll('.reflection');
+      reflections.forEach(card => {
+        const btn = card.querySelector('button');
+        btn.addEventListener('click', () => {
+          const open = card.classList.toggle('open');
+          const chev = card.querySelector('.chev');
+          if (chev) chev.textContent = open ? '−' : '+';
         });
-        const data=await r.json();
-        if(!r.ok) throw new Error(data.error||"No pudimos registrar la solicitud.");
-        leadStatus.textContent="Solicitud registrada. Abriendo WhatsApp…";
-        setTimeout(()=>{ window.location.href=data.whatsapp_url; },450);
-      }catch(err){
-        leadStatus.textContent=err.message||"No pudimos registrar la solicitud.";
-        leadSubmit.disabled=false;
-      }
-    });
+      });
 
-    render();
+      const links = [...document.querySelectorAll('.nav-links a')];
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+      const onScroll = () => {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - doc.clientHeight;
+        progress.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+        let active = sections[0];
+        sections.forEach(s => {
+          if (s.getBoundingClientRect().top < 150) active = s;
+        });
+        links.forEach(a => a.classList.toggle('active', active && a.getAttribute('href') === '#' + active.id));
+      };
+      document.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
   </script>
 </body>
 </html>
