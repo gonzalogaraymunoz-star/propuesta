@@ -486,6 +486,75 @@
       .coupon-phone{max-width:none}
     }
 
+  
+    /* RESULTADOS · comparación histórica */
+    .reach-compare{
+      margin-top:34px;padding:28px;border:1px solid var(--line);border-radius:28px;
+      background:#fffaf0;box-shadow:0 14px 42px rgba(74,28,8,.05)
+    }
+    .compare-head{
+      display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
+      padding-bottom:22px;border-bottom:1px solid var(--line)
+    }
+    .compare-head h3{
+      font-family:"Montserrat",sans-serif;font-size:clamp(26px,3.5vw,42px);
+      font-weight:900;letter-spacing:-.045em;line-height:1.02;margin:10px 0;color:var(--ink)
+    }
+    .compare-head p{max-width:730px;color:var(--muted);font-size:13px;margin:0;line-height:1.55}
+    .compare-toggle{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .compare-mode{
+      border:1px solid var(--line);background:#f7efdf;color:var(--ink);
+      border-radius:999px;padding:10px 13px;font-weight:850;font-size:11px;cursor:pointer
+    }
+    .compare-mode.active{background:var(--ink);color:#fff6e6;border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--caracol)}
+    .compare-layout{display:grid;grid-template-columns:1fr 270px;gap:24px;margin-top:24px}
+    .compare-bars{display:grid;gap:12px}
+    .compare-row{
+      display:grid;grid-template-columns:160px 1fr;gap:18px;padding:17px 0;
+      border-bottom:1px solid rgba(74,28,8,.09)
+    }
+    .compare-row:last-child{border-bottom:0}
+    .compare-label b{display:block;font-size:13px}
+    .compare-label span{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+    .compare-values{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .compare-value span{display:block;font-size:9px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+    .compare-value strong{display:block;font-size:24px;margin:3px 0 8px;letter-spacing:-.04em}
+    .compare-track{height:7px;background:#eadfcb;border-radius:99px;overflow:hidden}
+    .compare-track i{display:block;height:100%;border-radius:99px;transition:width .35s ease}
+    .compare-value.before .compare-track i{background:#b7a48e}
+    .compare-value.after .compare-track i{background:var(--caracol)}
+    .compare-summary{
+      background:var(--ink);color:#fff7e8;border-radius:22px;padding:22px;
+      border-bottom:3px solid var(--caracol)
+    }
+    .compare-summary-label{font-size:9px;font-weight:900;letter-spacing:.12em;color:#cfb899}
+    .compare-summary>strong{
+      font-family:"Anton","Arial Narrow",Impact,sans-serif;font-weight:400;
+      display:block;font-size:58px;line-height:1;color:var(--caracol);margin:14px 0 4px
+    }
+    .compare-summary>p{font-size:12px;color:#e0cfb5;margin-bottom:22px}
+    .compare-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .compare-summary-grid>div{background:#5b260f;padding:11px;border-radius:12px}
+    .compare-summary-grid span,.compare-summary-grid small{display:block;font-size:8px;color:#d5bea1}
+    .compare-summary-grid b{display:block;font-size:21px;margin:2px 0}
+    .compare-engagement{margin-top:10px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14)}
+    .compare-engagement>span{display:block;font-size:9px;color:#d5bea1}
+    .compare-engagement>b{display:block;font-size:14px;margin:4px 0}
+    .compare-engagement b i{font-style:normal;color:#fff}
+    .compare-engagement small{display:block;font-size:9px;line-height:1.4;color:#cdb99f}
+    .compare-source{font-size:10px;color:var(--muted);margin:18px 0 0}
+    .brand-logo,.caracol-association img,.coupon-merchant img{background:transparent!important}
+    @media(max-width:820px){
+      .compare-head,.compare-layout{grid-template-columns:1fr}
+      .compare-toggle{justify-content:flex-start}
+      .compare-summary{max-width:420px}
+    }
+    @media(max-width:580px){
+      .reach-compare{padding:20px}
+      .compare-row{grid-template-columns:1fr}
+      .compare-values{grid-template-columns:1fr 1fr}
+    }
+
   </style>
 </head>
 <body>
@@ -562,6 +631,82 @@
         <article class="metric"><div class="n">504</div><div class="l">likes registrados</div></article>
       </div>
       <p class="small-note">Corte: septiembre 2026. Fuente: Instagram vía LINKRRSS/Zernio. Las métricas cambian con el tiempo y algunas dimensiones de atribución todavía no están disponibles.</p>
+      <section class="reach-compare" aria-label="Comparación de alcance anterior a septiembre">
+        <div class="compare-head">
+          <div>
+            <div class="kicker">ANTES VS. NUESTRO TRABAJO</div>
+            <h3>El alcance promedio por publicación casi se triplicó.</h3>
+            <p>Comparamos el rendimiento anterior con las publicaciones realizadas desde el 8 al 29 de septiembre. No sumamos alcances —porque una misma persona puede aparecer más de una vez—: comparamos el promedio por publicación.</p>
+          </div>
+          <div class="compare-toggle" role="tablist" aria-label="Período de comparación">
+            <button class="compare-mode active" type="button" data-mode="august" aria-selected="true">Agosto completo</button>
+            <button class="compare-mode" type="button" data-mode="previous21" aria-selected="false">21 días previos</button>
+          </div>
+        </div>
+
+        <div class="compare-layout">
+          <div class="compare-bars">
+            <article class="compare-row">
+              <div class="compare-label"><b>Alcance promedio</b><span>por publicación</span></div>
+              <div class="compare-values">
+                <div class="compare-value before">
+                  <span>Antes</span><strong id="reach-before">255</strong>
+                  <div class="compare-track"><i id="reach-before-bar" style="width:34%"></i></div>
+                </div>
+                <div class="compare-value after">
+                  <span>8–29 sep</span><strong>752</strong>
+                  <div class="compare-track"><i style="width:100%"></i></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="compare-row">
+              <div class="compare-label"><b>Mejor alcance</b><span>una publicación</span></div>
+              <div class="compare-values">
+                <div class="compare-value before">
+                  <span>Antes</span><strong id="max-before">550</strong>
+                  <div class="compare-track"><i id="max-before-bar" style="width:16%"></i></div>
+                </div>
+                <div class="compare-value after">
+                  <span>8–29 sep</span><strong>3.471</strong>
+                  <div class="compare-track"><i style="width:100%"></i></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="compare-row">
+              <div class="compare-label"><b>Vistas promedio</b><span>por publicación</span></div>
+              <div class="compare-values">
+                <div class="compare-value before">
+                  <span>Antes</span><strong id="views-before">329</strong>
+                  <div class="compare-track"><i id="views-before-bar" style="width:27%"></i></div>
+                </div>
+                <div class="compare-value after">
+                  <span>8–29 sep</span><strong>1.210</strong>
+                  <div class="compare-track"><i style="width:100%"></i></div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="compare-summary">
+            <span class="compare-summary-label">CAMBIO PRINCIPAL</span>
+            <strong id="reach-lift">+195%</strong>
+            <p>en alcance promedio por publicación.</p>
+            <div class="compare-summary-grid">
+              <div><span>Publicaciones</span><b id="posts-before">29</b><small>antes</small></div>
+              <div><span>Publicaciones</span><b>24</b><small>8–29 sep</small></div>
+            </div>
+            <div class="compare-engagement">
+              <span>Engagement</span>
+              <b><i id="eng-before">1,88%</i> → 1,81%</b>
+              <small>Se mantiene en un rango similar mientras crece la distribución.</small>
+            </div>
+          </aside>
+        </div>
+
+        <p class="compare-source" id="compare-source">Base anterior: 29 publicaciones de agosto completo. Fuente: Instagram vía LINKRRSS/Zernio.</p>
+      </section>
     </div>
   </section>
 
@@ -870,6 +1015,79 @@
         });
       });
 
+
+
+      const historicalModes = {
+        august: {
+          reach: 255, reachWidth: 34, max: 550, maxWidth: 16, views: 329, viewsWidth: 27,
+          lift: '+195%', posts: 29, engagement: '1,88%',
+          source: 'Base anterior: 29 publicaciones de agosto completo. Fuente: Instagram vía LINKRRSS/Zernio.'
+        },
+        previous21: {
+          reach: 226, reachWidth: 30, max: 453, maxWidth: 13, views: 280, viewsWidth: 23,
+          lift: '+232%', posts: 12, engagement: '1,86%',
+          source: 'Base anterior comparable: publicaciones disponibles entre el 18 de agosto y el 7 de septiembre (12 publicaciones). Fuente: Instagram vía LINKRRSS/Zernio.'
+        }
+      };
+
+      const compareButtons = [...document.querySelectorAll('.compare-mode')];
+      const setComparisonMode = (mode) => {
+        const data = historicalModes[mode];
+        if (!data) return;
+        const setText = (id,value) => { const el=document.getElementById(id); if(el) el.textContent=value; };
+        const setWidth = (id,value) => { const el=document.getElementById(id); if(el) el.style.width=value+'%'; };
+        setText('reach-before', data.reach.toLocaleString('es-CL'));
+        setText('max-before', data.max.toLocaleString('es-CL'));
+        setText('views-before', data.views.toLocaleString('es-CL'));
+        setText('reach-lift', data.lift);
+        setText('posts-before', data.posts);
+        setText('eng-before', data.engagement);
+        setText('compare-source', data.source);
+        setWidth('reach-before-bar', data.reachWidth);
+        setWidth('max-before-bar', data.maxWidth);
+        setWidth('views-before-bar', data.viewsWidth);
+        compareButtons.forEach(btn => {
+          const active = btn.dataset.mode === mode;
+          btn.classList.toggle('active',active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+      };
+      compareButtons.forEach(btn => btn.addEventListener('click',()=>setComparisonMode(btn.dataset.mode)));
+
+      // El asset original conserva fondo blanco. Lo limpiamos en el navegador
+      // para mantener exactamente el logo aportado y hacerlo transparente.
+      (() => {
+        const src='/assets/caracol-logo.webp';
+        const source=new Image();
+        source.onload=() => {
+          try{
+            const canvas=document.createElement('canvas');
+            canvas.width=source.naturalWidth;
+            canvas.height=source.naturalHeight;
+            const ctx=canvas.getContext('2d',{willReadFrequently:true});
+            ctx.drawImage(source,0,0);
+            const imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+            const d=imageData.data;
+            for(let i=0;i<d.length;i+=4){
+              const dr=255-d[i], dg=255-d[i+1], db=255-d[i+2];
+              const dist=Math.sqrt(dr*dr+dg*dg+db*db);
+              if(dist<72){
+                const alpha=Math.max(0,Math.min(255,((dist-10)/62)*255));
+                d[i+3]=Math.min(d[i+3],alpha);
+              }
+            }
+            ctx.putImageData(imageData,0,0);
+            const clean=canvas.toDataURL('image/png');
+            document.querySelectorAll('img[src="/assets/caracol-logo.webp"]').forEach(img=>{
+              img.src=clean;
+              img.style.mixBlendMode='normal';
+            });
+            const icon=document.querySelector('link[rel="icon"]');
+            if(icon) icon.href=clean;
+          }catch(e){}
+        };
+        source.src=src;
+      })();
 
       const couponOptions = [...document.querySelectorAll('.coupon-option')];
       const couponTitle = document.getElementById('coupon-demo-title');
