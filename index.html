@@ -555,6 +555,105 @@
       .compare-values{grid-template-columns:1fr 1fr}
     }
 
+  
+    /* ÚLTIMA PASADA EDITORIAL · antes / después + evolución semanal */
+    .hero-before-after{
+      display:grid;grid-template-columns:1fr 34px 1fr;gap:12px;align-items:center;
+      margin-top:28px;max-width:650px
+    }
+    .hero-before-after>div:not(.hero-arrow){
+      border-top:1px solid var(--line);padding-top:13px
+    }
+    .hero-before-after span{
+      display:block;font-size:9px;font-weight:900;letter-spacing:.11em;color:var(--muted)
+    }
+    .hero-before-after b{
+      font-family:"Anton","Arial Narrow",Impact,sans-serif;font-weight:400;
+      display:block;font-size:42px;line-height:1;margin:5px 0;color:#7c5f4c
+    }
+    .hero-before-after small{font-size:10px;color:var(--muted)}
+    .hero-before-after .after b{color:#d5962f}
+    .hero-arrow{text-align:center;font-size:25px;color:#ad8c70}
+    .hero-note small strong{color:#fff4de}
+    .weekly-progress{
+      margin-top:32px;padding-top:38px;border-top:1px solid var(--line)
+    }
+    .weekly-head{
+      display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:24px
+    }
+    .weekly-head h3{
+      font-family:"Montserrat",sans-serif;font-size:clamp(30px,4vw,48px);
+      font-weight:900;letter-spacing:-.045em;line-height:1;margin:10px 0 0
+    }
+    .weekly-head>p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+    .weekly-track{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:11px;position:relative
+    }
+    .week-progress{
+      position:relative;background:#fffaf0;border:1px solid var(--line);
+      border-radius:24px;padding:21px;overflow:hidden
+    }
+    .week-progress:before{
+      content:"";position:absolute;left:0;right:0;top:0;height:4px;background:#d6c2a6
+    }
+    .week-progress.peak:before{background:var(--caracol)}
+    .week-progress.peak{box-shadow:0 17px 40px rgba(74,28,8,.08)}
+    .week-progress-top{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      font-size:9px;font-weight:900;letter-spacing:.07em;color:var(--muted)
+    }
+    .week-progress-top b{font-size:10px;color:var(--ink)}
+    .week-number{
+      font-family:"Anton","Arial Narrow",Impact,sans-serif;font-size:64px;line-height:1;
+      color:#ead8bd;margin:26px 0 3px
+    }
+    .week-progress.peak .week-number{color:#f0bb5a}
+    .week-progress h4{
+      font-size:21px;line-height:1.05;letter-spacing:-.035em;margin:0 0 11px
+    }
+    .week-progress>p{font-size:12px;line-height:1.55;color:var(--muted);min-height:94px}
+    .week-kpis{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:16px 0
+    }
+    .week-kpis>div{
+      background:#f2e8d6;border-radius:12px;padding:10px
+    }
+    .week-kpis b{display:block;font-size:18px;letter-spacing:-.04em}
+    .week-kpis span{display:block;font-size:8px;color:var(--muted);margin-top:2px}
+    .week-insight{
+      border-top:1px solid var(--line);padding-top:13px;font-size:10px;line-height:1.5;color:#6e594a
+    }
+    .week-insight strong{color:var(--ink)}
+    .weekly-conclusion{
+      display:grid;grid-template-columns:1fr 36px 1fr 1.35fr;gap:14px;align-items:center;
+      margin-top:13px;background:#4a1c08;color:#fff4de;border-radius:22px;padding:20px 22px
+    }
+    .weekly-conclusion>div:not(.weekly-conclusion-arrow){min-width:0}
+    .weekly-conclusion span{
+      display:block;font-size:8px;font-weight:900;letter-spacing:.11em;color:#d8b998
+    }
+    .weekly-conclusion strong{display:block;font-size:16px;margin:5px 0}
+    .weekly-conclusion small{display:block;font-size:9px;color:#cdb394}
+    .weekly-conclusion .current{border-left:3px solid var(--caracol);padding-left:13px}
+    .weekly-conclusion-arrow{text-align:center;font-size:22px;color:var(--caracol)}
+    .weekly-conclusion-message{
+      border-left:1px solid rgba(255,255,255,.17);padding-left:18px
+    }
+    .weekly-conclusion-message b{font-size:11px;color:var(--caracol)}
+    .weekly-conclusion-message p{font-size:10px;line-height:1.5;color:#dfcdb5;margin:4px 0 0}
+    @media(max-width:900px){
+      .weekly-track{grid-template-columns:1fr}
+      .week-progress>p{min-height:0}
+      .weekly-conclusion{grid-template-columns:1fr}
+      .weekly-conclusion-arrow{text-align:left;transform:rotate(90deg);width:24px}
+      .weekly-conclusion-message{border-left:0;border-top:1px solid rgba(255,255,255,.17);padding:14px 0 0}
+      .weekly-head{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .hero-before-after{grid-template-columns:1fr 24px 1fr}
+      .hero-before-after b{font-size:35px}
+    }
+
   </style>
 </head>
 <body>
@@ -574,14 +673,21 @@
 
   <header class="hero wrap">
     <div class="eyebrow">Informe de marketing · corte 29 septiembre</div>
-    <h1>De publicar<br>a <span class="green">aprender.</span></h1>
+    <h1>21 días.<br><span class="green">Una curva distinta.</span></h1>
     <div class="hero-grid">
-      <p class="lead">Este mes usamos contenido real de Caracol para aumentar frecuencia, probar formatos y entender qué hace que una publicación deje de ser un aviso y empiece a convertirse en una razón para ir.</p>
+      <div>
+        <p class="lead">En tres semanas pasamos de una cuenta con <strong>255 de alcance promedio por publicación</strong> a una etapa de trabajo con <strong>752 de alcance promedio</strong>. No fue solo publicar más: aumentamos frecuencia, reaccionamos al contexto y usamos cada semana para aprender qué contenido mueve mejor a Caracol.</p>
+        <div class="hero-before-after">
+          <div><span>ANTES · AGOSTO</span><b>255</b><small>alcance promedio</small></div>
+          <div class="hero-arrow">→</div>
+          <div class="after"><span>8–29 SEPTIEMBRE</span><b>752</b><small>alcance promedio</small></div>
+        </div>
+      </div>
       <aside class="hero-note">
         <strong>21 días</strong>
         <small>desde la primera publicación registrada por nuestro trabajo (8 sep) hasta hoy (29 sep).</small>
         <div class="greenline"></div>
-        <small>En ese período construimos una base observable de contenido, métricas, formatos, eventos y comportamiento.</small>
+        <small>En ese período publicamos <strong>24 piezas</strong>: casi el volumen completo de agosto, pero concentrado en tres semanas de trabajo y aprendizaje.</small>
       </aside>
     </div>
   </header>
@@ -635,8 +741,8 @@
         <div class="compare-head">
           <div>
             <div class="kicker">ANTES VS. NUESTRO TRABAJO</div>
-            <h3>El alcance promedio por publicación casi se triplicó.</h3>
-            <p>Comparamos el rendimiento anterior con las publicaciones realizadas desde el 8 al 29 de septiembre. No sumamos alcances —porque una misma persona puede aparecer más de una vez—: comparamos el promedio por publicación.</p>
+            <h3>En 21 días, el alcance promedio pasó de 255 a 752.</h3>
+            <p>Agosto completo dejó una línea base de 29 publicaciones y 255 de alcance promedio. Desde el 8 al 29 de septiembre registramos 24 publicaciones y 752 de alcance promedio. La comparación usa promedio por publicación —no suma de alcance— para evitar inflar el resultado por personas repetidas.</p>
           </div>
           <div class="compare-toggle" role="tablist" aria-label="Período de comparación">
             <button class="compare-mode active" type="button" data-mode="august" aria-selected="true">Agosto completo</button>
@@ -706,6 +812,84 @@
         </div>
 
         <p class="compare-source" id="compare-source">Base anterior: 29 publicaciones de agosto completo. Fuente: Instagram vía LINKRRSS/Zernio.</p>
+      </section>
+
+      <section class="weekly-progress" aria-label="Avance semanal del trabajo de septiembre">
+        <div class="weekly-head">
+          <div>
+            <div class="kicker">21 DÍAS · 3 SEMANAS DE EJECUCIÓN</div>
+            <h3>La estrategia fue avanzando semana a semana.</h3>
+          </div>
+          <p>No buscamos una curva artificial donde todo sube. Cada semana tuvo un objetivo distinto: primero recuperar ritmo y reconocimiento; después aprovechar contexto y eventos; finalmente probar productos, identidad y formatos para aprender qué repetir en octubre.</p>
+        </div>
+
+        <div class="weekly-track">
+          <article class="week-progress">
+            <div class="week-progress-top">
+              <span>SEMANA 1 · 8–14 SEP</span>
+              <b>5 publicaciones</b>
+            </div>
+            <div class="week-number">01</div>
+            <h4>Volver a aparecer con frecuencia.</h4>
+            <p>Karaoke, viernes, música en vivo y anticipación de Fiestas Patrias. La prioridad fue recuperar presencia y empezar a instalar una narrativa más viva de Caracol.</p>
+            <div class="week-kpis">
+              <div><b>692</b><span>alcance prom.</span></div>
+              <div><b>1.168</b><span>vistas prom.</span></div>
+              <div><b>2,06%</b><span>engagement</span></div>
+            </div>
+            <div class="week-insight"><strong>Aprendizaje:</strong> la frecuencia por sí sola no basta; las piezas con personas, karaoke y anticipación del 18 respondieron mejor.</div>
+          </article>
+
+          <article class="week-progress peak">
+            <div class="week-progress-top">
+              <span>SEMANA 2 · 15–21 SEP</span>
+              <b>11 publicaciones</b>
+            </div>
+            <div class="week-number">02</div>
+            <h4>Subir intensidad cuando había algo que contar.</h4>
+            <p>Fiestas Patrias, programación diaria, lluvia y contenido en tiempo real. Esta fue la semana donde la estrategia de contexto + frecuencia tuvo su mayor distribución.</p>
+            <div class="week-kpis">
+              <div><b>1.057</b><span>alcance prom.</span></div>
+              <div><b>1.686</b><span>vistas prom.</span></div>
+              <div><b>3.471</b><span>mejor alcance</span></div>
+            </div>
+            <div class="week-insight"><strong>Aprendizaje:</strong> cuando Caracol responde a lo que está ocurriendo “ahora”, la audiencia tiene una razón más clara para mirar, compartir y considerar una visita.</div>
+          </article>
+
+          <article class="week-progress">
+            <div class="week-progress-top">
+              <span>SEMANA 3 · 22–29 SEP</span>
+              <b>8 publicaciones</b>
+            </div>
+            <div class="week-number">03</div>
+            <h4>Pasar del evento a la experimentación.</h4>
+            <p>Producto, cerveza, Gin, cierre de septiembre e identidad. Después del peak estacional, bajó la distribución, pero aumentó la interacción proporcional.</p>
+            <div class="week-kpis">
+              <div><b>369</b><span>alcance prom.</span></div>
+              <div><b>582</b><span>vistas prom.</span></div>
+              <div><b>2,10%</b><span>engagement</span></div>
+            </div>
+            <div class="week-insight"><strong>Aprendizaje:</strong> el siguiente salto no depende de publicar más; depende de convertir producto, identidad y promociones en formatos que podamos probar y repetir.</div>
+          </article>
+        </div>
+
+        <div class="weekly-conclusion">
+          <div>
+            <span>ANTES</span>
+            <strong>29 publicaciones en agosto</strong>
+            <small>255 alcance promedio · 329 vistas promedio</small>
+          </div>
+          <div class="weekly-conclusion-arrow">→</div>
+          <div class="current">
+            <span>21 DÍAS DE TRABAJO</span>
+            <strong>24 publicaciones</strong>
+            <small>752 alcance promedio · 1.210 vistas promedio</small>
+          </div>
+          <div class="weekly-conclusion-message">
+            <b>El avance real:</b>
+            <p>En tres semanas construimos frecuencia, detectamos qué contextos amplifican el alcance y empezamos a transformar contenido en un sistema de aprendizaje para octubre.</p>
+          </div>
+        </div>
       </section>
     </div>
   </section>
