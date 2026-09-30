@@ -680,6 +680,116 @@
       letter-spacing:.01em
     }
 
+  
+    /* CALENDARIO EDITORIAL · septiembre aprendido / octubre planificado */
+    .calendar-review{margin-top:48px;padding-top:42px;border-top:1px solid var(--line)}
+    .calendar-review-head{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}
+    .calendar-review-head h3{
+      font-family:"Montserrat",sans-serif;font-size:clamp(30px,4vw,48px);
+      line-height:1;font-weight:900;letter-spacing:-.045em;margin:10px 0 0
+    }
+    .calendar-review-head>p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+    .calendar-lessons{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}
+    .calendar-lessons article{
+      background:#fffaf0;border:1px solid var(--line);border-radius:20px;padding:18px
+    }
+    .calendar-lessons article>span{font-size:9px;font-weight:900;color:#a97a52}
+    .calendar-lessons b{display:block;font-size:15px;margin:12px 0 7px}
+    .calendar-lessons p{font-size:11px;line-height:1.55;color:var(--muted);margin:0}
+    .calendar-shell{background:#fffaf0;border:1px solid var(--line);border-radius:28px;padding:22px}
+    .calendar-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+    .calendar-label{font-size:9px;font-weight:900;letter-spacing:.13em;color:#9a6333}
+    .calendar-toolbar h4{font-size:25px;letter-spacing:-.035em;margin:6px 0 0}
+    .calendar-tabs{display:flex;gap:6px;flex-wrap:wrap}
+    .calendar-tab{
+      border:1px solid var(--line);background:#f7efdf;color:var(--ink);border-radius:999px;
+      padding:9px 12px;font-size:10px;font-weight:900;cursor:pointer
+    }
+    .calendar-tab.active{background:var(--ink);color:#fff7e8;border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--caracol)}
+    .calendar-feedback{
+      margin:18px 0;padding:13px 15px;border-radius:14px;background:#f4e7cf;
+      display:flex;gap:7px;align-items:flex-start;font-size:11px;line-height:1.5;color:#715b49
+    }
+    .calendar-feedback b{color:var(--ink);flex:0 0 auto}
+    .calendar-weekdays,.editorial-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+    .calendar-weekdays{margin:15px 0 6px}
+    .calendar-weekdays span{text-align:center;font-size:8px;font-weight:900;color:#9b816a;letter-spacing:.08em}
+    .editorial-calendar{display:none}
+    .editorial-calendar.active{display:grid}
+    .day{
+      min-height:104px;border:1px solid #e5d6bf;border-radius:14px;padding:8px;
+      background:#fcf6ea;position:relative;overflow:hidden;text-align:left;color:var(--ink)
+    }
+    button.day{font:inherit;cursor:pointer}
+    .day.empty{border-color:transparent;background:transparent}
+    .day-num{font-size:10px;font-weight:900;position:relative;z-index:2}
+    .day small{display:block;font-size:9px;font-weight:800;line-height:1.25;margin-top:28px;position:relative;z-index:2}
+    .day i{display:block;font-size:8px;font-style:normal;color:#9a7f68;margin-top:5px;position:relative;z-index:2}
+    .day.posted{background:#fff4df}
+    .day.posted:after{
+      content:"";position:absolute;left:8px;bottom:8px;width:5px;height:5px;border-radius:50%;
+      background:#b96c2f
+    }
+    .day.hot{border-color:#dd9a46;background:#fff0ce}
+    .day.featured img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2;filter:saturate(.8)
+    }
+    .day.featured:before{
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,250,240,.28),rgba(255,242,220,.93))
+    }
+    .day.gap{background:#f5eee2;color:#a18d7a}
+    .day.gap small{font-weight:600}
+    .day.planned{background:#f8f4eb;border-color:#d9d3c7}
+    .day.planned:after{
+      content:"";position:absolute;left:8px;bottom:8px;width:5px;height:5px;border-radius:50%;background:#171714
+    }
+    .day.planned small{margin-top:28px}
+    .day.product-slot{box-shadow:inset 0 3px 0 #d5962f}
+    .day.people-slot{box-shadow:inset 0 3px 0 #8f6d56}
+    .day.community-slot{box-shadow:inset 0 3px 0 #6e5b4b}
+    .day.flex-slot{background:#f3f1e8;border-style:dashed}
+    .day.flex-slot:after{background:#dfff00;box-shadow:0 0 0 2px #171714}
+    button.day:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(74,28,8,.08)}
+    .calendar-detail{
+      margin-top:12px;min-height:105px;border:1px solid var(--line);border-radius:16px;
+      background:#f7efdf;padding:15px
+    }
+    .calendar-detail-placeholder{display:grid;gap:3px;color:#8b735f;font-size:11px}
+    .calendar-detail-placeholder b{color:var(--ink);font-size:13px}
+    .cal-detail-card{display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:center}
+    .cal-detail-card img{width:86px;height:86px;object-fit:cover;border-radius:12px}
+    .cal-detail-card .detail-kicker{font-size:8px;font-weight:900;letter-spacing:.1em;color:#9a6333}
+    .cal-detail-card h5{font-size:15px;margin:4px 0 5px}
+    .cal-detail-card p{font-size:10px;line-height:1.5;color:var(--muted);margin:0}
+    .cal-detail-card .detail-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .cal-detail-card .detail-metrics span{
+      background:#ead9ba;padding:5px 7px;border-radius:999px;font-size:8px;font-weight:800
+    }
+    .cal-detail-card a{font-size:9px;font-weight:900;color:#8d4b20;text-decoration:none}
+    .calendar-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:13px;font-size:8px;color:#88725f}
+    .calendar-legend span{display:flex;align-items:center;gap:5px}
+    .calendar-legend i{width:7px;height:7px;border-radius:50%}
+    .legend-real{background:#b96c2f}.legend-peak{background:#dd9a46}.legend-plan{background:#171714}.legend-flex{background:#dfff00;border:1px solid #171714}
+    .calendar-conclusion{
+      margin-top:12px;background:#4a1c08;color:#fff2df;border-radius:18px;padding:18px 20px;
+      display:grid;grid-template-columns:160px 1fr;gap:18px
+    }
+    .calendar-conclusion b{color:var(--caracol);font-size:12px}
+    .calendar-conclusion p{font-size:11px;line-height:1.55;margin:0;color:#dcc3a7}
+    @media(max-width:900px){
+      .calendar-review-head,.calendar-lessons{grid-template-columns:1fr}
+      .calendar-toolbar{align-items:flex-start;flex-direction:column}
+      .day{min-height:90px}
+      .day small{font-size:8px}
+      .calendar-conclusion{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .calendar-shell{padding:14px;overflow-x:auto}
+      .calendar-weekdays,.editorial-calendar{min-width:720px}
+      .calendar-detail{min-width:0}
+      .calendar-feedback{display:grid}
+    }
+
   </style>
 </head>
 <body>
@@ -927,6 +1037,150 @@
             <b>El avance real:</b>
             <p>En tres semanas construimos frecuencia, detectamos qué contextos amplifican el alcance y empezamos a transformar contenido en un sistema de aprendizaje para octubre.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="calendar-review" aria-label="Feedback de calendario editorial">
+        <div class="calendar-review-head">
+          <div>
+            <div class="kicker">FEEDBACK · DE REACTIVO A PLANIFICADO</div>
+            <h3>Septiembre no tuvo un calendario editorial estructurado desde el inicio. Octubre sí lo tendrá.</h3>
+          </div>
+          <p>La ausencia de un calendario previo no impidió avanzar: nos permitió reaccionar rápido a Fiestas Patrias, lluvia y momentos reales. Pero también concentró demasiado contenido en pocos días. Ahora podemos conservar esa agilidad dentro de una estructura semanal.</p>
+        </div>
+
+        <div class="calendar-lessons">
+          <article>
+            <span>01</span>
+            <b>Lo que funcionó</b>
+            <p>El contenido reactivo respondió muy bien. “Llueve en San Pedro” y “Todo está pasando este 18” demostraron que contexto + urgencia pueden amplificar la distribución.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <b>Lo que detectamos</b>
+            <p><strong>9 de 24 publicaciones</strong> se concentraron entre el 15 y el 19 de septiembre. Esa intensidad tuvo sentido por Fiestas Patrias, pero no es una cadencia sostenible para todo el mes.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <b>Qué cambia</b>
+            <p>Octubre tendrá una base planificada por pilares —producto, personas, experiencia y programación— más espacios libres para reaccionar a lo que esté ocurriendo en San Pedro.</p>
+          </article>
+        </div>
+
+        <div class="calendar-shell">
+          <div class="calendar-toolbar">
+            <div>
+              <span class="calendar-label">CALENDARIO EDITORIAL</span>
+              <h4 id="calendar-title">Septiembre · lo que hicimos</h4>
+            </div>
+            <div class="calendar-tabs" role="tablist" aria-label="Cambiar calendario">
+              <button class="calendar-tab active" type="button" data-calendar="september" aria-selected="true">Septiembre · real</button>
+              <button class="calendar-tab" type="button" data-calendar="october" aria-selected="false">Octubre · propuesta</button>
+            </div>
+          </div>
+
+          <div class="calendar-feedback" id="calendar-feedback">
+            <b>Lectura de septiembre:</b>
+            <span>empezamos el 8, aceleramos durante Fiestas Patrias y luego pasamos a probar identidad y producto. El aprendizaje principal es sostener frecuencia sin depender de un gran evento.</span>
+          </div>
+
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span><span>DOM</span>
+          </div>
+
+          <div class="editorial-calendar september-calendar active" data-calendar-panel="september">
+            <div class="day empty"></div>
+            <div class="day"><span class="day-num">1</span></div>
+            <div class="day"><span class="day-num">2</span></div>
+            <div class="day"><span class="day-num">3</span></div>
+            <div class="day"><span class="day-num">4</span></div>
+            <div class="day"><span class="day-num">5</span></div>
+            <div class="day"><span class="day-num">6</span></div>
+
+            <div class="day"><span class="day-num">7</span></div>
+            <button class="day posted" type="button" data-cal-detail="sep8"><span class="day-num">8</span><small>Karaoke</small><i>1 post</i></button>
+            <div class="day"><span class="day-num">9</span></div>
+            <button class="day posted" type="button" data-cal-detail="sep10"><span class="day-num">10</span><small>Karaoke BR/CL</small><i>1 post</i></button>
+            <button class="day posted featured" type="button" data-cal-detail="sep11"><span class="day-num">11</span><img src="https://media.zernio.com/media/external-posts/1790701103060_qc2ixu1d_6ab97593c27fc766d07e70f6-0.jpg" alt=""><small>Viernes</small><i>1.864 vistas</i></button>
+            <div class="day"><span class="day-num">12</span></div>
+            <button class="day posted" type="button" data-cal-detail="sep13"><span class="day-num">13</span><small>Anticipación 18</small><i>1.745 vistas</i></button>
+
+            <button class="day posted" type="button" data-cal-detail="sep14"><span class="day-num">14</span><small>Semana del 18</small><i>1 post</i></button>
+            <button class="day posted hot" type="button" data-cal-detail="sep15"><span class="day-num">15</span><small>Promo + horario</small><i>2 posts</i></button>
+            <button class="day posted hot" type="button" data-cal-detail="sep16"><span class="day-num">16</span><small>Anticucho</small><i>1 post</i></button>
+            <button class="day posted featured hot" type="button" data-cal-detail="sep17"><span class="day-num">17</span><img src="https://media.zernio.com/media/external-posts/1790701100865_ckqpx67q_6ab97593c27fc766d07e70b0-0.jpg" alt=""><small>Lluvia + contexto</small><i>3 posts · 8.130 vistas</i></button>
+            <button class="day posted featured hot" type="button" data-cal-detail="sep18"><span class="day-num">18</span><img src="https://media.zernio.com/media/external-posts/1790701100360_rm50qinu_6ab97593c27fc766d07e70a7-0.jpg" alt=""><small>Fiestas Patrias</small><i>4.413 vistas</i></button>
+            <button class="day posted hot" type="button" data-cal-detail="sep19"><span class="day-num">19</span><small>Música en vivo</small><i>2 posts</i></button>
+            <button class="day posted" type="button" data-cal-detail="sep20"><span class="day-num">20</span><small>Abrimos domingo</small><i>1 post</i></button>
+
+            <button class="day posted" type="button" data-cal-detail="sep21"><span class="day-num">21</span><small>Karaoke L-M-V</small><i>1 post</i></button>
+            <button class="day posted featured" type="button" data-cal-detail="sep22"><span class="day-num">22</span><img src="https://scontent-lhr6-2.cdninstagram.com/v/t51.82787-15/792029631_17908081245514688_5328122740364369060_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=9qk3oYvKqtgQ7kNvwFt0dVy&_nc_oc=AdrCAnktyPh1pBy51VaMq4IeN6mvdHQh7q-A2NCoWg2naTFlbnUvZaT3ItQbv114bnc&_nc_zt=23&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=LBYY5VyYY19McJIPI61yoA&_nc_tpa=Q5bMBQKrKcMaUG8KE4KtYQiam88ThpwKZqb-qreO36SsBvznK_cxSJexLIH6Az1_QUt7aqrA7QsFCJ2b5A&oh=00_AQOoxXtBXkJzzbWo24MVjxsOmoOxVm-7HQzgGV8loHoqRg&oe=6AC16B61" alt=""><small>ARTISTAS</small><i>3,69% engagement</i></button>
+            <button class="day posted" type="button" data-cal-detail="sep23"><span class="day-num">23</span><small>Música diaria</small><i>3,43% eng.</i></button>
+            <div class="day gap"><span class="day-num">24</span><small>sin publicación</small></div>
+            <button class="day posted" type="button" data-cal-detail="sep25"><span class="day-num">25</span><small>Cuello Negro</small><i>producto</i></button>
+            <div class="day gap"><span class="day-num">26</span><small>sin publicación</small></div>
+            <button class="day posted" type="button" data-cal-detail="sep27"><span class="day-num">27</span><small>Cierre mes</small><i>2 posts</i></button>
+
+            <button class="day posted featured" type="button" data-cal-detail="sep28"><span class="day-num">28</span><img src="https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/825320748_17909126949514688_8055150477851448769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=7ITRJeY406EQ7kNvwEJvyar&_nc_oc=AdrdSbVAA_oxpEnGjWQdVMu3EJpz9ENZKCDmY_OT0a-WZrgRinHb7OV7bXt2XjTd5hU&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQIUT-ukqg8PGXk6kL8tPYsqoPuBpnQl_GywCF6Iccq-hjsxlR4untIgI_rQvTM9VDbzc8hH7ufNxA&oh=00_AQMWyqR0Ze2WH6QLKUpCBsy91xyoLUyDZDHcZeGEEB2voA&oe=6AC1ED72" alt=""><small>Lunes de Gin</small><i>2 posts</i></button>
+            <button class="day posted" type="button" data-cal-detail="sep29"><span class="day-num">29</span><small>Búsqueda cocinero</small><i>1 post</i></button>
+            <div class="day"><span class="day-num">30</span></div>
+            <div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div>
+          </div>
+
+          <div class="editorial-calendar october-calendar" data-calendar-panel="october">
+            <div class="day empty"></div><div class="day empty"></div><div class="day empty"></div>
+            <div class="day planned flex-slot"><span class="day-num">1</span><small>Slot reactivo</small><i>si pasa algo</i></div>
+            <button class="day planned" type="button" data-cal-detail="oct2"><span class="day-num">2</span><small>Experiencia viernes</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">3</span></div><div class="day"><span class="day-num">4</span></div>
+
+            <button class="day planned product-slot" type="button" data-cal-detail="oct5"><span class="day-num">5</span><small>Producto con motivo</small><i>REEL · Gin</i></button>
+            <div class="day"><span class="day-num">6</span></div>
+            <button class="day planned community-slot" type="button" data-cal-detail="oct7"><span class="day-num">7</span><small>Karaoke + comunidad</small><i>PIEZA</i></button>
+            <div class="day planned flex-slot"><span class="day-num">8</span><small>Slot reactivo</small><i>contexto</i></div>
+            <button class="day planned" type="button" data-cal-detail="oct9"><span class="day-num">9</span><small>Está pasando ahora</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">10</span></div><div class="day"><span class="day-num">11</span></div>
+
+            <button class="day planned people-slot" type="button" data-cal-detail="oct12"><span class="day-num">12</span><small>Persona Caracol</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">13</span></div>
+            <button class="day planned" type="button" data-cal-detail="oct14"><span class="day-num">14</span><small>Programación útil</small><i>PIEZA</i></button>
+            <div class="day planned flex-slot"><span class="day-num">15</span><small>Slot reactivo</small><i>contexto</i></div>
+            <button class="day planned" type="button" data-cal-detail="oct16"><span class="day-num">16</span><small>Noche Caracol</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">17</span></div><div class="day"><span class="day-num">18</span></div>
+
+            <button class="day planned product-slot" type="button" data-cal-detail="oct19"><span class="day-num">19</span><small>Producto</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">20</span></div>
+            <button class="day planned people-slot" type="button" data-cal-detail="oct21"><span class="day-num">21</span><small>Artista / cocina</small><i>REEL</i></button>
+            <div class="day planned flex-slot"><span class="day-num">22</span><small>Slot reactivo</small><i>contexto</i></div>
+            <button class="day planned community-slot" type="button" data-cal-detail="oct23"><span class="day-num">23</span><small>Comunidad</small><i>PIEZA</i></button>
+            <div class="day"><span class="day-num">24</span></div><div class="day"><span class="day-num">25</span></div>
+
+            <button class="day planned product-slot" type="button" data-cal-detail="oct26"><span class="day-num">26</span><small>Producto + CTA</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">27</span></div>
+            <button class="day planned community-slot" type="button" data-cal-detail="oct28"><span class="day-num">28</span><small>Karaoke / UGC</small><i>PIEZA</i></button>
+            <div class="day planned flex-slot"><span class="day-num">29</span><small>Slot reactivo</small><i>si pasa algo</i></div>
+            <button class="day planned" type="button" data-cal-detail="oct30"><span class="day-num">30</span><small>Cierre de mes</small><i>REEL</i></button>
+            <div class="day"><span class="day-num">31</span></div>
+            <div class="day empty"></div>
+          </div>
+
+          <div class="calendar-detail" id="calendar-detail">
+            <div class="calendar-detail-placeholder">
+              <span>Selecciona un día marcado</span>
+              <b>para ver por qué esa publicación o pieza ocupa ese lugar.</b>
+            </div>
+          </div>
+
+          <div class="calendar-legend">
+            <span><i class="legend-real"></i>Publicado en septiembre</span>
+            <span><i class="legend-peak"></i>Alta concentración / contexto</span>
+            <span><i class="legend-plan"></i>Planificado octubre</span>
+            <span><i class="legend-flex"></i>Espacio reactivo</span>
+          </div>
+        </div>
+
+        <div class="calendar-conclusion">
+          <b>Qué haremos distinto:</b>
+          <p>El calendario de octubre no será rígido. Tendrá una base fija para asegurar continuidad y dejará espacios reactivos para repetir lo mejor de septiembre: aprovechar clima, eventos, artistas y oportunidades reales cuando aparezcan.</p>
         </div>
       </section>
     </div>
@@ -1309,6 +1563,75 @@
         };
         source.src=src;
       })();
+
+
+      const calendarDetails = {
+        sep8:{title:'Karaoke: primera señal de frecuencia',kicker:'8 SEP · REAL',copy:'Arrancamos mostrando una experiencia reconocible de Caracol: gente que llega por una canción y se queda por el ambiente.',metrics:['631 vistas','393 alcance','2,54% engagement'],url:'https://www.instagram.com/reel/DdCO5Pzs7DD/',img:'https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/800317208_17906092707514688_8661296781286958040_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ne5tZLq3-fYQ7kNvwHI5Q2V&_nc_oc=AdoiiimwERdVPZ5ZZs5A_msVVab8tUzqHDL9ALkCPx11On_TxDDxu8ZITx-GAxV_THw&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=lrJpEUksnT6QttIzsD5BVg&_nc_tpa=Q5bMBQIQ6x2z0kKkRzfJWTyYohtk1yQRB8O2aXgYVQa3YgTuFQOtk333N9byOyQ9RJXsLs-eH9qnbfTmew&oh=00_AQNmkIjsx7dapcf9TUEr6T4phQXxt2quS7rwjU10vW2F5A&oe=6AC0B132'},
+        sep10:{title:'Karaoke pensado también para viajeros',kicker:'10 SEP · REAL',copy:'Probamos una comunicación bilingüe Brasil/Chile para conectar una actividad estable con público viajero.',metrics:['1.089 vistas','575 alcance'],url:'https://www.instagram.com/reel/DdH4s5PMCLl/',img:'https://media.zernio.com/media/external-posts/1790708322825_5vrrqduu_6ab97593c27fc766d07e7110-0.jpg'},
+        sep11:{title:'Viernes: recuperar presencia',kicker:'11 SEP · REAL',copy:'Una pieza simple de noche, música y karaoke. Representa la primera fase: volver a aparecer con frecuencia.',metrics:['1.864 vistas','1.095 alcance'],url:'https://www.instagram.com/reel/DdKfMBuM31s/',img:'https://media.zernio.com/media/external-posts/1790701103060_qc2ixu1d_6ab97593c27fc766d07e70f6-0.jpg'},
+        sep13:{title:'Anticipación antes del evento',kicker:'13 SEP · REAL',copy:'Comenzamos a preparar Fiestas Patrias antes del peak. La anticipación tuvo 3,27% de engagement.',metrics:['1.745 vistas','1.048 alcance','3,27% engagement'],url:'https://www.instagram.com/reel/DdPH_czsa9Y/',img:'https://media.zernio.com/media/external-posts/1790708322852_9ng3tbbc_6ab97593c27fc766d07e7108-0.jpg'},
+        sep14:{title:'Entramos en semana de alta intensidad',kicker:'14 SEP · REAL',copy:'La comunicación cambia desde frecuencia general hacia un bloque concentrado alrededor del 18.',metrics:['513 vistas'],url:'https://www.instagram.com/reel/DdSWYT_MVkb/',img:'https://media.zernio.com/media/external-posts/1790701102137_dztniiio_6ab97593c27fc766d07e70d5-0.jpg'},
+        sep15:{title:'Promoción + horario',kicker:'15 SEP · 2 PUBLICACIONES',copy:'La actividad se intensifica. Empiezan las piezas de servicio, horarios y promoción diciochera.',metrics:['2 publicaciones','1.701 vistas acumuladas'],url:'',img:''},
+        sep16:{title:'Contenido cultural / viajero',kicker:'16 SEP · REAL',copy:'El carrusel del anticucho buscó conversación desde diferencias culturales y países.',metrics:['1.106 vistas','430 alcance'],url:'https://www.instagram.com/p/DdXfKbTjKgD/',img:'https://scontent-lhr6-2.cdninstagram.com/v/t51.82787-15/813332720_17907301458514688_3638628656741200188_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=nlDByqvJl9UQ7kNvwH01I63&_nc_oc=AdqL7OjsJ_ve-kDa5IEsf00sweou7Lj_Jp6BKPSk4CTbfGTqEqD3HzhnSmY3bphrlLg&_nc_zt=23&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=lrJpEUksnT6QttIzsD5BVg&_nc_tpa=Q5bMBQLouFznK8Wq2eZUMB01dvKqSp4CNDlTRoasWmUlSE-qovibOkKKnpGr6Ob_xnC8DV1MhhrDXnAerA&oh=00_AQOQEPX9sjZj8hjedq3V0c_WrMfc9Hy0fRf3VLfv1fi6kg&oe=6AC09D8A'},
+        sep17:{title:'La reacción al contexto funcionó',kicker:'17 SEP · 3 PUBLICACIONES',copy:'La lluvia se transformó en una razón inmediata para ir. Este es el mejor ejemplo de por qué el calendario debe dejar espacios reactivos.',metrics:['8.130 vistas del día','2.997 alcance del Reel','13 compartidos'],url:'https://www.instagram.com/reel/DdZ9XjYsbds/',img:'https://media.zernio.com/media/external-posts/1790701100865_ckqpx67q_6ab97593c27fc766d07e70b0-0.jpg'},
+        sep18:{title:'El peak: concentrar la promesa',kicker:'18 SEP · REAL',copy:'En vez de separar música, comida y karaoke, resumimos todo bajo una idea: “Todo está pasando este 18 en Caracol”.',metrics:['4.413 vistas','3.471 alcance'],url:'https://www.instagram.com/reel/DdcnDxZMINZ/',img:'https://media.zernio.com/media/external-posts/1790701100360_rm50qinu_6ab97593c27fc766d07e70a7-0.jpg'},
+        sep19:{title:'Continuidad del evento',kicker:'19 SEP · 2 PUBLICACIONES',copy:'Seguimos capitalizando la ventana del 18 con música en vivo y contenido de lo que estaba ocurriendo.',metrics:['2 publicaciones','1.810 vistas acumuladas'],url:'',img:''},
+        sep20:{title:'Extender la oportunidad',kicker:'20 SEP · REAL',copy:'Abrir domingo se convirtió en contenido útil e inmediato, pero ya empieza a bajar la intensidad del evento.',metrics:['510 vistas'],url:'https://www.instagram.com/reel/DdhA1eXM1h2/',img:'https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/792235487_17907873597514688_8008057827644956851_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Unf3J5UViBkQ7kNvwGMjTKn&_nc_oc=AdpCTJGtK_cCcV9tXLflf1A8BT5pprhBAFcGfGkNikOiEGSoKSyaV4ya2xsNyQAkQPs&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=lrJpEUksnT6QttIzsD5BVg&_nc_tpa=Q5bMBQL7XUOfXgXNHNRCHpW3SuAR7aaF0x6YssJ8EqE0TE5rphgO2xPQGt-JSmxnLYNZ6Fk63TwPeb1nSQ&oh=00_AQOkKL63RDDMSm5Ozn-Dp6DkOyUPJssehdvXT41zcop_Ow&oe=6AC0A4E1'},
+        sep21:{title:'Volver a una actividad recurrente',kicker:'21 SEP · REAL',copy:'Karaoke lunes-miércoles-viernes ayuda a construir recurrencia, pero necesita integrarse a una narrativa para no convertirse solo en cartel.',metrics:['870 vistas'],url:'https://www.instagram.com/reel/DdkMzd7s8P_/',img:'https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/817518730_17908059036514688_7632461116314602271_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=90eBkjBm-ZIQ7kNvwH_IGT3&_nc_oc=AdqtIWbibu4ISuN55yPQvcwFMz2HoT8Wyo5K6mH9Hfzf2W8Nycz-whlOJNhmiBaPeI4&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=LMnnoZmw1K4PbTdmCZjL9A&_nc_tpa=Q5bMBQKbWSl96Zox2nSxXUv-Mi6RdBOljwzPKAmqddgHYIHHLDks6N8AAktahRM0VBC3-xmK6UMkjaX9GQ&oh=00_AQPMT4_dyi1KHFWh2l_t9DGbVx27Xa1eW3SO0KQrNQwFhg&oe=6AC0921C'},
+        sep22:{title:'Identidad: “trabajamos con artistas”',kicker:'22 SEP · REAL',copy:'La semana cambia de evento a identidad. Fue una de las mejores tasas de interacción del mes.',metrics:['596 vistas','3,69% engagement'],url:'https://www.instagram.com/reel/DdlpA9XRbtD/',img:'https://scontent-lhr6-2.cdninstagram.com/v/t51.82787-15/792029631_17908081245514688_5328122740364369060_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=9qk3oYvKqtgQ7kNvwFt0dVy&_nc_oc=AdrCAnktyPh1pBy51VaMq4IeN6mvdHQh7q-A2NCoWg2naTFlbnUvZaT3ItQbv114bnc&_nc_zt=23&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=LBYY5VyYY19McJIPI61yoA&_nc_tpa=Q5bMBQKrKcMaUG8KE4KtYQiam88ThpwKZqb-qreO36SsBvznK_cxSJexLIH6Az1_QUt7aqrA7QsFCJ2b5A&oh=00_AQOoxXtBXkJzzbWo24MVjxsOmoOxVm-7HQzgGV8loHoqRg&oe=6AC16B61'},
+        sep23:{title:'Programación convertida en experiencia',kicker:'23 SEP · REAL',copy:'“Música en vivo todos los días” buscó sostener una promesa permanente del local.',metrics:['961 vistas','3,43% engagement'],url:'https://www.instagram.com/reel/DdpVkEZMAX1/',img:'https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/817518733_17908353753514688_3675373174378521701_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=F_BM8l0tEA4Q7kNvwH-sViJ&_nc_oc=AdoSy0agDsx3Tfq0fATWIc7XCBM1OlNIYQTUff1SDLQ7xQnznWxyYCsDQv2GNgEW6H8&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQLGT5ARkC_uiQYrT_9Bp8CWHp4moUEycxWJF2JaT21wEShujYrFulCJPjpwK_bmA6bLKYevzejvbQ&oh=00_AQPF08RTZWoh1R5-b6FpCth4JWjpjEE2_XZdUISqguxqQQ&oe=6AC1E41A'},
+        sep25:{title:'Producto con historia',kicker:'25 SEP · REAL',copy:'Cuello Negro fue una prueba de producto contado desde procedencia e identidad, no solo desde precio.',metrics:['688 vistas'],url:'https://www.instagram.com/reel/Ddudpbes4o2/',img:'https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/825320765_17908641399514688_3265102946310525490_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=uwyySRvB6SYQ7kNvwG6VKW2&_nc_oc=Adqg4UWZ9xD6bwi_YsD3mlUwaNQaLokJfIheLdlt0h-kKuJ524CyqtAH5_KIN2gX2Fk&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQLKcg4hxLG0Q_8pSyjRWH0BawhicnShw2MLWxU8dscg--Fp2OHxF7l7-G3VMHmbvL5xOK-1-5hFWg&oh=00_AQOwa0zPvvYL_8XOyQDG07pZQkv1R97qvcvU5jLpnFlNEQ&oe=6AC1E169'},
+        sep27:{title:'Cierre de septiembre',kicker:'27 SEP · 2 PUBLICACIONES',copy:'El cierre permitió mirar el mes como experiencia y no como publicaciones aisladas.',metrics:['2 publicaciones','907 vistas acumuladas'],url:'https://www.instagram.com/reel/DdzIo4CsTIn/',img:'https://scontent-lhr11-1.cdninstagram.com/v/t51.71878-15/825326488_1786812519225459_1541727941147110965_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=IzDJijkFrvUQ7kNvwFwm8c0&_nc_oc=Ado_t99HfEGwRILx88h445VOr8QB1RxWkLflYTJUAxWUIpQUjm82zw9lcpA5QgbPE_I&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQIyAvFpt7v2omTjtpyc__oVYSwhLS6tkshRVnEs8q-3WgoUE87rb_YKdbq75z6YzZBl-K9h6LS1vw&oh=00_AQOPHCyWu2EQe5bQ7zSUp61iaveMIeq1ow2cGi9jpfW0vA&oe=6AC1D2A4'},
+        sep28:{title:'Producto + precio: Lunes de Gin',kicker:'28 SEP · 2 PUBLICACIONES',copy:'Esta pieza representa el paso a experimentación: producto, precio, hook y comparación de variantes.',metrics:['2 publicaciones','1.055 vistas acumuladas'],url:'https://www.instagram.com/reel/Dd2Qm0iMXdy/',img:'https://scontent-lhr6-1.cdninstagram.com/v/t51.82787-15/825320748_17909126949514688_8055150477851448769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=7ITRJeY406EQ7kNvwEJvyar&_nc_oc=AdrdSbVAA_oxpEnGjWQdVMu3EJpz9ENZKCDmY_OT0a-WZrgRinHb7OV7bXt2XjTd5hU&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQIUT-ukqg8PGXk6kL8tPYsqoPuBpnQl_GywCF6Iccq-hjsxlR4untIgI_rQvTM9VDbzc8hH7ufNxA&oh=00_AQMWyqR0Ze2WH6QLKUpCBsy91xyoLUyDZDHcZeGEEB2voA&oe=6AC1ED72'},
+        sep29:{title:'Contenido de servicio / equipo',kicker:'29 SEP · REAL',copy:'El aviso de búsqueda de cocinero cumple una función distinta al contenido de adquisición: apoyar una necesidad real del negocio.',metrics:['448 vistas'],url:'https://www.instagram.com/reel/Dd4VRCosPlk/',img:'https://scontent-lhr11-1.cdninstagram.com/v/t51.82787-15/825320596_17909247285514688_3763001352276486467_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=6-PMWmLAyTsQ7kNvwHbMaf1&_nc_oc=AdpBQ9YfWuJPc7QH0eKXXHXZJqgFySAkzbxSQSELOKUIlzKBpG_vYWAFIF68w5z_q3g&_nc_zt=23&_nc_ht=scontent-lhr11-1.cdninstagram.com&edm=ANQ71j8EAAAA&_nc_gid=SizXGPqn36snJHCIHskdkA&_nc_tpa=Q5bMBQJQxLHHY6Swp9-ifLgXrp7FOhCG4M7TGuU4tH6S2wsm5qmgw5TDaN1sm4bEs4iesR4DBv7dTgt9jw&oh=00_AQN1TizEbzZmzcgmO4QGQ91WgubAjPwE21lBIejS7sqK4Q&oe=6AC1CDEE'},
+        oct2:{title:'Experiencia de viernes',kicker:'2 OCT · PROPUESTA',copy:'Abrir el mes con ambiente real y una razón simple para venir. No anunciar “viernes”: mostrar qué se vive un viernes en Caracol.',metrics:['Pilar: experiencia','Formato: Reel'],url:'',img:''},
+        oct5:{title:'Producto con motivo',kicker:'5 OCT · PROPUESTA',copy:'Tomar el aprendizaje de Lunes de Gin y convertirlo en una serie repetible, con producto + beneficio + CTA claro.',metrics:['Pilar: producto','Formato: Reel'],url:'',img:''},
+        oct7:{title:'Karaoke + comunidad',kicker:'7 OCT · PROPUESTA',copy:'Usar una actividad recurrente para provocar participación: canción, encuesta, reacción o contenido de clientes.',metrics:['Pilar: comunidad','Formato: pieza'],url:'',img:''},
+        oct9:{title:'Está pasando ahora',kicker:'9 OCT · PROPUESTA',copy:'Una ventana preparada para contenido contextual: ambiente, clima, local lleno, artista comenzando o una situación real.',metrics:['Pilar: contexto','Formato: Reel'],url:'',img:''},
+        oct12:{title:'Persona de Caracol',kicker:'12 OCT · PROPUESTA',copy:'Extender el aprendizaje de “trabajamos con artistas”: cocinero, bartender, músico o personaje del local.',metrics:['Pilar: personas','Formato: Reel'],url:'',img:''},
+        oct14:{title:'Programación útil',kicker:'14 OCT · PROPUESTA',copy:'Programación sí, pero convertida en una decisión fácil: qué día venir y por qué.',metrics:['Pilar: programación','Formato: pieza'],url:'',img:''},
+        oct16:{title:'Noche Caracol',kicker:'16 OCT · PROPUESTA',copy:'Contenido de experiencia para sostener la asociación entre Caracol y una noche viva en San Pedro.',metrics:['Pilar: experiencia','Formato: Reel'],url:'',img:''},
+        oct19:{title:'Producto',kicker:'19 OCT · PROPUESTA',copy:'Nuevo producto o repetición del formato que mejor haya respondido durante las primeras semanas.',metrics:['Pilar: producto','Formato: Reel'],url:'',img:''},
+        oct21:{title:'Artista / cocina',kicker:'21 OCT · PROPUESTA',copy:'Una segunda pieza humana para que la identidad de Caracol no dependa solo de eventos.',metrics:['Pilar: personas','Formato: Reel'],url:'',img:''},
+        oct23:{title:'Comunidad',kicker:'23 OCT · PROPUESTA',copy:'Clientes, momentos, recomendaciones o participación. La meta es mostrar a Caracol como punto de encuentro.',metrics:['Pilar: comunidad','Formato: pieza'],url:'',img:''},
+        oct26:{title:'Producto + CTA',kicker:'26 OCT · PROPUESTA',copy:'Producto con una acción concreta: venir, preguntar, reservar o activar una futura mecánica LINK.',metrics:['Pilar: producto','Formato: Reel'],url:'',img:''},
+        oct28:{title:'Karaoke / UGC',kicker:'28 OCT · PROPUESTA',copy:'Contenido generado alrededor del karaoke para transformar recurrencia en comunidad reconocible.',metrics:['Pilar: comunidad','Formato: pieza'],url:'',img:''},
+        oct30:{title:'Cierre de mes',kicker:'30 OCT · PROPUESTA',copy:'Cerrar octubre mostrando el mes y utilizando los datos para definir noviembre.',metrics:['Pilar: aprendizaje','Formato: Reel'],url:'',img:''}
+      };
+
+      const calendarTabs=[...document.querySelectorAll('.calendar-tab')];
+      const calendarPanels=[...document.querySelectorAll('[data-calendar-panel]')];
+      const calendarTitle=document.getElementById('calendar-title');
+      const calendarFeedback=document.getElementById('calendar-feedback');
+      const calendarDetail=document.getElementById('calendar-detail');
+
+      const resetCalendarDetail=()=>{
+        if(calendarDetail) calendarDetail.innerHTML='<div class="calendar-detail-placeholder"><span>Selecciona un día marcado</span><b>para ver por qué esa publicación o pieza ocupa ese lugar.</b></div>';
+      };
+
+      calendarTabs.forEach(tab=>tab.addEventListener('click',()=>{
+        const mode=tab.dataset.calendar;
+        calendarTabs.forEach(btn=>{
+          const active=btn===tab;
+          btn.classList.toggle('active',active);
+          btn.setAttribute('aria-selected',active?'true':'false');
+        });
+        calendarPanels.forEach(panel=>panel.classList.toggle('active',panel.dataset.calendarPanel===mode));
+        if(calendarTitle) calendarTitle.textContent=mode==='september'?'Septiembre · lo que hicimos':'Octubre · lo que haremos';
+        if(calendarFeedback) calendarFeedback.innerHTML=mode==='september'
+          ? '<b>Lectura de septiembre:</b><span>empezamos el 8, aceleramos durante Fiestas Patrias y luego pasamos a probar identidad y producto. El aprendizaje principal es sostener frecuencia sin depender de un gran evento.</span>'
+          : '<b>Lógica de octubre:</b><span>una base de 8 Reels + 4 piezas complementarias distribuida durante el mes, con espacios reactivos reservados para aprovechar contexto real sin romper el calendario.</span>';
+        resetCalendarDetail();
+      }));
+
+      document.querySelectorAll('[data-cal-detail]').forEach(btn=>btn.addEventListener('click',()=>{
+        const d=calendarDetails[btn.dataset.calDetail];
+        if(!d||!calendarDetail) return;
+        const media=d.img?'<img src="'+d.img+'" alt="">':'<div style="width:86px;height:86px;border-radius:12px;background:#ead9ba;display:grid;place-items:center;font-size:10px;font-weight:900;color:#9a6333">PLAN</div>';
+        const chips=(d.metrics||[]).map(x=>'<span>'+x+'</span>').join('');
+        const link=d.url?'<a href="'+d.url+'" target="_blank" rel="noopener">Ver publicación ↗</a>':'';
+        calendarDetail.innerHTML='<div class="cal-detail-card">'+media+'<div><div class="detail-kicker">'+d.kicker+'</div><h5>'+d.title+'</h5><p>'+d.copy+'</p><div class="detail-metrics">'+chips+'</div>'+link+'</div></div>';
+      }));
 
       const couponOptions = [...document.querySelectorAll('.coupon-option')];
       const couponTitle = document.getElementById('coupon-demo-title');
