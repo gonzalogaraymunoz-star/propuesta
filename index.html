@@ -805,6 +805,27 @@
     .route-list.compact span{font-size:14px}
     .link-world-copy{display:flex;flex-direction:column;justify-content:center}
 
+  
+    .what-is-link{
+      display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+      width:max-content;min-width:190px;margin:18px 0 4px;padding:13px 16px;
+      border-radius:999px;background:var(--link-acid);color:var(--link-black);
+      text-decoration:none;font-size:12px;font-weight:900;letter-spacing:.01em;
+      transition:transform .18s ease,box-shadow .18s ease
+    }
+    .what-is-link:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 24px rgba(15,15,13,.14)
+    }
+    .what-is-link-text{
+      display:inline-block;min-width:118px;
+      transition:opacity .22s ease,transform .22s ease
+    }
+    .what-is-link-text.changing{
+      opacity:0;transform:translateY(4px)
+    }
+    .what-is-link-arrow{font-size:15px;line-height:1}
+
   </style>
 </head>
 <body>
@@ -1380,6 +1401,10 @@
           <span class="link-badge">COLABORACIÓN · CARACOL × LINK</span>
           <h2>Colaboración Caracol × LINK.</h2>
           <p class="link-lead">Queremos invitar a Caracol a participar en el pre-lanzamiento de LINK con una prueba simple: ofrecer beneficios a viajeros, medir quién los activa y comprobar cuántas visitas y ventas genera.</p>
+          <a class="what-is-link" href="https://link-world-delta.vercel.app/que-es-link/" target="_blank" rel="noopener" aria-label="Qué es LINK">
+            <span class="what-is-link-text" id="what-is-link-text">¿Qué es LINK?</span>
+            <span class="what-is-link-arrow">↗</span>
+          </a>
           <div class="link-boundary">
             <b>Colaboración adicional al servicio mensual.</b>
             <span>Caracol define el producto y el beneficio. LINK aporta la difusión y la trazabilidad. Solo se cobra comisión cuando existe una venta/cupón efectivamente redimido.</span>
@@ -1652,6 +1677,28 @@
         const link=d.url?'<a href="'+d.url+'" target="_blank" rel="noopener">Ver publicación ↗</a>':'';
         calendarDetail.innerHTML='<div class="cal-detail-card">'+media+'<div><div class="detail-kicker">'+d.kicker+'</div><h5>'+d.title+'</h5><p>'+d.copy+'</p><div class="detail-metrics">'+chips+'</div>'+link+'</div></div>';
       }));
+
+
+      const whatIsLinkText = document.getElementById('what-is-link-text');
+      if (whatIsLinkText) {
+        const linkLanguages = [
+          '¿Qué es LINK?',
+          'O que é LINK?',
+          'What is LINK?',
+          'Qu’est-ce que LINK ?',
+          'Was ist LINK?',
+          'LINKとは？'
+        ];
+        let linkLanguageIndex = 0;
+        setInterval(() => {
+          whatIsLinkText.classList.add('changing');
+          setTimeout(() => {
+            linkLanguageIndex = (linkLanguageIndex + 1) % linkLanguages.length;
+            whatIsLinkText.textContent = linkLanguages[linkLanguageIndex];
+            whatIsLinkText.classList.remove('changing');
+          }, 220);
+        }, 3000);
+      }
 
       const couponOptions = [...document.querySelectorAll('.coupon-option')];
       const couponTitle = document.getElementById('coupon-demo-title');
