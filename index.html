@@ -314,6 +314,178 @@
       h1{font-size:58px}
     }
 
+  
+    /* LINK WORLD · capítulo de nueva asociación */
+    .link-world-section{
+      --link-cream:#f3f1e8;
+      --link-cream-2:#faf9f3;
+      --link-paper:#fffef9;
+      --link-charcoal:#171714;
+      --link-black:#0f0f0d;
+      --link-stone:#77776f;
+      --link-line:#dedbd0;
+      --link-acid:#dfff00;
+      --link-acid-soft:#efffb3;
+      background:var(--link-cream);
+      color:var(--link-black);
+      border-top:5px solid var(--link-acid);
+      padding-top:58px;
+    }
+    .link-association{
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      padding-bottom:30px;border-bottom:1px solid var(--link-line);
+    }
+    .link-kicker{
+      font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--link-stone)
+    }
+    .association-lockup{display:flex;align-items:center;gap:14px}
+    .association-brand{
+      min-height:54px;padding:8px 13px;border:1px solid var(--link-line);border-radius:16px;
+      background:var(--link-paper);display:flex;align-items:center;gap:10px
+    }
+    .caracol-association img{width:50px;height:38px;object-fit:contain;mix-blend-mode:multiply}
+    .caracol-association span{font-size:11px;font-weight:900;letter-spacing:.08em;color:#4a1c08}
+    .association-plus{font-size:24px;font-weight:400;color:var(--link-stone)}
+    .link-association-brand{position:relative;padding-right:34px}
+    .link-association-brand strong{font-size:21px;letter-spacing:-.05em}
+    .link-association-brand small{font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--link-stone)}
+    .link-association-brand i{
+      position:absolute;right:14px;width:8px;height:8px;border-radius:50%;
+      background:var(--link-acid);box-shadow:0 0 14px rgba(223,255,0,.65)
+    }
+    .link-world-hero{
+      display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch;
+      padding:42px 0 28px
+    }
+    .link-world-copy{
+      background:var(--link-paper);border:1px solid var(--link-line);border-radius:26px;
+      padding:34px
+    }
+    .link-badge{
+      display:inline-flex;padding:8px 11px;border-radius:999px;background:var(--link-acid-soft);
+      color:var(--link-black);font-size:10px;font-weight:900;letter-spacing:.1em
+    }
+    .link-world-copy h2{
+      font-family:"Montserrat",sans-serif;font-weight:900;letter-spacing:-.055em;
+      font-size:clamp(38px,5vw,67px);line-height:.94;color:var(--link-black);margin:22px 0 18px
+    }
+    .link-lead{font-size:18px;line-height:1.45;color:#55554f;max-width:760px}
+    .link-boundary{
+      margin-top:25px;padding:16px 18px;border-radius:16px;background:var(--link-charcoal);
+      color:#fff;display:grid;gap:5px;border-bottom:3px solid var(--link-acid)
+    }
+    .link-boundary b{font-size:13px}
+    .link-boundary span{font-size:12px;color:#c7c7bd;line-height:1.5}
+    .link-route-card{
+      background:var(--link-charcoal);color:#fff;border-radius:26px;padding:24px;
+      box-shadow:0 18px 55px rgba(15,15,13,.09)
+    }
+    .route-head{display:flex;align-items:center;justify-content:space-between;color:#bdbdb3;font-size:10px;font-weight:900;letter-spacing:.12em}
+    .route-head i{width:9px;height:9px;border-radius:50%;background:var(--link-acid);box-shadow:0 0 14px rgba(223,255,0,.7)}
+    .route-list{list-style:none;padding:15px 0 0;margin:0;display:grid;gap:8px}
+    .route-list li{
+      display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:center;
+      border-top:1px solid #33332e;padding:13px 0
+    }
+    .route-list b{
+      width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+      background:#242420;color:var(--link-acid);font-size:10px
+    }
+    .route-list span{font-size:13px;color:#e2e2db;font-weight:700}
+    .coupon-demo{
+      display:grid;grid-template-columns:1fr 360px;gap:30px;
+      margin:28px 0;padding:34px;background:var(--link-cream-2);
+      border:1px solid var(--link-line);border-radius:28px
+    }
+    .coupon-demo-copy h3{
+      font-family:"Montserrat",sans-serif;font-weight:900;letter-spacing:-.045em;
+      font-size:clamp(30px,4vw,48px);line-height:1;margin:14px 0;color:var(--link-black)
+    }
+    .coupon-demo-copy>p{max-width:720px;color:var(--link-stone);font-size:16px}
+    .coupon-options{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
+    .coupon-option{
+      border:1px solid var(--link-line);background:var(--link-paper);color:var(--link-black);
+      border-radius:999px;padding:11px 14px;font-weight:850;font-size:12px;cursor:pointer;
+      transition:.18s ease
+    }
+    .coupon-option:hover{transform:translateY(-1px);border-color:var(--link-black)}
+    .coupon-option.active{
+      background:var(--link-black);color:#fff;border-color:var(--link-black);
+      box-shadow:inset 0 -3px 0 var(--link-acid)
+    }
+    .distribution-note{
+      display:grid;gap:6px;padding-top:18px;border-top:1px solid var(--link-line);
+      max-width:760px
+    }
+    .distribution-note b{font-size:12px}
+    .distribution-note span{font-size:13px;line-height:1.55;color:var(--link-stone)}
+    .coupon-phone{
+      width:100%;max-width:340px;justify-self:end;background:#090908;border:8px solid #161613;
+      border-radius:36px;padding:10px;box-shadow:0 24px 60px rgba(15,15,13,.18)
+    }
+    .coupon-phone-top{
+      display:flex;align-items:center;justify-content:space-between;padding:10px 9px 14px;color:#fff
+    }
+    .coupon-phone-top strong{font-size:18px;letter-spacing:-.04em}
+    .coupon-phone-top span{font-size:8px;font-weight:900;letter-spacing:.1em;color:#aaa}
+    .coupon-phone-top i{
+      display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--link-acid);
+      margin-right:5px;box-shadow:0 0 8px rgba(223,255,0,.7)
+    }
+    .coupon-phone-screen{background:var(--link-paper);border-radius:24px;padding:20px;color:var(--link-black);min-height:450px}
+    .coupon-near{font-size:9px;font-weight:900;letter-spacing:.13em;color:var(--link-stone)}
+    .coupon-merchant{display:flex;align-items:center;gap:10px;margin:17px 0}
+    .coupon-merchant img{width:48px;height:40px;object-fit:contain;mix-blend-mode:multiply}
+    .coupon-merchant b{display:block;font-size:13px}
+    .coupon-merchant span{display:block;font-size:9px;color:var(--link-stone);margin-top:2px}
+    .coupon-separator{height:1px;background:var(--link-line);margin:15px 0 22px}
+    .coupon-phone h4{font-size:31px;line-height:1;letter-spacing:-.045em;margin:0 0 11px}
+    .coupon-phone p{font-size:13px;line-height:1.45;color:#5f5f59;min-height:58px}
+    .coupon-benefit{
+      background:var(--link-acid-soft);border-left:3px solid var(--link-acid);
+      padding:12px;border-radius:10px;font-size:12px;font-weight:850;margin-top:17px
+    }
+    .coupon-validity{font-size:10px;color:var(--link-stone);margin:10px 0 18px}
+    .coupon-activate{
+      width:100%;border:0;border-radius:13px;background:var(--link-acid);color:var(--link-black);
+      padding:14px;font-weight:900;font-size:11px;letter-spacing:.04em;cursor:pointer;
+      display:flex;align-items:center;justify-content:space-between
+    }
+    .coupon-activate.activated{background:var(--link-charcoal);color:#fff;box-shadow:inset 0 -3px 0 var(--link-acid)}
+    .coupon-proof{text-align:center;font-size:9px;color:#9a9a91;margin-top:12px}
+    .link-products{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .link-products article{
+      background:var(--link-paper);border:1px solid var(--link-line);border-radius:20px;padding:20px
+    }
+    .link-products article>span{font-size:10px;font-weight:900;color:var(--link-stone)}
+    .link-products h3{
+      font-family:"Montserrat",sans-serif;font-size:20px;font-weight:900;letter-spacing:-.03em;margin:20px 0 8px
+    }
+    .link-products p{font-size:12px;color:var(--link-stone);margin:0;line-height:1.5}
+    .link-model{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+    .link-model article{
+      background:var(--link-charcoal);color:#fff;border-radius:18px;padding:17px;
+      border-bottom:2px solid var(--link-acid)
+    }
+    .link-model b{font-size:11px;color:var(--link-acid);letter-spacing:.08em}
+    .link-model p{font-size:12px;color:#bdbdb3;margin:7px 0 0;line-height:1.5}
+    .link-footnote{font-size:10px;color:var(--link-stone);margin:18px 2px 0}
+    @media(max-width:900px){
+      .link-world-hero,.coupon-demo{grid-template-columns:1fr}
+      .coupon-phone{justify-self:start;max-width:360px}
+      .link-products,.link-model{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .link-association{align-items:flex-start;flex-direction:column}
+      .association-lockup{width:100%;justify-content:flex-start}
+      .association-brand{min-height:48px;padding:7px 9px}
+      .caracol-association img{width:42px;height:32px}
+      .link-world-copy,.coupon-demo{padding:22px}
+      .link-world-copy h2{font-size:42px}
+      .coupon-phone{max-width:none}
+    }
+
   </style>
 </head>
 <body>
@@ -548,47 +720,133 @@
     </div>
   </section>
 
-  <section class="section" id="link">
+  <section class="section link-world-section" id="link">
     <div class="wrap">
-      <div class="upgrade">
-        <span class="badge">PRE-LANZAMIENTO · COLABORACIÓN CARACOL × LINK</span>
-        <h2>Una capa nueva: convertir audiencia en visitas medibles.</h2>
-        <p class="big-copy">LINK es un producto en pre-lanzamiento desarrollado por Gonzalo Garay. Queremos invitar a Caracol a probarlo como comercio colaborador: beneficios simples, cupones trazables y aprendizaje real sobre qué acciones llevan personas al local.</p>
-        <div class="not-included">Importante: LINK CUPONES <u>no está incluido</u> dentro del servicio mensual de marketing de $750.000. Es un upgrade comercial independiente que se remunera mediante ventas/cupones efectivamente redimidos, bajo una comisión acordada previamente.</div>
-
-        <div class="products">
-          <article class="product">
-            <div class="tag">Piloto 01</div>
-            <h3>Gin LINK</h3>
-            <p>Un producto que ya existe en la comunicación de Caracol. Se define un beneficio o precio especial para usuarios identificados por LINK.</p>
-            <div class="flow"><span>Contenido</span><span>DM / QR</span><span>Cupón</span><span>Gin</span></div>
-          </article>
-          <article class="product">
-            <div class="tag">Piloto 02</div>
-            <h3>Combo Viajero</h3>
-            <p>Una experiencia cerrada y fácil de elegir para personas que están pasando pocos días en San Pedro: comida + bebidas en una sola propuesta.</p>
-            <div class="flow"><span>Viajero</span><span>Beneficio</span><span>Visita</span><span>Ticket</span></div>
-          </article>
-          <article class="product">
-            <div class="tag">Piloto 03</div>
-            <h3>Segunda visita</h3>
-            <p>Después de una primera visita atribuida, el cliente recibe un beneficio válido por pocos días para volver durante su estadía.</p>
-            <div class="flow"><span>1ª visita</span><span>Cupón</span><span>Regreso</span><span>Recurrencia</span></div>
-          </article>
-        </div>
-
-        <div class="model">
-          <article><b>Caracol</b><p>Define qué producto puede ofrecer y protege su margen.</p></article>
-          <article><b>LINK</b><p>Distribuye el beneficio, identifica origen y registra el canje.</p></article>
-          <article><b>Modelo</b><p>Sin mezclarlo con el fee mensual: comisión asociada a venta/cupón redimido.</p></article>
-        </div>
-
-        <div class="cta-row">
-          <a class="cta" href="#trabajo">Volver al inicio</a>
-          <a class="cta secondary" href="https://www.instagram.com/caracol_barrestaurant/" target="_blank" rel="noopener">Instagram Caracol ↗</a>
+      <div class="link-association">
+        <div class="link-kicker">05 · NUEVA ASOCIACIÓN</div>
+        <div class="association-lockup" aria-label="Caracol más LINK">
+          <div class="association-brand caracol-association">
+            <img src="/assets/caracol-logo.webp" alt="Caracol Bar Restaurant">
+            <span>CARACOL</span>
+          </div>
+          <div class="association-plus">+</div>
+          <div class="association-brand link-association-brand">
+            <strong>LINK</strong>
+            <small>WORLD · CUPONES</small>
+            <i aria-hidden="true"></i>
+          </div>
         </div>
       </div>
-      <p class="source">Objetivo del piloto LINK: construir el recorrido contenido → conversación → cupón → visita → venta → repetición. La comisión y el beneficio se definen junto a Caracol antes de activar cualquier cupón.</p>
+
+      <div class="link-world-hero">
+        <div class="link-world-copy">
+          <span class="link-badge">PRE-LANZAMIENTO · COLABORACIÓN CARACOL × LINK</span>
+          <h2>Una nueva asociación para convertir audiencia en visitas medibles.</h2>
+          <p class="link-lead">LINK está en etapa de pre-lanzamiento. La propuesta es que Caracol participe como comercio colaborador para probar una nueva capa comercial: beneficios simples para viajeros, cupones trazables y aprendizaje real sobre qué acciones terminan llevando personas al local.</p>
+          <div class="link-boundary">
+            <b>Esto es adicional al servicio mensual.</b>
+            <span>LINK CUPONES no forma parte del fee de marketing de $750.000. La asociación se remunera mediante ventas/cupones efectivamente redimidos, bajo una comisión acordada previamente.</span>
+          </div>
+        </div>
+
+        <aside class="link-route-card" aria-label="Recorrido del cupón">
+          <div class="route-head">
+            <span>RECORRIDO MEDIBLE</span>
+            <i></i>
+          </div>
+          <ol class="route-list">
+            <li><b>01</b><span>Contenido / Story / QR</span></li>
+            <li><b>02</b><span>Conversación o link</span></li>
+            <li><b>03</b><span>Cupón LINK activado</span></li>
+            <li><b>04</b><span>Visita a Caracol</span></li>
+            <li><b>05</b><span>Canje + venta atribuida</span></li>
+          </ol>
+        </aside>
+      </div>
+
+      <div class="coupon-demo">
+        <div class="coupon-demo-copy">
+          <div class="link-kicker">IDEA DE EXPERIENCIA · VISTA CONCEPTUAL</div>
+          <h3>Así podríamos ofrecer el beneficio al pasajero.</h3>
+          <p>La comunicación no tendría que explicar “LINK CUPONES”. El viajero solo ve una oportunidad útil cerca de él, elige un beneficio y lo activa. LINK queda detrás midiendo origen, activación y canje.</p>
+
+          <div class="coupon-options" role="tablist" aria-label="Ejemplos de beneficios">
+            <button class="coupon-option active" type="button"
+              data-title="Gin LINK"
+              data-copy="Un beneficio especial para probar el Lunes de Gin en Caracol."
+              data-benefit="Beneficio exclusivo · condición a definir"
+              data-validity="Ideal para una visita inmediata"
+              aria-selected="true">Gin LINK</button>
+            <button class="coupon-option" type="button"
+              data-title="Combo Viajero"
+              data-copy="Una propuesta cerrada para compartir comida y tragos durante la estadía."
+              data-benefit="Combo especial · precio a definir"
+              data-validity="Pensado para viajeros en San Pedro"
+              aria-selected="false">Combo Viajero</button>
+            <button class="coupon-option" type="button"
+              data-title="Segunda visita"
+              data-copy="Después del primer canje, LINK entrega un nuevo motivo para volver a Caracol."
+              data-benefit="Beneficio de regreso · condición a definir"
+              data-validity="Válido durante la estadía"
+              aria-selected="false">Segunda visita</button>
+          </div>
+
+          <div class="distribution-note">
+            <b>¿Dónde aparecería?</b>
+            <span>Reels y Stories de Caracol, mensajes directos, QR, hoteles, operadores turísticos y otros puntos LINK. Cada canal puede llevar una referencia distinta para saber qué originó la visita.</span>
+          </div>
+        </div>
+
+        <div class="coupon-phone" aria-label="Ejemplo conceptual de cupón LINK">
+          <div class="coupon-phone-top">
+            <strong>LINK</strong>
+            <span><i></i> SAN PEDRO</span>
+          </div>
+          <div class="coupon-phone-screen">
+            <div class="coupon-near">BENEFICIO CERCA DE TI</div>
+            <div class="coupon-merchant">
+              <img src="/assets/caracol-logo.webp" alt="">
+              <div>
+                <b>Caracol</b>
+                <span>Bar Restaurant · San Pedro de Atacama</span>
+              </div>
+            </div>
+            <div class="coupon-separator"></div>
+            <h4 id="coupon-demo-title">Gin LINK</h4>
+            <p id="coupon-demo-copy">Un beneficio especial para probar el Lunes de Gin en Caracol.</p>
+            <div class="coupon-benefit" id="coupon-demo-benefit">Beneficio exclusivo · condición a definir</div>
+            <div class="coupon-validity" id="coupon-demo-validity">Ideal para una visita inmediata</div>
+            <button class="coupon-activate" id="coupon-demo-activate" type="button">ACTIVAR CUPÓN <span>→</span></button>
+            <div class="coupon-proof" id="coupon-demo-proof">Vista conceptual · aún no es un cupón activo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="link-products">
+        <article>
+          <span>01</span>
+          <h3>Gin LINK</h3>
+          <p>Producto simple, fácil de comunicar y conectado a una promoción que Caracol ya está desarrollando.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Combo Viajero</h3>
+          <p>Una experiencia cerrada para turistas: fácil de entender, fácil de comprar y mejor para medir ticket.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Segunda visita</h3>
+          <p>Un incentivo posterior al primer canje para probar si podemos generar recurrencia durante la misma estadía.</p>
+        </article>
+      </div>
+
+      <div class="link-model">
+        <article><b>CARACOL</b><p>Define el producto, beneficio y margen que puede sostener.</p></article>
+        <article><b>LINK</b><p>Distribuye, identifica el origen, registra activaciones y conecta el canje.</p></article>
+        <article><b>ASOCIACIÓN</b><p>Se cobra por resultado: venta/cupón redimido, separado del trabajo mensual de marketing.</p></article>
+      </div>
+
+      <p class="link-footnote">Objetivo del piloto: construir una trazabilidad simple entre contenido → conversación → cupón → visita → venta → repetición. Cualquier beneficio, precio o comisión se acuerda con Caracol antes de activarse.</p>
     </div>
   </section>
 
@@ -611,6 +869,46 @@
           if (chev) chev.textContent = open ? '−' : '+';
         });
       });
+
+
+      const couponOptions = [...document.querySelectorAll('.coupon-option')];
+      const couponTitle = document.getElementById('coupon-demo-title');
+      const couponCopy = document.getElementById('coupon-demo-copy');
+      const couponBenefit = document.getElementById('coupon-demo-benefit');
+      const couponValidity = document.getElementById('coupon-demo-validity');
+      const couponActivate = document.getElementById('coupon-demo-activate');
+      const couponProof = document.getElementById('coupon-demo-proof');
+
+      couponOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          couponOptions.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected','false');
+          });
+          option.classList.add('active');
+          option.setAttribute('aria-selected','true');
+          if (couponTitle) couponTitle.textContent = option.dataset.title || '';
+          if (couponCopy) couponCopy.textContent = option.dataset.copy || '';
+          if (couponBenefit) couponBenefit.textContent = option.dataset.benefit || '';
+          if (couponValidity) couponValidity.textContent = option.dataset.validity || '';
+          if (couponActivate) {
+            couponActivate.classList.remove('activated');
+            couponActivate.innerHTML = 'ACTIVAR CUPÓN <span>→</span>';
+          }
+          if (couponProof) couponProof.textContent = 'Vista conceptual · aún no es un cupón activo';
+        });
+      });
+
+      if (couponActivate) {
+        couponActivate.addEventListener('click', () => {
+          couponActivate.classList.toggle('activated');
+          const active = couponActivate.classList.contains('activated');
+          couponActivate.innerHTML = active ? 'CUPÓN LISTO <span>✓</span>' : 'ACTIVAR CUPÓN <span>→</span>';
+          if (couponProof) couponProof.textContent = active
+            ? 'Demostración de interacción · no genera un canje real'
+            : 'Vista conceptual · aún no es un cupón activo';
+        });
+      }
 
       const links = [...document.querySelectorAll('.nav-links a')];
       const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
